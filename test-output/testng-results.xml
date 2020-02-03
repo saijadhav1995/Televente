@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Default suite" duration-ms="88851" started-at="2020-01-31T12:36:20Z" finished-at="2020-01-31T12:37:49Z">
+    <groups>
+    </groups>
+    <test name="Default test" duration-ms="88851" started-at="2020-01-31T12:36:20Z" finished-at="2020-01-31T12:37:49Z">
+      <class name="testCases.VerifyLoginPage">
+        <test-method status="PASS" signature="open_chrome_browser_and_start_application()[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="open_chrome_browser_and_start_application" is-config="true" duration-ms="10867" started-at="2020-01-31T12:36:20Z" finished-at="2020-01-31T12:36:31Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- open_chrome_browser_and_start_application -->
+        <test-method status="PASS" signature="verify_loginfunctionality_with_and(java.lang.String, java.lang.String)[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="verify_loginfunctionality_with_and" duration-ms="10995" started-at="2020-01-31T12:36:32Z" data-provider="televentelogin" finished-at="2020-01-31T12:36:43Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[S4333164]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[sg!t@2020]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_loginfunctionality_with_and -->
+        <test-method status="PASS" signature="verify_loginfunctionality_with_and(java.lang.String, java.lang.String)[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="verify_loginfunctionality_with_and" duration-ms="22711" started-at="2020-01-31T12:36:43Z" data-provider="televentelogin" finished-at="2020-01-31T12:37:06Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[s433]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[S212]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_loginfunctionality_with_and -->
+        <test-method status="PASS" signature="verify_loginfunctionality_with_and(java.lang.String, java.lang.String)[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="verify_loginfunctionality_with_and" duration-ms="42452" started-at="2020-01-31T12:37:06Z" data-provider="televentelogin" finished-at="2020-01-31T12:37:48Z">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA[P8099488]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA[SG!t@2019]]>
+              </value>
+            </param>
+          </params>
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verify_loginfunctionality_with_and -->
+        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="closeBrowser" is-config="true" duration-ms="1086" started-at="2020-01-31T12:37:48Z" finished-at="2020-01-31T12:37:49Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- closeBrowser -->
+      </class> <!-- testCases.VerifyLoginPage -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

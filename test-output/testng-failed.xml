@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
+  <test thread-count="5" name="Default test(failed)">
+    <classes>
+      <class name="testCases.VerifyLoginPage">
+        <methods>
+          <include name="verify_loginfunctionality_with_and" invocation-numbers="1"/>
+          <include name="open_chrome_browser_and_start_application"/>
+          <include name="closeBrowser"/>
+        </methods>
+      </class> <!-- testCases.VerifyLoginPage -->
+    </classes>
+  </test> <!-- Default test(failed) -->
+</suite> <!-- Failed suite [Default suite] -->
