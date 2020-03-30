@@ -1,69 +1,53 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="3" passed="3">
+<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="88851" started-at="2020-01-31T12:36:20Z" finished-at="2020-01-31T12:37:49Z">
+  <suite name="Default suite" duration-ms="96722" started-at="2020-03-30T06:48:00Z" finished-at="2020-03-30T06:49:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="88851" started-at="2020-01-31T12:36:20Z" finished-at="2020-01-31T12:37:49Z">
-      <class name="testCases.VerifyLoginPage">
-        <test-method status="PASS" signature="open_chrome_browser_and_start_application()[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="open_chrome_browser_and_start_application" is-config="true" duration-ms="10867" started-at="2020-01-31T12:36:20Z" finished-at="2020-01-31T12:36:31Z">
+    <test name="Default test" duration-ms="96722" started-at="2020-03-30T06:48:00Z" finished-at="2020-03-30T06:49:36Z">
+      <class name="testCases.HomeTest">
+        <test-method status="PASS" signature="VerifyHomePage()[pri:48, instance:testCases.HomeTest@7d70d1b1]" name="VerifyHomePage" duration-ms="49953" started-at="2020-03-30T06:48:00Z" finished-at="2020-03-30T06:48:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- open_chrome_browser_and_start_application -->
-        <test-method status="PASS" signature="verify_loginfunctionality_with_and(java.lang.String, java.lang.String)[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="verify_loginfunctionality_with_and" duration-ms="10995" started-at="2020-01-31T12:36:32Z" data-provider="televentelogin" finished-at="2020-01-31T12:36:43Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[S4333164]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[sg!t@2020]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyHomePage -->
+        <test-method status="PASS" signature="Verifytitle()[pri:49, instance:testCases.HomeTest@7d70d1b1]" name="Verifytitle" duration-ms="140" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_loginfunctionality_with_and -->
-        <test-method status="PASS" signature="verify_loginfunctionality_with_and(java.lang.String, java.lang.String)[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="verify_loginfunctionality_with_and" duration-ms="22711" started-at="2020-01-31T12:36:43Z" data-provider="televentelogin" finished-at="2020-01-31T12:37:06Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[s433]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[S212]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- Verifytitle -->
+        <test-method status="PASS" signature="VerifyContentPresentOnDrawer()[pri:50, instance:testCases.HomeTest@7d70d1b1]" name="VerifyContentPresentOnDrawer" duration-ms="353" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_loginfunctionality_with_and -->
-        <test-method status="PASS" signature="verify_loginfunctionality_with_and(java.lang.String, java.lang.String)[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="verify_loginfunctionality_with_and" duration-ms="42452" started-at="2020-01-31T12:37:06Z" data-provider="televentelogin" finished-at="2020-01-31T12:37:48Z">
-          <params>
-            <param index="0">
-              <value>
-                <![CDATA[P8099488]]>
-              </value>
-            </param>
-            <param index="1">
-              <value>
-                <![CDATA[SG!t@2019]]>
-              </value>
-            </param>
-          </params>
+        </test-method> <!-- VerifyContentPresentOnDrawer -->
+        <test-method status="PASS" signature="VerifyRegionField()[pri:51, instance:testCases.HomeTest@7d70d1b1]" name="VerifyRegionField" duration-ms="337" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verify_loginfunctionality_with_and -->
-        <test-method status="PASS" signature="closeBrowser()[pri:0, instance:testCases.VerifyLoginPage@51e2adc7]" name="closeBrowser" is-config="true" duration-ms="1086" started-at="2020-01-31T12:37:48Z" finished-at="2020-01-31T12:37:49Z">
+        </test-method> <!-- VerifyRegionField -->
+        <test-method status="PASS" signature="VerifyToggleButton()[pri:52, instance:testCases.HomeTest@7d70d1b1]" name="VerifyToggleButton" duration-ms="2433" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:53Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- testCases.VerifyLoginPage -->
+        </test-method> <!-- VerifyToggleButton -->
+        <test-method status="PASS" signature="VerifypaginationDropDown()[pri:53, instance:testCases.HomeTest@7d70d1b1]" name="VerifypaginationDropDown" duration-ms="251" started-at="2020-03-30T06:48:53Z" finished-at="2020-03-30T06:48:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifypaginationDropDown -->
+        <test-method status="PASS" signature="VerifySearchField()[pri:54, instance:testCases.HomeTest@7d70d1b1]" name="VerifySearchField" duration-ms="2325" started-at="2020-03-30T06:48:53Z" finished-at="2020-03-30T06:48:55Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifySearchField -->
+        <test-method status="PASS" signature="VerifypaginationArrows()[pri:55, instance:testCases.HomeTest@7d70d1b1]" name="VerifypaginationArrows" duration-ms="266" started-at="2020-03-30T06:48:55Z" finished-at="2020-03-30T06:48:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifypaginationArrows -->
+        <test-method status="PASS" signature="VerifyCreationAndDeletion()[pri:56, instance:testCases.HomeTest@7d70d1b1]" name="VerifyCreationAndDeletion" duration-ms="301" started-at="2020-03-30T06:48:56Z" finished-at="2020-03-30T06:48:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreationAndDeletion -->
+        <test-method status="PASS" signature="VerifyActionColumn()[pri:57, instance:testCases.HomeTest@7d70d1b1]" name="VerifyActionColumn" duration-ms="40343" started-at="2020-03-30T06:48:56Z" finished-at="2020-03-30T06:49:36Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyActionColumn -->
+      </class> <!-- testCases.HomeTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

@@ -22,7 +22,7 @@
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/J2SE-1.5">
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.8">
 		<attributes>
 			<attribute name="maven.pomderived" value="true"/>
 		</attributes>
@@ -60,20 +60,23 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/Jars/cucumber/gherkin-2.12.2.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/Jars/cucumber/junit-4.13.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/Jars/cucumber/mockito-all-1.10.19.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/Jars/cucumber/cucumber-html-0.2.6.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/extentreports-4.0.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/bsh-2.0b4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/bson-3.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/commons-codec-1.9.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/commons-logging-1.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/freemarker-2.3.23.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/gson-2.8.5.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/httpclient-4.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/httpcore-4.4.4.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/httpmime-4.5.2.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/jcommander-1.48.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/mongodb-driver-3.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/mongodb-driver-core-3.3.0.jar"/>
-	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/testng-6.9.10.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/Jars/cucumber/cucumber-html-0.2.6.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/extentreports-4.0.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/bsh-2.0b4.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/bson-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/commons-codec-1.9.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/commons-logging-1.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/freemarker-2.3.23.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/gson-2.8.5.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/httpclient-4.5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/httpcore-4.4.4.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/httpmime-4.5.2.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/jcommander-1.48.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/mongodb-driver-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/mongodb-driver-core-3.3.0.jar"/>
+	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/testng-6.9.10.jar"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_211"/>
+	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_211"/>
+	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/Jars/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>
