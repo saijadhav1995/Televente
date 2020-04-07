@@ -79,7 +79,7 @@ public  Home(WebDriver dr) {
 	@CacheLookup
 	public	WebElement usersMenu;
 	
-	@FindBy(how=How.XPATH,using="//*[contains(text(),'Télévente')]")
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'TÃ©lÃ©vente')]")
 	@CacheLookup
 	public	WebElement televente;
 	
@@ -114,7 +114,7 @@ public  Home(WebDriver dr) {
 	@CacheLookup
 	public	WebElement deleteButton;
 
-	@FindBy(how=How.XPATH,using="//*[@title='Création Télévente']")
+	@FindBy(how=How.XPATH,using="//*[@title='CrÃ©ation TÃ©lÃ©vente']")
 	@CacheLookup
 	public	WebElement createButton;
 	
@@ -143,10 +143,9 @@ public  Home(WebDriver dr) {
 	
 	
 	
-	@FindBy(how=How.XPATH,using="//*[contains(text(),'Déconnexion')]")
+	@FindBy(how=How.XPATH,using="//*[contains(text(),'DÃ©connexion')]")
 	@CacheLookup
 	public	WebElement logout;
-
 	
 
 

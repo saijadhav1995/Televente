@@ -41,8 +41,7 @@ public WebDriver driver;
 		@CacheLookup
 		public WebElement Connection_button;
 	
-		
-		@FindBy(how=How.XPATH,using="//*[@title='Création Télévente']")
+		@FindBy(how=How.XPATH,using="//*[@title='CrÃ©ation TÃ©lÃ©vente']")
 		@CacheLookup
 		public	WebElement createButton;
 		
@@ -156,9 +155,9 @@ public WebDriver driver;
 		
 		//div[@class='alert alert-danger']
 		
-		//*[contains(text(),'Une télévente existe déjà pour cette période')]
+		//*[contains(text(),'Une tï¿½lï¿½vente existe dï¿½jï¿½ pour cette pï¿½riode')]
 		
-		@FindBy(how=How.XPATH,using="//*[contains(text(),'Une télévente existe déjà pour cette période')]")
+		@FindBy(how=How.XPATH,using="//*[contains(text(),'Une tï¿½lï¿½vente existe dï¿½jï¿½ pour cette pï¿½riode')]")
 		@CacheLookup
 		public	WebElement anotherTeleventeAlreadyExist;
 		

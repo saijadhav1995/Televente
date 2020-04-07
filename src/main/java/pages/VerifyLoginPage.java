@@ -10,10 +10,6 @@ import org.testng.Assert;
 import org.testng.asserts.SoftAssert;
 
 
-import com.aventstack.extentreports.MediaEntityBuilder;
-import com.aventstack.extentreports.Status;
-import com.aventstack.extentreports.reporter.ExtentHtmlReporter;
-import com.aventstack.extentreports.reporter.configuration.Theme;
 import java.io.IOException;
 
 

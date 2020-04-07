@@ -16,7 +16,7 @@ public class AppstringsConstant {
 	public final static String select_region_id="14";
 	
 	//Page Header
-		public final static String  PAGETITLE = "Télévente";
+		public final static String  PAGETITLE = "TÃ©lÃ©vente";
 		
 	//select creation Start & end month / date
  		public final static String  Start_month = "avril 2020";
@@ -63,7 +63,7 @@ public class AppstringsConstant {
 
 	//televente creation success Message
 			
-	public final static String success_Message="Télévente créée avec succès";
+	public final static String success_Message="TÃ©lÃ©vente crÃ©Ã©e avec succÃ©s";
 			
 			
 	
