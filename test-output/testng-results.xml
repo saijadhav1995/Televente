@@ -1,53 +1,94 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="10" passed="10">
+<testng-results skipped="0" failed="1" ignored="0" total="1" passed="0">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="96722" started-at="2020-03-30T06:48:00Z" finished-at="2020-03-30T06:49:36Z">
+  <suite name="Default suite" duration-ms="309315" started-at="2020-04-06T15:38:51Z" finished-at="2020-04-06T15:44:00Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="96722" started-at="2020-03-30T06:48:00Z" finished-at="2020-03-30T06:49:36Z">
-      <class name="testCases.HomeTest">
-        <test-method status="PASS" signature="VerifyHomePage()[pri:48, instance:testCases.HomeTest@7d70d1b1]" name="VerifyHomePage" duration-ms="49953" started-at="2020-03-30T06:48:00Z" finished-at="2020-03-30T06:48:50Z">
+    <test name="Default test" duration-ms="309315" started-at="2020-04-06T15:38:51Z" finished-at="2020-04-06T15:44:00Z">
+      <class name="testCases.CreationTest">
+        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.CreationTest@4b4523f8]" name="getReporter" is-config="true" duration-ms="141" started-at="2020-04-06T15:38:51Z" finished-at="2020-04-06T15:38:51Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyHomePage -->
-        <test-method status="PASS" signature="Verifytitle()[pri:49, instance:testCases.HomeTest@7d70d1b1]" name="Verifytitle" duration-ms="140" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:50Z">
+        </test-method> <!-- getReporter -->
+        <test-method status="FAIL" signature="VerifyCreationForm()[pri:48, instance:testCases.CreationTest@4b4523f8]" name="VerifyCreationForm" duration-ms="309310" started-at="2020-04-06T15:38:51Z" finished-at="2020-04-06T15:44:00Z">
+          <exception class="org.openqa.selenium.NoSuchElementException">
+            <message>
+              <![CDATA[no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),'Une télévente existe déjà pour cette période')]"}
+  (Session info: chrome=79.0.3945.79)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LT106307', ip: '10.156.54.136', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.79, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\s4333164\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60938}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2ced28f9ab1dcde0ed14f2714a4e0dc6
+*** Element info: {Using=xpath, value=//*[contains(text(),'Une télévente existe déjà pour cette période')]}]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[org.openqa.selenium.NoSuchElementException: no such element: Unable to locate element: {"method":"xpath","selector":"//*[contains(text(),'Une télévente existe déjà pour cette période')]"}
+  (Session info: chrome=79.0.3945.79)
+For documentation on this error, please visit: https://www.seleniumhq.org/exceptions/no_such_element.html
+Build info: version: '3.141.59', revision: 'e82be7d358', time: '2018-11-14T08:17:03'
+System info: host: 'LT106307', ip: '10.156.54.136', os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '1.8.0_211'
+Driver info: org.openqa.selenium.chrome.ChromeDriver
+Capabilities {acceptInsecureCerts: false, browserName: chrome, browserVersion: 79.0.3945.79, chrome: {chromedriverVersion: 79.0.3945.36 (3582db32b3389..., userDataDir: C:\Users\s4333164\AppData\L...}, goog:chromeOptions: {debuggerAddress: localhost:60938}, javascriptEnabled: true, networkConnectionEnabled: false, pageLoadStrategy: normal, platform: WINDOWS, platformName: WINDOWS, proxy: Proxy(), setWindowRect: true, strictFileInteractability: false, timeouts: {implicit: 0, pageLoad: 300000, script: 30000}, unhandledPromptBehavior: dismiss and notify}
+Session ID: 2ced28f9ab1dcde0ed14f2714a4e0dc6
+*** Element info: {Using=xpath, value=//*[contains(text(),'Une télévente existe déjà pour cette période')]}
+at sun.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
+at sun.reflect.NativeConstructorAccessorImpl.newInstance(Unknown Source)
+at sun.reflect.DelegatingConstructorAccessorImpl.newInstance(Unknown Source)
+at java.lang.reflect.Constructor.newInstance(Unknown Source)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.createException(W3CHttpResponseCodec.java:187)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:122)
+at org.openqa.selenium.remote.http.W3CHttpResponseCodec.decode(W3CHttpResponseCodec.java:49)
+at org.openqa.selenium.remote.HttpCommandExecutor.execute(HttpCommandExecutor.java:158)
+at org.openqa.selenium.remote.service.DriverCommandExecutor.execute(DriverCommandExecutor.java:83)
+at org.openqa.selenium.remote.RemoteWebDriver.execute(RemoteWebDriver.java:552)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:323)
+at org.openqa.selenium.remote.RemoteWebDriver.findElementByXPath(RemoteWebDriver.java:428)
+at org.openqa.selenium.By$ByXPath.findElement(By.java:353)
+at org.openqa.selenium.remote.RemoteWebDriver.findElement(RemoteWebDriver.java:315)
+at org.openqa.selenium.support.pagefactory.DefaultElementLocator.findElement(DefaultElementLocator.java:69)
+at org.openqa.selenium.support.pagefactory.internal.LocatingElementHandler.invoke(LocatingElementHandler.java:38)
+at com.sun.proxy.$Proxy10.getText(Unknown Source)
+at pages.VerifyCreationPage.saveFunctionality(VerifyCreationPage.java:295)
+at testCases.CreationTest.VerifyCreationForm(CreationTest.java:24)
+at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
+at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
+at java.lang.reflect.Method.invoke(Unknown Source)
+at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:124)
+at org.testng.internal.Invoker.invokeMethod(Invoker.java:583)
+at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:719)
+at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:989)
+at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:125)
+at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:109)
+at org.testng.TestRunner.privateRun(TestRunner.java:648)
+at org.testng.TestRunner.run(TestRunner.java:505)
+at org.testng.SuiteRunner.runTest(SuiteRunner.java:455)
+at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:450)
+at org.testng.SuiteRunner.privateRun(SuiteRunner.java:415)
+at org.testng.SuiteRunner.run(SuiteRunner.java:364)
+at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
+at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:84)
+at org.testng.TestNG.runSuitesSequentially(TestNG.java:1208)
+at org.testng.TestNG.runSuitesLocally(TestNG.java:1137)
+at org.testng.TestNG.runSuites(TestNG.java:1049)
+at org.testng.TestNG.run(TestNG.java:1017)
+at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
+at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
+at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
+]]>
+            </full-stacktrace>
+          </exception> <!-- org.openqa.selenium.NoSuchElementException -->
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Verifytitle -->
-        <test-method status="PASS" signature="VerifyContentPresentOnDrawer()[pri:50, instance:testCases.HomeTest@7d70d1b1]" name="VerifyContentPresentOnDrawer" duration-ms="353" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:50Z">
+        </test-method> <!-- VerifyCreationForm -->
+        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.CreationTest@4b4523f8]" name="closeextend" is-config="true" duration-ms="217" started-at="2020-04-06T15:44:00Z" finished-at="2020-04-06T15:44:01Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerifyContentPresentOnDrawer -->
-        <test-method status="PASS" signature="VerifyRegionField()[pri:51, instance:testCases.HomeTest@7d70d1b1]" name="VerifyRegionField" duration-ms="337" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:50Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyRegionField -->
-        <test-method status="PASS" signature="VerifyToggleButton()[pri:52, instance:testCases.HomeTest@7d70d1b1]" name="VerifyToggleButton" duration-ms="2433" started-at="2020-03-30T06:48:50Z" finished-at="2020-03-30T06:48:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyToggleButton -->
-        <test-method status="PASS" signature="VerifypaginationDropDown()[pri:53, instance:testCases.HomeTest@7d70d1b1]" name="VerifypaginationDropDown" duration-ms="251" started-at="2020-03-30T06:48:53Z" finished-at="2020-03-30T06:48:53Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifypaginationDropDown -->
-        <test-method status="PASS" signature="VerifySearchField()[pri:54, instance:testCases.HomeTest@7d70d1b1]" name="VerifySearchField" duration-ms="2325" started-at="2020-03-30T06:48:53Z" finished-at="2020-03-30T06:48:55Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifySearchField -->
-        <test-method status="PASS" signature="VerifypaginationArrows()[pri:55, instance:testCases.HomeTest@7d70d1b1]" name="VerifypaginationArrows" duration-ms="266" started-at="2020-03-30T06:48:55Z" finished-at="2020-03-30T06:48:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifypaginationArrows -->
-        <test-method status="PASS" signature="VerifyCreationAndDeletion()[pri:56, instance:testCases.HomeTest@7d70d1b1]" name="VerifyCreationAndDeletion" duration-ms="301" started-at="2020-03-30T06:48:56Z" finished-at="2020-03-30T06:48:56Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyCreationAndDeletion -->
-        <test-method status="PASS" signature="VerifyActionColumn()[pri:57, instance:testCases.HomeTest@7d70d1b1]" name="VerifyActionColumn" duration-ms="40343" started-at="2020-03-30T06:48:56Z" finished-at="2020-03-30T06:49:36Z">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- VerifyActionColumn -->
-      </class> <!-- testCases.HomeTest -->
+        </test-method> <!-- closeextend -->
+      </class> <!-- testCases.CreationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

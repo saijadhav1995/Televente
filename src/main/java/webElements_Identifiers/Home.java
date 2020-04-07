@@ -10,15 +10,41 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.asserts.SoftAssert;
 
+import webBase.BasePage;
 
-public class Home {
+
+public class Home extends BasePage {
 
 	
-	public SoftAssert SAssert = new SoftAssert();	
-	WebDriver driver;
+	
+	public WebDriver driver;
+	
+public  Home(WebDriver dr) {
+		
+		this.driver=dr;
+	}
 	
 
 	// identifiers of home page 
+
+	@FindBy(how=How.XPATH,using="//*[@class='link text-primary d-inline-block']")
+	@CacheLookup
+	public WebElement link;
+
+
+	@FindBy(how=How.XPATH,using="//input[@id='username']")
+	@CacheLookup
+	public WebElement username;
+
+
+	@FindBy(how=How.XPATH,using="//input[@id='password']")
+	@CacheLookup
+	public WebElement password;
+	
+	@FindBy(how=How.XPATH,using="//input[@type='submit']")
+	@CacheLookup
+	public	WebElement submit;
+
 	
 	@FindBy(how=How.XPATH,using="//*[@value='CONNECTION']")
 	@CacheLookup
@@ -123,10 +149,7 @@ public class Home {
 
 	
 
-public  Home(WebDriver dr) {
-		
-		this.driver=dr;
-	}
+
 	
 
 

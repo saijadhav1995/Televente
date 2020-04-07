@@ -75,8 +75,6 @@
 	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/mongodb-driver-3.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/mongodb-driver-core-3.3.0.jar"/>
 	<classpathentry exported="true" kind="lib" path="C:/Users/s4333164/oxygen/extentreports-4.0.9/dependency/testng-6.9.10.jar"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_211"/>
-	<classpathentry exported="true" kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jdk1.8.0_211"/>
 	<classpathentry kind="lib" path="C:/Users/s4333164/oxygen/Jars/commons-io-2.4.jar"/>
 	<classpathentry kind="output" path="target/classes"/>
 </classpath>

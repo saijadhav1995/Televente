@@ -14,16 +14,17 @@ import org.openqa.selenium.support.ui.Select;
 
 import cucumber.api.CucumberOptions;
 import cucumber.api.junit.Cucumber;
+import webBase.BasePage;
 
 
 
 
 
-public class Login {
+public class Login extends BasePage{
 
 	
-
-	WebDriver driver;
+public WebDriver driver;
+	
 	
 //Login page Identifiers	
 	
@@ -86,12 +87,12 @@ public class Login {
 	
 	
 	
-	public  Login(WebDriver dr) {
+	
+public  Login(WebDriver dr) {
 		
 		this.driver=dr;
 	}
 	
-
 		
 		
 	

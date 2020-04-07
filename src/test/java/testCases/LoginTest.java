@@ -3,37 +3,33 @@ package testCases;
 import org.testng.annotations.Test;
 
 
-
-import library.BrowserFactory;
+import Utility.AppstringsConstant;
 import pages.VerifyLoginPage;
+import webBase.BaseTest;
+import webBase.BrowserFactory;
 
 import org.testng.annotations.Test;
 import org.testng.annotations.AfterMethod;
+import org.testng.annotations.AfterSuite;
 import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
 
-public class LoginTest extends BrowserFactory {
+public class LoginTest extends BaseTest {
 
 
-	
+	AppstringsConstant appConst =new AppstringsConstant(); 
 	VerifyLoginPage loginpage=new VerifyLoginPage();
-	
-	@BeforeMethod
-	
-	public void openBrowser() throws Throwable {
-		
-		loginpage.open_chrome_browser_and_start_application();
-	}
 	
 	@Test(priority=0)
 	
 	public void verifyAdminUser() throws Throwable {
 		
+		loginpage.open_chrome_browser_and_start_application("loginFunctionlaityForAdminUser");
 		loginpage.page_has_been_verified();
 		loginpage.verify_username_password_and_submit_button();
-		loginpage.enter_username_and_Password_for_Admin_user("S4333164", "sg!t@2020");
+		loginpage.enter_username_and_Password_for(appConst.Admin_SGID,appConst.Admin_password);
 		loginpage.admin_user_should_be_login_successfully();
 	}
 	
@@ -42,19 +38,20 @@ public class LoginTest extends BrowserFactory {
 	
 	public void verifyReaderUser() throws Throwable {
 		
+		loginpage.open_chrome_browser_and_start_application("loginFunctionlaityForReaderUser");
 		loginpage.page_has_been_verified();
 		loginpage.verify_username_password_and_submit_button();
-		loginpage.enter_username_and_Password_for_Reader_user("s4208983", "SNK!T@2020");
+		loginpage.enter_username_and_Password_for(appConst.Reader_SGID, appConst.Reader_password);
 		loginpage.reader_user_should_be_login_successfully_as_Reader_Role();
 	}
 
 @Test(priority=2)
 
 public void verifyConfiguratorUser() throws Throwable {
-	
+	loginpage.open_chrome_browser_and_start_application("loginFunctionlaityForConfiguratorUser");
 	loginpage.page_has_been_verified();
 	loginpage.verify_username_password_and_submit_button();
-	loginpage.enter_username_and_Password_for_configuratot_user("S4333164", "sg!t@2020");
+	loginpage.enter_username_and_Password_for(appConst.conf_SGID, appConst.conf_password);
 	loginpage.user_should_be_login_successfully_as_configurator_Role();
 }
 
@@ -62,21 +59,17 @@ public void verifyConfiguratorUser() throws Throwable {
 
 @Test(priority=3)
 
-public void verifyInvalidUser() throws Throwable {
-	
+	public void verifyInvalidUser() throws Throwable {
+	loginpage.open_chrome_browser_and_start_application("loginFunctionlaityForInvalidUser");
 	loginpage.page_has_been_verified();
 	loginpage.verify_username_password_and_submit_button();
-	loginpage.enter_username_and_Password_for_invalid_user("S4333164", "sg!t@2020");
+	loginpage.enter_username_and_Password_for(appConst.invalidUser_SGID,appConst.invalidUser_SGID);
 	loginpage.invalid_user_should_be_not_be_login();
 }
 
-@AfterMethod
-
-public void teardown( ) {
-
-	
-	driver.close();
-}
 
 
 }
+
+
+

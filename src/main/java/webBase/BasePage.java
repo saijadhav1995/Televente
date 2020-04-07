@@ -1,45 +1,56 @@
-package library;
+package webBase;
 
 import java.io.File;
-import java.net.URL;
+import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.concurrent.TimeUnit;
 
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.PageFactory;
+import org.testng.annotations.AfterSuite;
 
-public class BrowserFactory {
 
-	public static WebDriver driver;
+
+
+
+public class BasePage extends BrowserFactory{
+	
+	public static WebDriver Basepagedriver=null;
+
 	static String imagesDirectory = "";
 	static String relativePathforImage = "";
 	
-	public  WebDriver startBrowser(String BrowserName,String url) {
-		
-		
-		
-		if(BrowserName.equalsIgnoreCase("chrome")) {
-			
-			System.setProperty("webdriver.chrome.driver",
-			System.getProperty("user.dir")+"\\Drivers\\chromedriver_win32 (3)\\chromedriver.exe");
-			
-			driver=new ChromeDriver();
-			
-		}else if (BrowserName.equalsIgnoreCase("firefox")) {
-			
-			driver=new FirefoxDriver();
+	
+	
+	public static void createDirectory(String classname) 
+	{
+
+		classname = classname.substring(0);
+
+		imagesDirectory = System.getProperty("user.dir") +"/extentReports"
+				+ "/" + classname + "/";
+
+		relativePathforImage = classname + "/";
+
+		File file = new File(imagesDirectory);
+		if (!file.exists()) {
+			file.mkdir();
+		} else {
+			try {
+				FileUtils.cleanDirectory(file);
+			} catch (IOException e) 
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			System.out
+			.println("Either directory is already prersent or Failed to create directory.");
 		}
-		
-		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
-		driver.manage().window().maximize();
-		driver.get(url);
-		return driver;
 	}
+
 	
 	public static String captureScreenShot(WebDriver driver,
 			String screenshotName) 
@@ -62,11 +73,9 @@ public class BrowserFactory {
 					+ e.getMessage());
 			return e.getMessage();
 		}
-		
-	}	
+	}
+
 	
-	/*public void closeBrowserMethod() {
-	driver.quit(); 
-}*/
 	
+
 }
