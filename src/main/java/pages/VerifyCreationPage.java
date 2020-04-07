@@ -33,7 +33,7 @@ public class VerifyCreationPage extends BasePage
 	public ExtentTest extentest;
 	public SoftAssert SAssert = new SoftAssert();
 	public PageFactory pf=new PageFactory();
-	BrowserFactory Bf=new BrowserFactory();
+	
 
 	BaseTest baseT = new BaseTest();
 	String className = "";
@@ -42,33 +42,27 @@ public class VerifyCreationPage extends BasePage
 	
 	
 	
-	public void VerifyCreationButton(String TestName) throws Throwable 
+	
+		
+	public void clickOnCreationButton(String TestName) throws Throwable 
 	{
 		 
-		BasePage.Basepagedriver = BrowserFactory.startBrowser(appConst.select_Browser,appConst.URL);
 		logger = baseT.extent.startTest(TestName);			
 		create=	PageFactory.initElements(driver, CreateForm.class);
 		createDirectory("TELEVENTE"+TestName);
-		
+
+			
 		try {
 
-			logger.log(LogStatus.PASS,"start application sucessfully"
-					+logger.addScreenCapture(captureScreenShot(driver, "start application sucessfully")));		
-					
-			
-			logger.log(LogStatus.INFO, "open chrome browser and start application");		
+			if(create.createButton.isDisplayed()) {
 				
-				driver.navigate().to(appConst.URL);
-			 	create.link.click();
-			 	create.username.sendKeys(appConst.Admin_SGID);
-			 	create.password.sendKeys(appConst.Admin_password);
-			 	create.submit.click();
-
-		       create.CreateButton();
-		       
-		       logger.log(LogStatus.PASS,"user able to redirected on Creation Page"
-						+logger.addScreenCapture(captureScreenShot(driver,"user able to redirected on Creation Page")));						           
-		         	  		         			          
+				create.CreateButton();
+			       
+			       logger.log(LogStatus.PASS,"user able to redirected on Creation Page"
+							+logger.addScreenCapture(captureScreenShot(driver,"user able to redirected on Creation Page")));						           
+				
+			}
+		               	  		         			          
 		}
 
 		
@@ -288,14 +282,9 @@ public void saveFunctionality() throws Throwable {
 		while(true) {
 			
 			Thread.sleep(4000);	
+				
 			
-			WebElement existingPeriod=create.anotherTeleventeAlreadyExist;
-			
-			String periodErrorLabel= existingPeriod.getText();
-			System.out.println(periodErrorLabel);
-		
-			
-			if(periodErrorLabel != null) {
+			if(create.anotherTeleventeAlreadyExist.isDisplayed()) {
 				
 					logger.log(LogStatus.INFO,"Televentes already exist"
 						+logger.addScreenCapture(captureScreenShot(driver,"another Televente already exist")));		
@@ -354,7 +343,7 @@ public void saveFunctionality() throws Throwable {
 		    	create.SaveAmounts();
 		    	create.SaveButton();
 				
-		    	break;
+		    
 			}		
 			
 		}

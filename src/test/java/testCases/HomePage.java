@@ -16,7 +16,7 @@ import org.testng.annotations.AfterTest;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 
-public class HomeTest extends BaseTest {
+public class HomePage extends BaseTest {
 
 	VerifyHome Homepage=new VerifyHome();
 	

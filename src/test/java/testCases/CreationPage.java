@@ -4,16 +4,18 @@ import org.testng.annotations.Test;
 
 
 import pages.VerifyCreationPage;
+import pages.VerifyHome;
 import webBase.BaseTest;
 
-public class CreationTest extends BaseTest {
+public class CreationPage extends BaseTest {
 
-	VerifyCreationPage creation=new VerifyCreationPage(); 
-	
+	VerifyCreationPage creation=new VerifyCreationPage();
+		
 	@Test(priority='0')
 	public void VerifyCreationForm() throws Throwable {
 		
-		creation.VerifyCreationButton("VerifyCreationForm");
+		
+		creation.clickOnCreationButton("TeleventeCreation functionality");
 		creation.VerifyRegionDropDown();
 		creation.VerifyTeleventeName();
 		creation.VerifyobjectiveField();

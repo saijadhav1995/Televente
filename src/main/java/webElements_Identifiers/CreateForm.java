@@ -10,10 +10,17 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.ui.Select;
 
 import webBase.BasePage;
+import webBase.Controller;
 
 public class CreateForm extends BasePage {
 
-public WebDriver driver;
+	public static WebDriver Basepagedriver=null;
+
+public  CreateForm(WebDriver dr) {
+		
+	BasePage.Basepagedriver = Controller.InvokeWebDriver();
+		this.Basepagedriver=dr;
+	}
 	
 //identifiers
 
@@ -155,9 +162,9 @@ public WebDriver driver;
 		
 		//div[@class='alert alert-danger']
 		
-		//*[contains(text(),'Une t�l�vente existe d�j� pour cette p�riode')]
+		//*[contains(text(),'Une télévente existe déjà pour cette période')]
 		
-		@FindBy(how=How.XPATH,using="//*[contains(text(),'Une t�l�vente existe d�j� pour cette p�riode')]")
+		@FindBy(how=How.XPATH,using="//div[@class='alert alert-danger']")
 		@CacheLookup
 		public	WebElement anotherTeleventeAlreadyExist;
 		
@@ -165,10 +172,6 @@ public WebDriver driver;
 		
 		
 	
-public  CreateForm(WebDriver dr) {
-		
-		this.driver=dr;
-	}
 
 public void Connection() {
 	

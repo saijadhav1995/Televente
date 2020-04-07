@@ -15,6 +15,13 @@ public class BaseTest extends BrowserFactory{
 	public static WebDriver Basetestdriver=null;
 	public  static ExtentReports extent;	
 	
+	public BaseTest()
+	{
+		BaseTest.Basetestdriver = Controller.InvokeWebDriver();
+		PageFactory.initElements(Basetestdriver, this);
+		
+	}
+
 	
 	
 @BeforeSuite

@@ -14,7 +14,9 @@ import com.sun.javafx.print.Units;
 
 public class Controller {
 
-	public static WebDriver driver = null;
+	public static WebDriver driver=null;
+	static String imagesDirectory = "";
+	static String relativePathforImage = "";
 
 	public static WebDriver InvokeWebDriver() {
 		

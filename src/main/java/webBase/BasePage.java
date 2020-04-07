@@ -16,13 +16,23 @@ import org.testng.annotations.AfterSuite;
 
 
 
-public class BasePage extends BrowserFactory{
+
+
+public class BasePage extends Controller{
 	
 	public static WebDriver Basepagedriver=null;
 
 	static String imagesDirectory = "";
 	static String relativePathforImage = "";
+
 	
+	
+	public BasePage()
+	{
+		BasePage.Basepagedriver = Controller.InvokeWebDriver();
+		PageFactory.initElements(Basepagedriver, this);
+		
+	}
 	
 	
 	public static void createDirectory(String classname) 

@@ -57,7 +57,7 @@ Helper helper=new Helper();
 	public void open_chrome_browser_and_start_application(String TestName) throws Throwable {
 		
 		
-	BasePage.Basepagedriver = BrowserFactory.startBrowser(appConst.select_Browser,appConst.URL);		
+		
 	logger = baseT.extent.startTest(TestName);			
 	loginPage=	PageFactory.initElements(driver, Login.class);
 	createDirectory("TELEVENTE"+TestName);	

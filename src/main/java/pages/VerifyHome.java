@@ -54,7 +54,7 @@ public class VerifyHome extends BasePage {
 	public void Verify_the_Home_Page(String TestName) throws Throwable {
 		
 		
-		BasePage.Basepagedriver = BrowserFactory.startBrowser(appConst.select_Browser,appConst.URL);
+	
 		logger = baseT.extent.startTest(TestName);			
 		homePage=	PageFactory.initElements(driver, Home.class);
 		createDirectory("TELEVENTE"+TestName);
