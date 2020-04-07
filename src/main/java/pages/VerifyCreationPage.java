@@ -277,14 +277,15 @@ public void saveFunctionality() throws Throwable {
 	
 	create.SaveButton();
 	
-	try {
+	
 
 		while(true) {
 			
-			Thread.sleep(4000);	
+	Thread.sleep(4000);	
 				
+	WebElement anotherTeleventeAlreadyExist	=driver.findElement(By.xpath("//*[@class='alert alert-danger']"));
 			
-			if(create.anotherTeleventeAlreadyExist.isDisplayed()) {
+			if(anotherTeleventeAlreadyExist.isDisplayed()) {
 				
 					logger.log(LogStatus.INFO,"Televentes already exist"
 						+logger.addScreenCapture(captureScreenShot(driver,"another Televente already exist")));		
@@ -348,11 +349,7 @@ public void saveFunctionality() throws Throwable {
 			
 		}
 		
-	} catch (Exception handleDate) {
-		logger.log(LogStatus.PASS,"Televente Create Succefully"
-				+logger.addScreenCapture(captureScreenShot(driver,"Televente Create Succefully")));		
 	
-	}
 			
 	
 }
