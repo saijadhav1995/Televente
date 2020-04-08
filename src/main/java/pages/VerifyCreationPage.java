@@ -277,8 +277,9 @@ public void saveFunctionality() throws Throwable {
 	
 	create.SaveButton();
 	
+	try {
+		
 	
-
 		while(true) {
 			
 	Thread.sleep(4000);	
@@ -325,7 +326,7 @@ public void saveFunctionality() throws Throwable {
 		      	 System.out.println(GetStartDate1+"startDate");
 		      	 System.out.println(GetEndDate1+"endDate");	
 		      	 
-		     	logger.log(LogStatus.INFO, "televenteStartDate"+GetStartDate1+"and EndDate is "+GetStartDate1); 
+		     	 
 			       
 		      	 create.DailyObjecitve();
 				
@@ -344,12 +345,21 @@ public void saveFunctionality() throws Throwable {
 		    	create.SaveAmounts();
 		    	create.SaveButton();
 				
-		    
+		    	logger.log(LogStatus.INFO, "televente already Exist from period StartDate"+GetStartDate1+"and EndDate is "+GetStartDate1+" "
+		    +logger.addScreenCapture(captureScreenShot(driver,"televente created successfully")));
 			}		
 			
 		}
 		
+	} catch (Exception handledates) {
+		handledates.printStackTrace();
 	
+		logger.log(LogStatus.PASS,"televente created successfully"
+				+logger.addScreenCapture(captureScreenShot(driver,"televente created successfully")));		
+
+		
+	}
+
 			
 	
 }
