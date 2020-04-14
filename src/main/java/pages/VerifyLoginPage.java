@@ -17,8 +17,9 @@ import java.io.IOException;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Baselibrary.ExcelConfig;
-import Baselibrary.Helper;
+
 import Utility.AppstringsConstant;
+import Utility.Helper;
 import webBase.BaseTest;
 import webBase.BasePage;
 import webBase.BrowserFactory;
@@ -40,12 +41,11 @@ public PageFactory pf=new PageFactory();
 BrowserFactory Bf=new BrowserFactory();
 BaseTest baseT = new BaseTest();
 String className = "";
+Helper helper=new Helper();
 
 public AppstringsConstant appConst=new AppstringsConstant();
 
 
-
-Helper helper=new Helper();
 
 
 
@@ -312,66 +312,6 @@ Helper helper=new Helper();
 
 		 
 	 		 	
-	 
-	 
-/*	 @Test(priority=0) //dataProvider="televentelogin",
-	 @Then("^verify loginfunctionality with \"([^\"]*)\" and \"([^\"]*)\"$")
-	 public void  verify_loginfunctionality_with_and(String username1, String password1) throws Exception {
-	 			 		
-	 			
-				
-			try {
-				if (loginPage.invalid.isDisplayed()) {
-					
-					driver.navigate().to("https://televente.mutlp.test.pointp.saint-gobain.net/");
-		 			System.out.println("invalid user");
-		 			logger2.log(Status.PASS, "invalid user");
-					}		
-				
-				}catch(NoSuchElementException incative_user) {
-					
-					
-		 			System.out.println("inactive user");
-		 			logger2.log(Status.PASS, "inActive user");
-				}
-	 		
-			}
-	 		
-	 		Extent.flush();
-	 		} 	
-	 
-	*/
-	 
-	
-
-
-
-	
-	 
-	
-	/* @DataProvider(name="televentelogin")
-	 public Object[][] passdata() throws Exception{
-	 	 
-	 	 ExcelConfig config=new ExcelConfig(System.getProperty("user.dir")+"\\Excel\\Test.xlsx");
-	 	 
-	 	 int rows =config.getRowCount(0);
-	 	 
-	 	 System.out.println(rows);
-	 	 
-	 	 Object [][] data=new Object[rows][2];
-	 	 
-	 	 int i=0;
-	 	 while(rows>i) {
-	 		
-	 		 data[i][0]=config.getData(0, i, 0);
-	 		 data[i][1]=config.getData(0, i, 1);
-	 		 i=i+1;
-	 		 		 
-	 	 }
-	 	 return data;
-	 }*/
-	
-	 
 	 
 	 
 

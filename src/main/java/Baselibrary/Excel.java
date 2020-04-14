@@ -8,7 +8,7 @@ public class Excel {
 
 	
 		ExcelConfig conf=
-				new ExcelConfig(System.getProperty("user.dir")+"\\Excel\\Test.xlsx");
+			new ExcelConfig(System.getProperty("user.dir")+"\\Excel\\Test.xlsx");
 		
 		System.out.println(""+conf.getData(0, 0, 0));
 		

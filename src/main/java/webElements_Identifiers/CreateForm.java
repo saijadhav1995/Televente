@@ -16,7 +16,7 @@ public class CreateForm extends BasePage {
 
 	public static WebDriver Basepagedriver=null;
 
-public  CreateForm(WebDriver dr) {
+public   CreateForm(WebDriver dr) {
 		
 	BasePage.Basepagedriver = Controller.InvokeWebDriver();
 		this.Basepagedriver=dr;
@@ -79,7 +79,7 @@ public  CreateForm(WebDriver dr) {
 		
 		@FindBy(how=How.XPATH,using="//*[@id='btnDailyObjectiveModal']")
 		@CacheLookup
-		public	WebElement ObjectivefAmount;
+		public	WebElement DailyObjectivefAmount;
 		
 				
 		@FindBy(how=How.XPATH,using="//*[@id='addObjectiveList']")
@@ -98,7 +98,7 @@ public  CreateForm(WebDriver dr) {
 		public	WebElement SaveDailyAmount;
 		
 		
-		@FindBy(how=How.XPATH,using="//*[@class='fs-wrap multiple']/div[@class='fs-label-wrap']")
+		@FindBy(how=How.XPATH,using="//*[@id='televente_form']/div/div[1]/div[4]/div/div/div[1]")
 		@CacheLookup
 		public	WebElement ranking;
 		
@@ -112,7 +112,7 @@ public  CreateForm(WebDriver dr) {
 		public	WebElement selectBrand;
 				
 	
-		@FindBy(how=How.XPATH,using="//*[@class='fs-wrap multiple fs-default']/div[@class='fs-label-wrap']")
+		@FindBy(how=How.XPATH,using="//*[@id='telev_brands_div']/div/div[1]")
 		@CacheLookup
 		public	WebElement brand;
 			
@@ -167,9 +167,18 @@ public  CreateForm(WebDriver dr) {
 		@FindBy(how=How.XPATH,using="//div[@class='alert alert-danger']")
 		@CacheLookup
 		public	WebElement anotherTeleventeAlreadyExist;
+
+		
+		//Edit Form
 		
 		
+		@FindBy(how=How.XPATH,using="//*[@id='brandReadOnlyDiv']/div/div[1]/div")
+		@CacheLookup
+		public	WebElement EditBrandField;
 		
+		@FindBy(how=How.XPATH,using="//*[@id='rankingsReadOnlyDiv']/div/div[1]/div")
+		@CacheLookup
+		public	WebElement EditRankingField;
 		
 	
 
@@ -184,7 +193,7 @@ createButton.click();
 
 }
 	
-public void userName(String name ) {
+public void TeleventeName(String name ) {
 	
 Nom.sendKeys(name);	
 
@@ -222,7 +231,7 @@ public void ObjectiveF(String objective) {
 
 public void DailyObjecitve() {
 	
-	ObjectivefAmount.click();
+	DailyObjectivefAmount.click();
 }
 
 

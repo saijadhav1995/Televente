@@ -90,7 +90,7 @@ public void VerifyTeleventeName() throws Throwable {
 	
 	
 	
-	create.userName("QA Automation"); 
+	create.TeleventeName("QA Automation"); 
      
      logger.log(LogStatus.PASS,"user able to enter Televent Name on Creation Page"
 				+logger.addScreenCapture(captureScreenShot(driver,"user able to enter Televent Name on Creation Page")));
@@ -351,7 +351,7 @@ public void saveFunctionality() throws Throwable {
 			
 		}
 		
-	} catch (Exception handledates) {
+	} catch (org.openqa.selenium.NoSuchElementException handledates) {
 		handledates.printStackTrace();
 	
 		logger.log(LogStatus.PASS,"televente created successfully"
@@ -454,30 +454,6 @@ public void VerifyRankingAndBrandField()  throws Throwable{
 
 
 	
-// Edit Form	
-	
-	public void regionFieldOnEditForm() throws Throwable {
-		
-		 
-		 
-		 if(create.Region_dropDown.isEnabled()) {
-			 
-				 
-		 create.Region(appConst.select_region_id);
-			
-		 logger.log(LogStatus.FAIL,"region Feild is enabled on Edit Page"
-					+logger.addScreenCapture(captureScreenShot(driver,"region Feild is enabled on Edit Page")));			
-		
-		 
-		 }else {
-			 
-			 logger.log(LogStatus.FAIL,"region Feild is Disabled on Edit Page"
-						+logger.addScreenCapture(captureScreenShot(driver,"region Feild is enabled on Edit Page")));			
-			 
-		 }
-	     
-	    
-	}
 
 	
 	
