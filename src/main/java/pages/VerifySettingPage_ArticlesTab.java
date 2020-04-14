@@ -27,7 +27,7 @@ import webBase.BasePage;
 import webBase.BaseTest;
 import webElements_Identifiers.SettingTabs;
 
-public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
+public class VerifySettingPage_ArticlesTab extends BasePage {
 
 	
 	public ExtentTest logger;	
@@ -44,7 +44,7 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 	SettingTabsData settingtabsData=new SettingTabsData();
 	
 	
-	public void ATC_CDV_Tab(String TestName) throws Throwable {
+	public void artilceTab(String TestName) throws Throwable {
 		
 		logger = baseT.extent.startTest(TestName);		
 		setting=PageFactory.initElements(driver, SettingTabs.class);
@@ -54,31 +54,25 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 		
 		
 		//setting.SettingButton.click();
-		setting.getSellersTab().click();
+		setting.getArticleTab().click();
 		
-		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" + "2 : go to the ATC_CDV tab" + "<br/>"
-				+logger.addScreenCapture(captureScreenShot(driver,"user redirected on ATC_CDV tab in manage setting page")));						           
+		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" + "2 : go to the Article tab" + "<br/>"
+				+logger.addScreenCapture(captureScreenShot(driver,"user redirected on article tab in manage setting page")));						           
 	
 		
 		Thread.sleep(4000);
 
-		setting.btn_seller_add.click();
-		
-		logger.log(LogStatus.INFO,"Add ATC_CDV PopUp has been opened"
-				+logger.addScreenCapture(captureScreenShot(driver,"Add ATC_CDV PopUp has been opened")));						           
-	
-		
-		
-		Thread.sleep(4000);
-
+		setting.btn_article_add.click();
 		ExcelConfig conf=
 				new ExcelConfig(System.getProperty("user.dir")+"\\Excel\\Test.xlsx");
 			
-			
+		logger.log(LogStatus.INFO,"Add articles PopUp has been opened"
+				+logger.addScreenCapture(captureScreenShot(driver,"Add articles PopUp has been opened")));						           
+	
 		
-		int count=conf.getRowCount(0);
+int count=conf.getRowCount(1);
 		
-		System.out.println(count);
+		System.out.println(count); //get row count of selected sheet 
 		
 		
 		int counter=0;
@@ -86,36 +80,42 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 		while (count>counter) {
 	
 			
-			for(int i=0;i<6;i++) {
+			for(int i=0;i<2;i++) {
 				
 				int j=counter; //row count
 				
 				
-				System.out.println(""+conf.getData(0, j, i));
+				System.out.println(""+conf.getData(1, j, i));
 				
 				String Id1=i+"-"+j;
 				
 				System.out.println(Id1);
 				
-				String testData=conf.getData(0, j, i);
-				
-				String line1="document.getElementById('";
-				String line2="').innerText='";
-				String line3= "'";
-				System.out.println(line1+Id1+line2+testData+line3);
+				String testData=conf.getData(1, j, i);
 				
 				
 				
-					JavascriptExecutor executor = (JavascriptExecutor)driver;
-					executor.executeScript(line1+Id1+line2+testData+line3);
+				String search="//div[@id='addArticles']/div[2]/table/tbody/tr/td[@id='"+Id1+"']";
 				
-			String doubleclick="//td[@id='"+i+"-"+counter+"']";
-			System.out.println(doubleclick);
-					WebElement TEST=driver.findElement(By.xpath(doubleclick));
-					
-			Actions actions = new Actions(driver);
-			actions.doubleClick(TEST).perform();
-					
+				System.out.println(search);
+				
+				WebElement searchInput=	driver.findElement(By.xpath(search));
+				
+			
+				String line1="arguments[0].innerText='";
+				String line2= "'";
+				System.out.println(line1+testData+line2);
+				
+
+				JavascriptExecutor executor = (JavascriptExecutor)driver;
+				executor.executeScript(line1+testData+line2, searchInput);			
+				
+				Actions actions = new Actions(driver);
+				actions.doubleClick(searchInput).perform();
+				
+				Actions actions1 = new Actions(driver);
+				actions1.click(searchInput).perform();
+			
 			}
 			
 			
@@ -123,19 +123,17 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 			System.out.println(counter);
 		}
 		
-		logger.log(LogStatus.PASS,"1:excel sheet has been configured for ATC_CDV data" + "<br/>" + 
-				"2 :getting data from excel sheet & inserted on jexcel fields" + "<br/>"
-						+logger.addScreenCapture(captureScreenShot(driver,"data inseted on ATC_CDV jexcel fields")));						           
-			
-
-		
-		setting.btn_save_sellers.click();
-		
+		logger.log(LogStatus.PASS,"1:excel sheet has been configured for articles data" + "<br/>" + 
+		"2 :getting data from excel sheet & inserted on jexcel fields" + "<br/>"
+				+logger.addScreenCapture(captureScreenShot(driver,"data inseted on article jexcel fields")));						           
 	
-		Thread.sleep(2000);
-		logger.log(LogStatus.PASS,"articles successfully inserted on ATC_CDV Tab"
-						+logger.addScreenCapture(captureScreenShot(driver,"articles successfully inserted on ATC_CDV Tab")));						           
 		
+		setting.btn_save_articles.click();
+		
+		Thread.sleep(2000);
+		logger.log(LogStatus.PASS,"articles successfully inserted on article Tab"
+						+logger.addScreenCapture(captureScreenShot(driver,"articles successfully inserted on article Tab")));						           
+			
 		
 	}	
 		

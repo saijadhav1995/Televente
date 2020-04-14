@@ -38,6 +38,17 @@
 	</test>
 	
 
+<test name="Manage_Setting" preserve-order="true">
+
+		<classes>
+
+			<class name="testCases.SettingPage" />
+
+		</classes>
+
+	</test>
+
+
 
 </suite> <!-- Suite -->
 

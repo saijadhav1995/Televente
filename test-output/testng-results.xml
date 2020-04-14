@@ -1,25 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
+<testng-results skipped="0" failed="0" ignored="0" total="7" passed="7">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="15558" started-at="2020-04-13T16:39:14Z" finished-at="2020-04-13T16:39:30Z">
+  <suite name="Suite" duration-ms="296234" started-at="2020-04-14T13:04:27Z" finished-at="2020-04-14T13:09:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="15558" started-at="2020-04-13T16:39:14Z" finished-at="2020-04-13T16:39:30Z">
+    <test name="Login" duration-ms="88841" started-at="2020-04-14T13:04:27Z" finished-at="2020-04-14T13:05:56Z">
+      <class name="testCases.Loginfunctionality">
+        <test-method status="PASS" signature="verifyAdminUser()[pri:0, instance:testCases.Loginfunctionality@3ee37e5a]" name="verifyAdminUser" duration-ms="24721" started-at="2020-04-14T13:04:27Z" finished-at="2020-04-14T13:04:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyAdminUser -->
+        <test-method status="PASS" signature="verifyReaderUser()[pri:1, instance:testCases.Loginfunctionality@3ee37e5a]" name="verifyReaderUser" duration-ms="15482" started-at="2020-04-14T13:04:52Z" finished-at="2020-04-14T13:05:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyReaderUser -->
+        <test-method status="PASS" signature="verifyConfiguratorUser()[pri:2, instance:testCases.Loginfunctionality@3ee37e5a]" name="verifyConfiguratorUser" duration-ms="45088" started-at="2020-04-14T13:05:07Z" finished-at="2020-04-14T13:05:52Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyConfiguratorUser -->
+        <test-method status="PASS" signature="verifyInvalidUser()[pri:3, instance:testCases.Loginfunctionality@3ee37e5a]" name="verifyInvalidUser" duration-ms="3528" started-at="2020-04-14T13:05:52Z" finished-at="2020-04-14T13:05:56Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- verifyInvalidUser -->
+      </class> <!-- testCases.Loginfunctionality -->
+    </test> <!-- Login -->
+    <test name="home" duration-ms="45392" started-at="2020-04-14T13:05:56Z" finished-at="2020-04-14T13:06:41Z">
+      <class name="testCases.HomePage">
+        <test-method status="PASS" signature="VerifyHomePage()[pri:48, instance:testCases.HomePage@1b11171f]" name="VerifyHomePage" duration-ms="45391" started-at="2020-04-14T13:05:56Z" finished-at="2020-04-14T13:06:41Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyHomePage -->
+      </class> <!-- testCases.HomePage -->
+    </test> <!-- home -->
+    <test name="creation" duration-ms="63450" started-at="2020-04-14T13:06:41Z" finished-at="2020-04-14T13:07:45Z">
+      <class name="testCases.CreationPage">
+        <test-method status="PASS" signature="VerifyCreationForm()[pri:48, instance:testCases.CreationPage@59505b48]" name="VerifyCreationForm" duration-ms="63449" started-at="2020-04-14T13:06:41Z" finished-at="2020-04-14T13:07:45Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- VerifyCreationForm -->
+      </class> <!-- testCases.CreationPage -->
+    </test> <!-- creation -->
+    <test name="Manage_Setting" duration-ms="98511" started-at="2020-04-14T13:07:45Z" finished-at="2020-04-14T13:09:23Z">
       <class name="testCases.SettingPage">
-        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.SettingPage@4d0f2471]" name="getReporter" is-config="true" duration-ms="122" started-at="2020-04-13T16:39:14Z" finished-at="2020-04-13T16:39:14Z">
+        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.SettingPage@7db12bb6]" name="getReporter" is-config="true" duration-ms="141" started-at="2020-04-14T13:04:27Z" finished-at="2020-04-14T13:04:27Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getReporter -->
-        <test-method status="PASS" signature="VerifySettingPage()[pri:48, instance:testCases.SettingPage@4d0f2471]" name="VerifySettingPage" duration-ms="15543" started-at="2020-04-13T16:39:14Z" finished-at="2020-04-13T16:39:30Z">
+        <test-method status="PASS" signature="VerifySettingPage()[pri:48, instance:testCases.SettingPage@7db12bb6]" name="VerifySettingPage" duration-ms="98510" started-at="2020-04-14T13:07:45Z" finished-at="2020-04-14T13:09:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- VerifySettingPage -->
-        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.SettingPage@4d0f2471]" name="closeextend" is-config="true" duration-ms="190" started-at="2020-04-13T16:39:30Z" finished-at="2020-04-13T16:39:30Z">
+        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.SettingPage@7db12bb6]" name="closeextend" is-config="true" duration-ms="205" started-at="2020-04-14T13:09:23Z" finished-at="2020-04-14T13:09:23Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeextend -->
       </class> <!-- testCases.SettingPage -->
-    </test> <!-- Default test -->
-  </suite> <!-- Default suite -->
+    </test> <!-- Manage_Setting -->
+  </suite> <!-- Suite -->
 </testng-results>

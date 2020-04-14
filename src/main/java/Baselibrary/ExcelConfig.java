@@ -35,9 +35,11 @@ XSSFSheet sheet;
 // to get specific sheetno,rows & columns 	
 public String getData(int sheetno,int row,int col) {
 	
-	sheet=wb.getSheetAt(0);
-	
 	DataFormatter formatter = new DataFormatter();
+	
+	sheet=wb.getSheetAt(sheetno);
+	
+	
 	Cell  cell=sheet.getRow(row).getCell(col);
 	
 	String data = formatter.formatCellValue(cell);

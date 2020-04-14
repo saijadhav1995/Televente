@@ -148,9 +148,50 @@ public class SettingTabs {
 	
 	@FindBy(how=How.XPATH,using="//*[@id='sellers_table_filter']/label/input")
 	@CacheLookup
-	public WebElement rechercherField;
+	public WebElement sellers_table_filter;
 	
 	
+	
+	//articles Tab
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='btn_article_add']")
+	@CacheLookup
+	public WebElement btn_article_add;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='btn-save-articles']")
+	@CacheLookup
+	public WebElement btn_save_articles;
+	
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='articles_table_filter']/label/input")
+	@CacheLookup
+	public WebElement articles_table_filter;
+	
+	
+	//supplier tab
+
+	@FindBy(how=How.XPATH,using="//*[@id='btn_supplier_add']")
+	@CacheLookup
+	public WebElement btn_supplier_add;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='btn-save-suppliers']")
+	@CacheLookup
+	public WebElement btn_save_suppliers;
+	
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='suppliers_table_filter']/label/input")
+	@CacheLookup
+	public WebElement suppliers_table_filter;
+	
+
+	@FindBy(how=How.XPATH,using="//*[@id='supplier-type']")
+	@CacheLookup
+	public WebElement suppliers_type;
+	
+
 	
 	
 	public WebElement getSettingButton() {

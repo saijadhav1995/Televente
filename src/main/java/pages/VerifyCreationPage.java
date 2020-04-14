@@ -352,7 +352,7 @@ public void saveFunctionality() throws Throwable {
 		}
 		
 	} catch (org.openqa.selenium.NoSuchElementException handledates) {
-		handledates.printStackTrace();
+		
 	
 		logger.log(LogStatus.PASS,"televente created successfully"
 				+logger.addScreenCapture(captureScreenShot(driver,"televente created successfully")));		
