@@ -12,7 +12,7 @@ import Utility.SettingTabsData;
 import webBase.BasePage;
 import webBase.Controller;
 
-public class SettingTabs {
+public class SettingTabs extends BasePage {
 	
 	SettingTabsData settingtabsData=new SettingTabsData();
 	public static WebDriver Basepagedriver=null;
@@ -150,6 +150,33 @@ public class SettingTabs {
 	@CacheLookup
 	public WebElement sellers_table_filter;
 	
+	@FindBy(how=How.XPATH,using="//*[@id='sellers_table']/thead/tr/th[1]/div")
+	@CacheLookup
+	public WebElement sellers_table_checkBox;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='btn_seller_delete']")
+	@CacheLookup
+	public WebElement btn_seller_delete;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='sellers_table']/thead/tr/th[2]")
+	@CacheLookup
+	public WebElement sellers_table_sorting;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='sellers_table_next']")
+	@CacheLookup
+	public WebElement sellers_table_next;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='sellers_table_previous']")
+	@CacheLookup
+	public WebElement sellers_table_previous;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='sellers_table_length']/label/select")
+	@CacheLookup
+	public WebElement sellers_table_length;
+	
+	
 	
 	
 	//articles Tab
@@ -168,6 +195,38 @@ public class SettingTabs {
 	@FindBy(how=How.XPATH,using="//*[@id='articles_table_filter']/label/input")
 	@CacheLookup
 	public WebElement articles_table_filter;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='articles_table']/thead/tr/th[1]/div")
+	@CacheLookup
+	public WebElement articles_table_checkBox;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='btn_article_delete']")
+	@CacheLookup
+	public WebElement btn_article_delete;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='articles_table']/thead/tr/th[2]")
+	@CacheLookup
+	public WebElement articles_table_sorting;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='articles_table_next']")
+	@CacheLookup
+	public WebElement articles_table_next;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='articles_table_previous']")
+	@CacheLookup
+	public WebElement articles_table_previous;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='articles_table_length']/label/select")
+	@CacheLookup
+	public WebElement articles_table_length;
+	
+	
+	
+	
+	
+	
 	
 	
 	//supplier tab
@@ -190,6 +249,34 @@ public class SettingTabs {
 	@FindBy(how=How.XPATH,using="//*[@id='supplier-type']")
 	@CacheLookup
 	public WebElement suppliers_type;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='suppliers_table']/thead/tr/th[1]/div")
+	@CacheLookup
+	public WebElement suppliers_table_checkBox;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='btn_supplier_delete']")
+	@CacheLookup
+	public WebElement btn_supplier_delete;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='suppliers_table']/thead/tr/th[2]")
+	@CacheLookup
+	public WebElement suppliers_table_sorting;
+	
+	
+	@FindBy(how=How.XPATH,using="//*[@id='suppliers_table_next']")
+	@CacheLookup
+	public WebElement suppliers_table_next;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='suppliers_table_previous']")
+	@CacheLookup
+	public WebElement suppliers_table_previous;
+	
+	@FindBy(how=How.XPATH,using="//*[@id='suppliers_table_length']/label/select")
+	@CacheLookup
+	public WebElement suppliers_table_length;
+	
 	
 
 	

@@ -5,9 +5,12 @@
     <classes>
       <class name="testCases.SettingPage">
         <methods>
+          <include name="VerifysupplierProducerTab"/>
           <include name="closeextend"/>
+          <include name="VerifyArticlesTab"/>
           <include name="getReporter"/>
-          <include name="VerifySettingPage"/>
+          <include name="VerifySellersManagerTab"/>
+          <include name="VerifysupplierApproTab"/>
         </methods>
       </class> <!-- testCases.SettingPage -->
     </classes>

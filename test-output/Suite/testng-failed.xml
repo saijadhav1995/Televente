@@ -6,8 +6,8 @@
       <class name="testCases.SettingPage">
         <methods>
           <include name="closeextend"/>
+          <include name="VerifyArticlesTab"/>
           <include name="getReporter"/>
-          <include name="VerifySettingPage"/>
         </methods>
       </class> <!-- testCases.SettingPage -->
     </classes>

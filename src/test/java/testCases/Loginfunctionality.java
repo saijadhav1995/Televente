@@ -25,7 +25,7 @@ public class Loginfunctionality extends BaseTest {
 		loginpage.admin_user_should_be_login_successfully();
 	}
 	
-
+/*
 @Test(priority=1)
 	
 	public void verifyReaderUser() throws Throwable {
@@ -59,7 +59,7 @@ public void verifyConfiguratorUser() throws Throwable {
 	loginpage.invalid_user_should_be_not_be_login();
 }
 
-
+*/
 
 }
 

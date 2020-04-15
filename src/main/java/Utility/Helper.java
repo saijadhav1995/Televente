@@ -73,9 +73,24 @@ public class Helper  {
 			element.isDisplayed();
 			return true;
 		} catch (org.openqa.selenium.NoSuchElementException e) {
+			
+			e.printStackTrace();
 			return false;
 		}
 	}
+	
+	
+	public boolean isElementEnabled(WebElement element) {
+		try {
+			element.isEnabled();
+			return true;
+		} catch (org.openqa.selenium.NoSuchElementException e) {
+			e.printStackTrace();
+			return false;
+		}
+	}
+		
+	
 	
 /*public void Login(String username,String password){
 		

@@ -43,7 +43,7 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		
 	try {
 		
-		Thread.sleep(4000);
+		Thread.sleep(6000);
 		
 		setting.getSettingButton().click();	
 		
@@ -187,7 +187,7 @@ System.out.println(newsectorAmount+"test"+newSiteAmount);
 
 }else {
 	
-	System.out.println("sectoramount Is less than site amount");
+	System.out.println("sector amount Is less than site amount");
 }
 
 
