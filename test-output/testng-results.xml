@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="19928" started-at="2020-04-15T13:36:50Z" finished-at="2020-04-15T13:37:10Z">
+  <suite name="Default suite" duration-ms="26171" started-at="2020-04-20T05:55:51Z" finished-at="2020-04-20T05:56:17Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="19928" started-at="2020-04-15T13:36:50Z" finished-at="2020-04-15T13:37:10Z">
-      <class name="testCases.UsersMenuFunctionlality">
-        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.UsersMenuFunctionlality@3c7f66c4]" name="getReporter" is-config="true" duration-ms="139" started-at="2020-04-15T13:36:50Z" finished-at="2020-04-15T13:36:50Z">
+    <test name="Default test" duration-ms="26171" started-at="2020-04-20T05:55:51Z" finished-at="2020-04-20T05:56:17Z">
+      <class name="testCases.RankingPage">
+        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.RankingPage@3c7f66c4]" name="getReporter" is-config="true" duration-ms="172" started-at="2020-04-20T05:55:50Z" finished-at="2020-04-20T05:55:51Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getReporter -->
-        <test-method status="PASS" signature="verifyAdminUser()[pri:0, instance:testCases.UsersMenuFunctionlality@3c7f66c4]" name="verifyAdminUser" duration-ms="19895" started-at="2020-04-15T13:36:50Z" finished-at="2020-04-15T13:37:10Z">
+        <test-method status="PASS" signature="RankingFunctionality()[pri:48, instance:testCases.RankingPage@3c7f66c4]" name="RankingFunctionality" duration-ms="26155" started-at="2020-04-20T05:55:51Z" finished-at="2020-04-20T05:56:17Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyAdminUser -->
-        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.UsersMenuFunctionlality@3c7f66c4]" name="closeextend" is-config="true" duration-ms="201" started-at="2020-04-15T13:37:10Z" finished-at="2020-04-15T13:37:10Z">
+        </test-method> <!-- RankingFunctionality -->
+        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.RankingPage@3c7f66c4]" name="closeextend" is-config="true" duration-ms="328" started-at="2020-04-20T05:56:17Z" finished-at="2020-04-20T05:56:17Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeextend -->
-      </class> <!-- testCases.UsersMenuFunctionlality -->
+      </class> <!-- testCases.RankingPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

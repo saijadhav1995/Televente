@@ -12,7 +12,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.AppstringsConstant;
-import Utility.SettingTabsData;
+import Utility.RankingRelatedQueries;
 import webBase.BasePage;
 import webBase.BaseTest;
 import webElements_Identifiers.CreateForm;
@@ -30,7 +30,7 @@ public class VerifySettingPage_agencyTab extends BasePage {
 	String className = "";
 	SettingTabs setting=new SettingTabs(driver);
 	AppstringsConstant appConst =new AppstringsConstant(); 
-	SettingTabsData settingtabsData=new SettingTabsData();
+	RankingRelatedQueries settingtabsData=new RankingRelatedQueries();
 	
 	
 

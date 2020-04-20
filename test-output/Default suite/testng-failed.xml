@@ -3,16 +3,13 @@
 <suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test thread-count="5" name="Default test(failed)">
     <classes>
-      <class name="testCases.SettingPage">
+      <class name="testCases.RankingPage">
         <methods>
-          <include name="VerifysupplierProducerTab"/>
           <include name="closeextend"/>
-          <include name="VerifyArticlesTab"/>
           <include name="getReporter"/>
-          <include name="VerifySellersManagerTab"/>
-          <include name="VerifysupplierApproTab"/>
+          <include name="RankingFunctionality"/>
         </methods>
-      </class> <!-- testCases.SettingPage -->
+      </class> <!-- testCases.RankingPage -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

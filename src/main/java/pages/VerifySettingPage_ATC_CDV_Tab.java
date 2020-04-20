@@ -24,7 +24,7 @@ import com.relevantcodes.extentreports.LogStatus;
 import Baselibrary.ExcelConfig;
 import Utility.AppstringsConstant;
 import Utility.Helper;
-import Utility.SettingTabsData;
+import Utility.RankingRelatedQueries;
 import bsh.Variable;
 import webBase.BasePage;
 import webBase.BaseTest;
@@ -45,7 +45,7 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 	String className = "";
 	SettingTabs setting=new SettingTabs(driver);
 	AppstringsConstant appConst =new AppstringsConstant(); 
-	SettingTabsData settingtabsData=new SettingTabsData();
+	RankingRelatedQueries settingtabsData=new RankingRelatedQueries();
 	
 	
 	public void ATC_CDV_Tab(String TestName) throws Throwable {

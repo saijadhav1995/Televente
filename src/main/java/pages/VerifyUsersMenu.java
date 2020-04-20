@@ -1,5 +1,8 @@
 package pages;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.apache.poi.ss.usermodel.Cell;
 import org.apache.poi.ss.usermodel.DataFormatter;
 import org.openqa.selenium.Alert;
@@ -27,10 +30,11 @@ import com.relevantcodes.extentreports.LogStatus;
 import Baselibrary.ExcelConfig;
 import Utility.AppstringsConstant;
 import Utility.Helper;
-import Utility.SettingTabsData;
+import Utility.RankingRelatedQueries;
 import bsh.Variable;
 import webBase.BasePage;
 import webBase.BaseTest;
+import webBase.DataBase;
 import webElements_Identifiers.SettingTabs;
 import webElements_Identifiers.UsersMenu;
 
@@ -48,7 +52,7 @@ public class VerifyUsersMenu extends BasePage {
 	String className = "";
 	UsersMenu users=new UsersMenu(driver);
 	AppstringsConstant appConst =new AppstringsConstant(); 
-	SettingTabsData settingtabsData=new SettingTabsData();
+	RankingRelatedQueries settingtabsData=new RankingRelatedQueries();
 	
 	
 	public void usersMenu(String TestName) throws Throwable {
@@ -65,6 +69,7 @@ public class VerifyUsersMenu extends BasePage {
 //Verify error messages on each field
 		
 		users.btn_save.click();
+		Thread.sleep(2000);
 		
 		if(helper.isElementPresent(users.Err_sgid)==true) {
 			
@@ -128,6 +133,7 @@ public class VerifyUsersMenu extends BasePage {
 				System.out.println("sgid_error message is missing");
 			}
 		
+		Thread.sleep(2000);
 		
 		users.usr_sgid.sendKeys("A1233456");
 		users.usr_firstname.sendKeys("QA");
@@ -158,4 +164,42 @@ public class VerifyUsersMenu extends BasePage {
 		
 		}	
 	
+	public static String user_id="";
+	
+	public static void getUSerDetails() throws ClassNotFoundException, SQLException, Throwable{
+		
+		DataBase dataBase = new DataBase();
+		String query = "select * from usr where usr_sgid='A1233456'";
+		
+		ResultSet data = dataBase.getData(query);
+		System.out.println(data);
+		while(data.next()){
+			System.out.println(data.getString(1)+"| "+data.getString(2)+"| "+data.getString(3)+"| "+data.getString(4)
+			+" "+data.getString(5)+"| "+data.getString(6)+"| "+data.getString(7)+"| "+data.getString(8));
+			 
+			user_id =data.getString(1);
+			
+			System.out.println(user_id);
+				
+		}
+		
+		Thread.sleep(2000);
+		
+			
+		
+	}
+	
+	
+	public static void deleteuserDetails()   throws ClassNotFoundException, SQLException{
+		
+		
+		String query = "delete  from user_region where user_region.URG_USR_ID='"+user_id+"'";
+		String query1="delete from usr where usr_sgid='A1233456'";
+		
+		System.out.println(query);
+		DataBase dataBase = new DataBase();
+		dataBase.updateData(query);
+		dataBase.updateData(query1);
+	
+	}
 }

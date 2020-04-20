@@ -9,6 +9,9 @@ public class AppstringsConstant {
 	public final static String URL="https://uat.websso.saint-gobain.com"
 			+ "/cas/login?service=https%3A%2F%2Ftelevente.mutlp.test.pointp.saint-gobain.net%2Flogin";
 	
+	public final static String Ranking_URL="https://televente.mutlp.test.pointp.saint-gobain.net/showTelevente"
+			+ "/eyJpdiI6ImFTSVlUWEs5dnhCRHA0MG1qWjJGRWc9PSIsInZhbHVlIjoiNjQ5cGlhaDlHYk9hZ0Nvd2pPdXVVUT09IiwibWFjIjoiNTk4ZDdmZDdjMzBiNTg2N2Y1ODc5OTgzNjc1MDk5MWFkYzQ2OGJkNDYwYzAyMjY0N2ZkMjNhOTdkYzBhOTFmMiJ9";
+	
 	// select Browser
 	public final static String select_Browser="chrome";
 	

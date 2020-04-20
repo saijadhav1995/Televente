@@ -447,42 +447,54 @@ public class VerifyHome extends BasePage {
 				
 				
 			}
+			
+			} catch (Exception eyeIcon) {
+			
+			logger.log(LogStatus.FAIL,"Ranking icon is missing"
+	 				+logger.addScreenCapture(captureScreenShot(driver,"Ranking icon is missing")));	
+			}
+		
+		try {
+			
+		
+		
 			if(homePage.euroIcon.isDisplayed()) {
 				
 				logger.log(LogStatus.PASS,"Billing icon is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"Billing icon is visible on HomePage")));		
-		
-			
 				
 				
 			}
+		} catch (Exception euroIcon) {
+			
+			logger.log(LogStatus.FAIL,"euro Icon  is missing"
+	 				+logger.addScreenCapture(captureScreenShot(driver,"euro icon is missing")));	
+			}
+		
+		try {
+			
 			
 			if(homePage.settingIcon.isDisplayed()) {
 				
 				logger.log(LogStatus.PASS,"Setting icon is visible on HomePage"
-		 				+logger.addScreenCapture(captureScreenShot(driver,"Setting icon is visible on HomePage")));		
-		
-			
-				
+		 				+logger.addScreenCapture(captureScreenShot(driver,"Setting icon is visible on HomePage")));	
 				
 			}
+} catch (Exception settingIcon) {
 			
-		} catch (Exception icons) {
+			logger.log(LogStatus.FAIL,"setting Icon  is missing"
+	 				+logger.addScreenCapture(captureScreenShot(driver,"setting icon is missing")));	
+			}
 			
-			logger.log(LogStatus.INFO,"Televente doesnt available on homePage hence icons are missing"
-	 				+logger.addScreenCapture(captureScreenShot(driver,"Televente doesnt available on homePage hence icons are missing")));		
-	
-	
-		
-		}
-		
+			
+			
 		try {
 			
 			if(homePage.DeleteIcon.isDisplayed()) {
 				
 				
 				logger.log(LogStatus.PASS,"delete icon is visible on HomePage"
-		 				+logger.addScreenCapture(captureScreenShot(driver,"delete icon is visible on HomePage")));		
+		 				+logger.addScreenCapture(captureScreenShot(driver,"delete icon is visible on HomePage")));	
 		
 				
 				
@@ -491,7 +503,7 @@ public class VerifyHome extends BasePage {
 			
 		} catch (Exception deleteicon) {
 		
-			logger.log(LogStatus.INFO,"delete icon is disabled as televente is not avaialable or televente in past or inprogress"
+			logger.log(LogStatus.FAIL,"delete icon is disabled as televente is not avaialable or televente in past or inprogress"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"delete icon is disabled as televente is not avaialable or televente in past or inprogress")));		
 	
 			

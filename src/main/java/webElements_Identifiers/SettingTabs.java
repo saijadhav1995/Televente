@@ -8,13 +8,13 @@ import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 
-import Utility.SettingTabsData;
+import Utility.RankingRelatedQueries;
 import webBase.BasePage;
 import webBase.Controller;
 
 public class SettingTabs extends BasePage {
 	
-	SettingTabsData settingtabsData=new SettingTabsData();
+	RankingRelatedQueries settingtabsData=new RankingRelatedQueries();
 	public static WebDriver Basepagedriver=null;
 
 	public   SettingTabs(WebDriver dr) {

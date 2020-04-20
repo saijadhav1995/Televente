@@ -9,17 +9,20 @@ import pages.VerifyUsersMenu;
 import webBase.BaseTest;
 
 
-public class UsersMenuFunctionlality extends BaseTest {
+public  class UsersMenuFunctionlality extends BaseTest {
 
 
 	AppstringsConstant appConst =new AppstringsConstant(); 
 	VerifyUsersMenu users=new VerifyUsersMenu();	
 	@Test(priority=0)
 	
-	public void verifyAdminUser() throws Throwable {
-		
-	users.usersMenu("Verify Users Menu Functionality");
+	public  void verifyAdminUser() throws Throwable {
 	
+	users.getUSerDetails();
+	users.deleteuserDetails();
+	
+	users.usersMenu("Verify Users Menu Functionality");
+		
 	}
 	
 }
