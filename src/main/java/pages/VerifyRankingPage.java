@@ -5,12 +5,15 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
+import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
+import org.testng.annotations.IFactoryAnnotation;
 import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.ExtentTest;
@@ -30,7 +33,7 @@ public class VerifyRankingPage extends BasePage{
 	public ExtentTest extentest;
 	public SoftAssert SAssert = new SoftAssert();
 	public PageFactory pf=new PageFactory();
-	
+	public  DataBase dataBase = new DataBase();
 
 	BaseTest baseT = new BaseTest();
 	String className = "";
@@ -126,7 +129,7 @@ System.out.println(odi_status_dt);
 		
 	
 		
-		DataBase dataBase = new DataBase();
+		
 		String query = ranking_related_queries.Ranking_Total_GlobalSythesisTabQuery;
 		
 		ResultSet data = dataBase.getData(query);
@@ -156,7 +159,7 @@ System.out.println(odi_status_dt);
 			}
 			
 			
-			if (day_result_objective.equalsIgnoreCase(data.getString(3))) {
+			if (total_result_objective_txt.equalsIgnoreCase(data.getString(3))) {
 				
 				System.out.println("total objective is matched");
 			}else {
@@ -226,26 +229,475 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		}	
 	
 		
+		
+	
+		
+	}	
+	
+	
+	public void verifyRankingByAgency() throws Throwable {
+		
+		
 		//agency ranking
 		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("2");
 		
-		List<WebElement> agencydata= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td"));
+		ResultSet data2 = dataBase.getData(ranking_related_queries.agency_Ranking_Query);
+	
+		//sql loop
 		
-		for(WebElement test:agencydata ) {
+		
+		
+		
+		  int attempts = 0;
+		    while(attempts < 2) {
+		        try {
+		           
+		        	
+		    	int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size();
+		    		
+		        	
+		    System.out.println(count+"count");
+		        	
+		    	
+		        	Thread.sleep(2000);
+		        		
+		               List<WebElement> agencynames= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]"));	
+		        	
+		               List<WebElement> results= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[3]"));	
+				        
+		               
+		               while(data2.next()){
+		               
+		               for(WebElement getAgency:agencynames ) {
+		            					    		
+		            	   for(WebElement getResults:results ) {
+		            		   
+		            	  
+				        		
+			    			String agencytext=getAgency.getText();
+			    			
+			    			String resultstext=getResults.getText().replace(",", ".");
+			    			
+			    			String newresultstext=resultstext.replaceAll("[^0-9.]", "");
+				    		
+			    			
+			    		
+			    			
+			    			 if (agencytext.equalsIgnoreCase(data2.getString(1)) && newresultstext.equalsIgnoreCase(data2.getString(2)) ) {
+			    				 System.out.println(data2.getString(1)+"| "+data2.getString(2));		 							    		
+			    				 System.out.println(agencytext +"|"+newresultstext);
+			    				 System.out.println("Pass");
+			    				 break;
+			    			 	}
+		            	   
+		            	   }   	
+		            	   
+		            	   
+		               }      
+		        	
+		            }
+		        		} catch(StaleElementReferenceException e) {
+		        		
+		        		
+		        }
+		        attempts++;
+		        
+		    }
 			
-		String test1=	test.getText();
+	}
+	
+	
+    public void verifyAarticleRanking() throws Throwable {
+		
+		
+		//agency ranking
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("9");
+		
+		ResultSet data3 = dataBase.getData(ranking_related_queries.Article_Ranking_Query);
+					
+	//sql loop
+		
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size()+1;
+		
+    	
+    	System.out.println(count+"count");
+    		Thread.sleep(3000);
+    	
+    			int counter=1;
+ 
+    	
+    			while(count>counter) {
+    				
+    				while(data3.next()){  
+
+    						
+
+    							JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+
+		    	
+	WebElement  Articlenames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	 
+	WebElement  ArticleType= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+	   
+	
+    WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));	
+   
+    String castArticlenames = (String) js.executeScript("return arguments[0].innerText;",Articlenames);
+
+    String castArticleType = (String) js.executeScript("return arguments[0].innerText;",ArticleType);
+    
+    String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+    
+    
+    
+
+    String[] arrayArticle= castArticlenames.split(" - ");
+
+    String articleCode= arrayArticle[0];
+
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+
+System.out.println(articleCode+" "+getresutls+"test");
+
+
+	
+		System.out.println(data3.getString(2)+"|"+data3.getString(3)+"|"+data3.getString(5)+" DB");
+
+	if (articleCode.equalsIgnoreCase(data3.getString(2)) 
+			&& castArticleType.equalsIgnoreCase(data3.getString(4))
+			&& getresutls.equalsIgnoreCase(data3.getString(5)) ) {
+
+		System.out.println(articleCode+"|"+data3.getString(2)+"|"+data3.getString(4)+"|"+castArticleType
+				+"|"+ getresutls+"|"+data3.getString(5)+"sellers data matched");
+		
 			
-			System.out.println(test1);
-			
-		}
+		
+	}else {
+		
+		System.out.println(articleCode+"|"+data3.getString(2)+"|"+data3.getString(4)
+		+"|"+castArticleType+"|"+ getresutls+"|"+data3.getString(5)
+		+"Row has Same total amount");
+	
+	}
+	
+	break;	
+
+
+
+    		}   
+ 
+    				counter=counter+1;    
+    				 
+    				System.out.println(counter);
+            
+    	}
+	      	
+	   	
+}
+	   
+	   
+    		      
+	        	
+
 	
 		
+    public void verifyRankingBySellers() throws Throwable {
 		
-		//ranking.btn_filters_reset.click();
-		//ranking.btn_excel_export.click();
 		
-	}	
+		//ranking By sellers 
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("1");
+		
+		ResultSet data4 = dataBase.getData(ranking_related_queries.RankingBySellers_Query);
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size()+1;
+		
+    	
+    	System.out.println(count+"count");
+    Thread.sleep(3000);
+    	
+    	int counter=1;
+ 
+    	
+	 	while(count>counter) {
+	
+	 	 	
+	 		 while(data4.next()){  	
+	 		   
+	 		
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+   // Thread.sleep(2000);
+	   
+	
+	WebElement  SellersNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	
+    WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+   
+    String castSellersNames = (String) js.executeScript("return arguments[0].innerText;",SellersNames);
+
+    String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+    
+    
+    System.out.println(castSellersNames+ castresults +"print");
+
+    
+    String[] arrayArticle= castSellersNames.split(" - ");
+    
+     
+    String SellersCode= arrayArticle[0];
+   
+    String resultstext=castresults.replace(",", ".");
+    String getresutls=resultstext.replaceAll("[^0-9.]", "");
+    
+    
+    if (SellersCode.equalsIgnoreCase(data4.getString(1)) && getresutls.equalsIgnoreCase(data4.getString(3)) ) {
+		
+
+    	 System.out.println(data4.getString(1)+"|"+data4.getString(2)+"|"+data4.getString(3)+" DB");     	
+    	System.out.println(SellersCode +"|"+ getresutls+"sellers data matched");
+		 
+	 	}
+   
+    break;
+    
+    	}	
+	 		 counter=counter+1;    
+	 	    System.out.println(counter+"counter");
+	 	   
+		
+  }	
+ }	
+	
+
+    public void verifyRankingBySellersWithCustomers() throws Throwable {
+		
+		
+		//ranking By sellers 
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("6");
+		
+		ResultSet data5 = dataBase.getData(ranking_related_queries.RankingBySellersAndNoOFCutomers_Query);
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size()+1;
+		
+    	
+    	System.out.println(count+"count");
+    Thread.sleep(3000);
+    	
+    	int counter=1;
+ 
+    	
+ while(data5.next()){  	
+    	
+
+while(count>counter) {
+	
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+   // Thread.sleep(2000);
+	
+	WebElement  SellersNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	
+	WebElement  total_customers= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+	  	
+    WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));	
+   
+    String castSellersNames = (String) js.executeScript("return arguments[0].innerText;",SellersNames);
+
+    String CastTotalcustomers = (String) js.executeScript("return arguments[0].innerText;",total_customers);
+    
+    String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+    
+    
+    
+    
+    System.out.println(castSellersNames+ CastTotalcustomers+castresults +"print");
+
+    
+    String[] arrayArticle= castSellersNames.split(" - ");
+    
+      
+    String SellersCode= arrayArticle[0];
+   
+    String resultstext=castresults.replace(",", ".");
+    String getresutls=resultstext.replaceAll("[^0-9.]", "");
+    
+    
+    if (SellersCode.equalsIgnoreCase(data5.getString(1)) && CastTotalcustomers.equalsIgnoreCase(data5.getString(4))
+    		&& getresutls.equalsIgnoreCase(data5.getString(3)) ) {
+
+    	 System.out.println(data5.getString(1)+"|"+data5.getString(2)+"|"+data5.getString(3)+"|"+data5.getString(4)+" DB");     	
+    	System.out.println(SellersCode +"|" +CastTotalcustomers+"|"+ getresutls+"sellers data matched");
+		 break;
+	 }
+   
+    
+    counter=counter+1;    
+    System.out.println(counter+"counter");
+   
+    	}	
+		
+  }	
+ }	
+    
+ public void verifyRankingBySellersWithDistinctOrders() throws Throwable {
+		
+		
+		//ranking By sellers 
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("5");
+		
+		ResultSet data6 = dataBase.getData(ranking_related_queries.RankingBySellersAndDistinctOrders_Query);
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size()+1;
+		
+    	
+    	System.out.println(count+"count");
+    Thread.sleep(3000);
+    	
+    	int counter=1;
+ 
+    	
+ while(data6.next()){  	
+    	
+ 
+while(count>counter) {
+	
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+   // Thread.sleep(2000);
+    	
+	WebElement  SellersNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	
+	WebElement  total_orders= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+	  	
+    WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));	
+   
+    String castSellersNames = (String) js.executeScript("return arguments[0].innerText;",SellersNames);
+
+    String CastTotalOrders = (String) js.executeScript("return arguments[0].innerText;",total_orders);
+    
+    String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+    
+    
+    
+    
+    System.out.println(castSellersNames+ CastTotalOrders+castresults +"print");
+
+    
+    String[] arrayArticle= castSellersNames.split(" - ");
+      
+    String SellersCode= arrayArticle[0];
+   
+    String resultstext=castresults.replace(",", ".");
+    String getresutls=resultstext.replaceAll("[^0-9.]", "");
+    
+    
+    if (SellersCode.equalsIgnoreCase(data6.getString(1)) && CastTotalOrders.equalsIgnoreCase(data6.getString(4))
+    		&& getresutls.equalsIgnoreCase(data6.getString(3)) ) {
+		
+    	System.out.println(data6.getString(1)+"|"+data6.getString(2)+"|"+data6.getString(3)+"|"+data6.getString(4)+" DB");     	
+    	System.out.println(SellersCode +"|" +CastTotalOrders+"|"+ getresutls+"sellers data matched ");
+    	
+		 break;
+	 }
+   
+    
+    counter=counter+1;    
+    System.out.println(counter+"counter");
+   
+    	}	
+		
+  }	
+ }	
+    
+    
+    
+ public void verifyRankingBySellersRegionalArticles() throws Throwable {
+		
+		
+		//ranking By sellers with Regional Articles
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("13");
+		
+		ResultSet data6 = dataBase.getData(ranking_related_queries.RankingBySellers_RegionalArticles_Query);
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size()+1;
+		
+ 	
+ System.out.println(count+"count");
+ Thread.sleep(3000);
+ 	
+ 	int counter=1;
+
+ 	
+while(data6.next()){  	
+ 	
+     	
+while(count>counter) {
+	
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+   // Thread.sleep(2000);
+	    	
+	WebElement  ArticleNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	
+ WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+ String castSellersNames = (String) js.executeScript("return arguments[0].innerText;",ArticleNames);
+ 
+ String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+ 
+ 
+ 
+ 
+ System.out.println(castSellersNames+castresults +"print");
+
+ 
+ String[] arrayArticle= castSellersNames.split(" - ");
+ 
+ 	   
+ String SellersCode= arrayArticle[0];
+
+ String resultstext=castresults.replace(",", ".");
+ String getresutls=resultstext.replaceAll("[^0-9.]", "");
+ 
+ 
+ if (SellersCode.equalsIgnoreCase(data6.getString(1))&& getresutls.equalsIgnoreCase(data6.getString(3)) ) {
+		
+	 System.out.println(data6.getString(1)+"|"+data6.getString(2)+"|"+data6.getString(3)+"|"+" DB");
+	 System.out.println(SellersCode +"|"+ getresutls+"sellers data matched ");
+ 	
+		 break;
+	 }
+
+ 
+ counter=counter+1;    
+ System.out.println(counter+"counter");
+
+ 	}	
+		
+}	
+}	
+    
+    
+    
 }	

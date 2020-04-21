@@ -12,7 +12,7 @@ import webBase.DataBase;
 public class TestDbConnection extends DataBase {
 
 	
-	
+	@Test
 	public void selectDBdata(String query) throws ClassNotFoundException, SQLException{
 		
 		DataBase dataBase = new DataBase();
@@ -31,12 +31,12 @@ public class TestDbConnection extends DataBase {
 		*/
 	}
 	
-	@Test
-	public void insertDBdata() throws ClassNotFoundException, SQLException{
+	
+	/*public void insertDBdata() throws ClassNotFoundException, SQLException{
 		String query = "insert into usr values('56','1','QA','jadhav123','sai@gmail.com','Y','A1233456','2020-04-07 06:33:22')";
 		DataBase dataBase = new DataBase();
 		dataBase.insertData(query);	
-	}
+	}*/
 	
 	/*@Test
 	public void updateDBdata() throws ClassNotFoundException, SQLException{

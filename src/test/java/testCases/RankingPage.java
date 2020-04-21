@@ -13,6 +13,12 @@ public class RankingPage extends BaseTest{
 	public void RankingFunctionality() throws Throwable {
 		
 		ranking.rankingPage("Verify Ranking Functionality");
+	//	ranking.verifyRankingByAgency();
+		ranking.verifyAarticleRanking();
+		//ranking.verifyRankingBySellers();
+		//ranking.verifyRankingBySellersWithCustomers();
+		//ranking.verifyRankingBySellersWithDistinctOrders();
+		//ranking.verifyRankingBySellersRegionalArticles();
 		
 	}
 	

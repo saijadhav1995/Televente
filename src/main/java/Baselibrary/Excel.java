@@ -27,6 +27,7 @@ System.out.println(abc);
 			
 			counter=counter+1;
 			System.out.println(counter);
+		
 		}
 	
 
