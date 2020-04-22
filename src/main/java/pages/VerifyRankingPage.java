@@ -234,11 +234,12 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		
 	}	
 	
-	
+
+	//agency ranking
+
 	public void verifyRankingByAgency() throws Throwable {
 		
-		
-		//agency ranking
+		System.out.println("Ranking By agency");
 		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
@@ -313,8 +314,8 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
     public void verifyAarticleRanking() throws Throwable {
 		
 		
-		//agency ranking
-		ranking.tlvt_ranking.click();
+    	System.out.println("Ranking By Article");	
+    	ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("9");
@@ -407,13 +408,13 @@ System.out.println(articleCode+" "+getresutls+"test");
 	   
     		      
 	        	
+	//ranking By sellers 
 
 	
 		
     public void verifyRankingBySellers() throws Throwable {
 		
-		
-		//ranking By sellers 
+    	System.out.println("Ranking By Sellers");
 		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
@@ -479,12 +480,13 @@ System.out.println(articleCode+" "+getresutls+"test");
 		
   }	
  }	
-	
+  //ranking By sellers with customer
 
     public void verifyRankingBySellersWithCustomers() throws Throwable {
 		
 		
-		//ranking By sellers 
+    	System.out.println("ranking By sellers with customers");
+		 
 		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
@@ -499,13 +501,10 @@ System.out.println(articleCode+" "+getresutls+"test");
     Thread.sleep(3000);
     	
     	int counter=1;
- 
-    	
- while(data5.next()){  	
-    	
 
 while(count>counter) {
-	
+
+	while(data5.next()){ 
 	JavascriptExecutor js=(JavascriptExecutor)driver;
 	
    // Thread.sleep(2000);
@@ -542,22 +541,25 @@ while(count>counter) {
 
     	 System.out.println(data5.getString(1)+"|"+data5.getString(2)+"|"+data5.getString(3)+"|"+data5.getString(4)+" DB");     	
     	System.out.println(SellersCode +"|" +CastTotalcustomers+"|"+ getresutls+"sellers data matched");
-		 break;
+		 
 	 }
    
-    
-    counter=counter+1;    
-    System.out.println(counter+"counter");
-   
+    break;
+     
     	}	
-		
+	
+	counter=counter+1;    
+    System.out.println(counter+"counter");
+  
   }	
  }	
     
+  //ranking By sellers with distinct orders
+    
  public void verifyRankingBySellersWithDistinctOrders() throws Throwable {
 		
+ 	System.out.println("ranking By sellers with distinct orders");		
 		
-		//ranking By sellers 
 		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
@@ -573,12 +575,11 @@ while(count>counter) {
     	
     	int counter=1;
  
-    	
- while(data6.next()){  	
-    	
  
 while(count>counter) {
-	
+
+	 while(data6.next()){  	
+
 	JavascriptExecutor js=(JavascriptExecutor)driver;
 	
    // Thread.sleep(2000);
@@ -615,24 +616,26 @@ while(count>counter) {
     	System.out.println(data6.getString(1)+"|"+data6.getString(2)+"|"+data6.getString(3)+"|"+data6.getString(4)+" DB");     	
     	System.out.println(SellersCode +"|" +CastTotalOrders+"|"+ getresutls+"sellers data matched ");
     	
-		 break;
+
 	 }
    
+	 break;   
     
-    counter=counter+1;    
-    System.out.println(counter+"counter");
-   
     	}	
-		
+	 counter=counter+1;    
+	    System.out.println(counter+"counter");
+	   	
   }	
  }	
     
     
-    
+    //ranking By sellers with Regional Articles
+ 
  public void verifyRankingBySellersRegionalArticles() throws Throwable {
 		
-		
-		//ranking By sellers with Regional Articles
+
+	 System.out.println("ranking By sellers with Regional Articles");		
+
 		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
@@ -649,11 +652,12 @@ while(count>counter) {
  	int counter=1;
 
  	
-while(data6.next()){  	
  	
      	
 while(count>counter) {
-	
+
+	while(data6.next()){  	
+
 	JavascriptExecutor js=(JavascriptExecutor)driver;
 	
    // Thread.sleep(2000);
@@ -686,18 +690,644 @@ while(count>counter) {
 	 System.out.println(data6.getString(1)+"|"+data6.getString(2)+"|"+data6.getString(3)+"|"+" DB");
 	 System.out.println(SellersCode +"|"+ getresutls+"sellers data matched ");
  	
-		 break;
 	 }
 
+ break;
  
- counter=counter+1;    
- System.out.println(counter+"counter");
 
  	}	
+	 counter=counter+1;    
+	 System.out.println(counter+"counter");
 		
+	}	
 }	
+  
+ 
+	//ranking By Sellers MBI
+ 
+ public void verifyRankingBySellersMBI() throws Throwable {
+		
+		
+	 System.out.println("//ranking By Sellers MBI");		
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("12");
+		
+		ResultSet data7 = dataBase.getData(ranking_related_queries.RankingBySellersMBI_Query);
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+		
+	
+System.out.println(count+"count");
+Thread.sleep(3000);
+	
+	int counter=1;
+
+	
+	
+  	
+while(count>counter) {
+
+	while(data7.next()){  	
+
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+// Thread.sleep(2000);
+	    	
+	WebElement  ManagersName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	
+WebElement  NumberOfOrders= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+WebElement  MontantMBI= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));	
+
+WebElement  PercentageMBI= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[5]"));
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[6]"));	
+
+String castManagersName = (String) js.executeScript("return arguments[0].innerText;",ManagersName);
+
+String castNumberOfOrders = (String) js.executeScript("return arguments[0].innerText;",NumberOfOrders);
+
+String castMontantMBI = (String) js.executeScript("return arguments[0].innerText;",MontantMBI);
+
+String castPercentageMBI = (String) js.executeScript("return arguments[0].innerText;",PercentageMBI);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+
+
+String[] arrayManagers= castManagersName.split(" - ");
+
+
+//manager code
+String SellersCode= arrayManagers[0];
+//total amount
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+//montant mbi
+String castMontantMBIText=castMontantMBI.replace(",", ".");
+String getcastMontantMBIText=castMontantMBIText.replaceAll("[^0-9.]", "");
+//mbi percentage
+String castPercentageMBIText=castPercentageMBI.replace(",", ".");
+String getcastPercentageMBIText=castPercentageMBIText.replaceAll("[^0-9.]", "");
+
+System.out.println(castManagersName+" "+castNumberOfOrders+" "+getcastMontantMBIText+" "+getcastPercentageMBIText+" "+getresutls +"print");
+
+
+if (SellersCode.equalsIgnoreCase(data7.getString(1))
+		&& getresutls.equalsIgnoreCase(data7.getString(3)) 
+		&& castNumberOfOrders.equalsIgnoreCase(data7.getString(4))
+		&& getcastMontantMBIText.equalsIgnoreCase(data7.getString(5))
+		&&	getcastPercentageMBIText.equalsIgnoreCase(data7.getString(6))	
+	) {
+		
+	
+	 System.out.println(data7.getString(1)+"|"+data7.getString(2)
+	 +"|"+data7.getString(3)+"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+" DB");
+	
+	 System.out.println(SellersCode+"|"+data7.getString(1)+"|"+castNumberOfOrders+"|"+
+	 data7.getString(4)+"|"+getcastMontantMBIText+"|"+data7.getString(5)+"|"+getcastPercentageMBIText
+	 +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(3)+"sellers data matched");
+	
+	 }
+
+break;
+
+
+	}	
+	 counter=counter+1;    
+	 System.out.println(counter+"counter");
+		
+	}	
 }	
-    
-    
+ 
+ 
+ 
+//ranking By CDV manager
+ 
+public void verifyRankingByCDV() throws Throwable {
+		
+	System.out.println("//ranking By CDV manager");	
+	
+		ranking.tlvt_ranking.click();
+		
+		Select select1=new Select(ranking.tlvt_ranking);
+		select1.selectByValue("14");
+		
+		ResultSet data7 = dataBase.getData(ranking_related_queries.rankingByManager_Query);
+		
+		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+		
+	
+System.out.println(count+"count");
+Thread.sleep(3000);
+	
+	int counter=1;
+
+	
+	
+ 	
+while(count>counter) {
+
+	while(data7.next()){  	
+
+	JavascriptExecutor js=(JavascriptExecutor)driver;
+	
+//Thread.sleep(2000);
+	    	
+	WebElement  ManagersName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+	
+WebElement  NumberOfOrders= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+WebElement  ObjectiveF= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));	
+
+WebElement  Tax= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[5]"));
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[6]"));	
+
+String castManagersName = (String) js.executeScript("return arguments[0].innerText;",ManagersName);
+
+String castNumberOfOrders = (String) js.executeScript("return arguments[0].innerText;",NumberOfOrders);
+
+String castObjectiveF = (String) js.executeScript("return arguments[0].innerText;",ObjectiveF);
+
+String castTax = (String) js.executeScript("return arguments[0].innerText;",Tax);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+
+
+String[] arrayManagers= castManagersName.split(" - ");
+
+
+//manager code
+String SellersCode= arrayManagers[0];
+//total amount
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+//montant mbi
+String castObjectiveFText=castObjectiveF.replace(",", ".");
+String getcastObjectiveFText=castObjectiveFText.replaceAll("[^0-9.]", "");
+//mbi percentage
+String castTaxText=castTax.replace(",", ".");
+String getcastTaxText=castTaxText.replaceAll("[^0-9.]", "");
+
+System.out.println(castManagersName+" "+castNumberOfOrders+" "+getcastObjectiveFText+" "+getcastTaxText+" "+getresutls +"print");
+
+
+if (SellersCode.equalsIgnoreCase(data7.getString(1))
+		&& getresutls.equalsIgnoreCase(data7.getString(3)) 
+		&& castNumberOfOrders.equalsIgnoreCase(data7.getString(4))
+		&& getcastObjectiveFText.equalsIgnoreCase(data7.getString(5))
+		&&	getcastTaxText.equalsIgnoreCase(data7.getString(6))	
+	) {
+		
+	
+	 System.out.println(data7.getString(1)+"|"+data7.getString(2)
+	 +"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
+	
+	 System.out.println(SellersCode+"|"+data7.getString(1)+"|"+castNumberOfOrders+"|"+
+	 "|"+data7.getString(4)+getcastObjectiveFText+"|"+data7.getString(5)+"|"+getcastTaxText
+	 +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(3)+"sellers data matched");
+	
+	 }
+
+break;
+
+
+	}	
+	 counter=counter+1;    
+	 System.out.println(counter+"counter");
+		
+	}	
+}	
+
+//ranking By supplier Appro
+
+public void verifyRankingBySupplierAppro() throws Throwable {
+	
+	
+	System.out.println("ranking By supplier Appro");
+	ranking.tlvt_ranking.click();
+	
+	Select select1=new Select(ranking.tlvt_ranking);
+	select1.selectByValue("7");
+	
+	ResultSet data6 = dataBase.getData(ranking_related_queries.RankingBySupplierAppro_Query);
+	
+	int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+	
+	
+System.out.println(count+"count");
+Thread.sleep(3000);
+	
+	int counter=1;
+
+	
+	
+ 	
+while(count>counter) {
+
+while(data6.next()){  	
+
+JavascriptExecutor js=(JavascriptExecutor)driver;
+
+// Thread.sleep(2000);
+    	
+WebElement  SupplierNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+String castSupplierNames = (String) js.executeScript("return arguments[0].innerText;",SupplierNames);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+System.out.println(castSupplierNames+castresults +"print");
+
+
+String[] arraySupplierCode= castSupplierNames.split(" - ");
+
+	   
+String SellersCode= arraySupplierCode[0];
+
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+
+
+if (SellersCode.equalsIgnoreCase(data6.getString(1))&& getresutls.equalsIgnoreCase(data6.getString(3)) ) {
+	
+ System.out.println(data6.getString(1)+"|"+data6.getString(2)+"|"+data6.getString(3)+"|"+" DB");
+ System.out.println(SellersCode +"|"+ getresutls+"sellers data matched ");
+	
+ }
+
+break;
+
+
+	}	
+ counter=counter+1;    
+ System.out.println(counter+"counter");
+	
+	}	
+}	
+
+//ranking By Supplier producers
+
+public void verifyRankingBySupplierProducer() throws Throwable {
+	
+	System.out.println("//ranking By Supplier producers");
+
+	ranking.tlvt_ranking.click();
+	
+	Select select1=new Select(ranking.tlvt_ranking);
+	select1.selectByValue("8");
+	
+	ResultSet data6 = dataBase.getData(ranking_related_queries.RankingBySupplierProducer_Query);
+	
+	int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+	
+	
+System.out.println(count+"count");
+Thread.sleep(3000);
+	
+	int counter=1;
+
+	
+	
+ 	
+while(count>counter) {
+
+while(data6.next()){  	
+
+JavascriptExecutor js=(JavascriptExecutor)driver;
+
+// Thread.sleep(2000);
+    	
+WebElement  SupplierNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+String castSupplierNames = (String) js.executeScript("return arguments[0].innerText;",SupplierNames);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+System.out.println(castSupplierNames+castresults +"print");
+
+
+String[] arraySupplierCode= castSupplierNames.split(" - ");
+
+	   
+String SellersCode= arraySupplierCode[0];
+
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+
+
+if (SellersCode.equalsIgnoreCase(data6.getString(2))&& getresutls.equalsIgnoreCase(data6.getString(3)) ) {
+	
+ System.out.println(data6.getString(2)+"|"+data6.getString(3)+"|"+data6.getString(4)+"|"+" DB");
+ System.out.println(SellersCode +"|"+ getresutls+"sellers data matched ");
+	
+ }
+
+break;
+
+
+	}	
+ counter=counter+1;    
+ System.out.println(counter+"counter");
+	
+	}	
+}	
+
+ 
+//ranking By sectors
+
+public void verifyRankingBySector() throws Throwable {
+	
+	System.out.println("ranking By sectors");
+	
+	ranking.tlvt_ranking.click();
+	
+	Select select1=new Select(ranking.tlvt_ranking);
+	select1.selectByValue("4");
+	
+	ResultSet data7 = dataBase.getData(ranking_related_queries.RankingBySector_Query);
+	
+	int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+	
+
+System.out.println(count+"count");
+Thread.sleep(3000);
+
+int counter=1;
+
+
+
+	
+while(count>counter) {
+
+while(data7.next()){  	
+
+JavascriptExecutor js=(JavascriptExecutor)driver;
+
+//Thread.sleep(2000);
+    	
+WebElement  SectorName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+
+
+WebElement  ObjectiveF= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+WebElement  Tax= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[5]"));	
+
+String castSectorName = (String) js.executeScript("return arguments[0].innerText;",SectorName);
+
+String castObjectiveF = (String) js.executeScript("return arguments[0].innerText;",ObjectiveF);
+
+String castTax = (String) js.executeScript("return arguments[0].innerText;",Tax);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+
+
+String[] arraySector= castSectorName.split(" - ");
+
+for (String string : arraySector) {
+
+System.out.println(string);
+	
+}
+
+
+//manager code
+String SellersCode= arraySector[0];
+//total amount
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+//montant mbi
+String castObjectiveFText=castObjectiveF.replace(",", ".");
+String getcastObjectiveFText=castObjectiveFText.replaceAll("[^0-9.]", "");
+//mbi percentage
+String castTaxText=castTax.replace(",", ".");
+String getcastTaxText=castTaxText.replaceAll("[^0-9.]", "");
+
+System.out.println(castSectorName+" "+getcastObjectiveFText+" "+getcastTaxText+" "+getresutls +"print");
+
+
+if (SellersCode.equalsIgnoreCase(data7.getString(2))
+	&& getresutls.equalsIgnoreCase(data7.getString(4)) 
+	&& getcastObjectiveFText.equalsIgnoreCase(data7.getString(5))
+	&&	getcastTaxText.equalsIgnoreCase(data7.getString(6))	
+) {
+	
+
+ System.out.println(data7.getString(1)+"|"+data7.getString(2)
+ +"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
+
+ System.out.println(SellersCode+"|"+data7.getString(2)+"|"+getcastObjectiveFText
++"|"+data7.getString(5)+"|"+getcastTaxText
+ +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(4)+"sellers data matched");
+
+ }
+
+break;
+
+
+}	
+ counter=counter+1;    
+ System.out.println(counter+"counter");
+	
+	}	
+}	
+
+
+//Ranking By Site
+public void verifyRankingBySite() throws Throwable {
+	
+
+	System.out.println("ranking By site");
+
+	ranking.tlvt_ranking.click();
+	
+	Select select1=new Select(ranking.tlvt_ranking);
+	select1.selectByValue("3");
+	
+	ResultSet data7 = dataBase.getData(ranking_related_queries.RankingBySite_Query);
+	
+	int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+	
+
+System.out.println(count+"count");
+Thread.sleep(3000);
+
+int counter=1;
+
+
+
+	
+while(count>counter) {
+
+while(data7.next()){  	
+
+JavascriptExecutor js=(JavascriptExecutor)driver;
+
+//Thread.sleep(2000);
+    	
+WebElement  SiteName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+
+
+WebElement  ObjectiveF= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+WebElement  Tax= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[4]"));
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[5]"));	
+
+String castSiteName = (String) js.executeScript("return arguments[0].innerText;",SiteName);
+
+String castObjectiveF = (String) js.executeScript("return arguments[0].innerText;",ObjectiveF);
+
+String castTax = (String) js.executeScript("return arguments[0].innerText;",Tax);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+
+
+String[] arraySite= castSiteName.split(" - ");
+
+
+//manager code
+String SellersCode= arraySite[0];
+//total amount
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+//montant mbi
+String castObjectiveFText=castObjectiveF.replace(",", ".");
+String getcastObjectiveFText=castObjectiveFText.replaceAll("[^0-9.]", "");
+//mbi percentage
+String castTaxText=castTax.replace(",", ".");
+String getcastTaxText=castTaxText.replaceAll("[^0-9.]", "");
+
+System.out.println(SellersCode+" "+getcastObjectiveFText+" "+getcastTaxText+" "+getresutls +"print");
+
+
+if (SellersCode.equalsIgnoreCase(data7.getString(2))
+	&& getresutls.equalsIgnoreCase(data7.getString(4)) 
+	&& getcastObjectiveFText.equalsIgnoreCase(data7.getString(5))
+	&&	getcastTaxText.equalsIgnoreCase(data7.getString(6))	
+) {
+	
+
+ System.out.println(data7.getString(1)+"|"+data7.getString(2)
+ +"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
+
+ System.out.println(SellersCode+"|"+data7.getString(2)+"|"+getcastObjectiveFText
++"|"+data7.getString(5)+"|"+getcastTaxText
+ +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(4)+"sellers data matched");
+
+ }
+
+break;
+
+
+}	
+ counter=counter+1;    
+ System.out.println(counter+"counter");
+	
+	}	
+}	
+
+
+
+//ranking By Speciality
+
+public void verifyRankingBySpeciality() throws Throwable {
+	
+	System.out.println("ranking By speciality");
+
+	
+	ranking.tlvt_ranking.click();
+	
+	Select select1=new Select(ranking.tlvt_ranking);
+	select1.selectByValue("10");
+	
+	ResultSet data6 = dataBase.getData(ranking_related_queries.RankingBySpeciality_Query);
+	
+	int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[1]")).size()+1;
+	
+	
+System.out.println(count+"count");
+Thread.sleep(3000);
+	
+	int counter=1;
+
+	
+	
+	
+while(count>counter) {
+
+while(data6.next()){  	
+
+JavascriptExecutor js=(JavascriptExecutor)driver;
+
+//Thread.sleep(2000);
+  	
+WebElement  SpecialityNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
+
+WebElement  results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
+
+String castSpecialityNames = (String) js.executeScript("return arguments[0].innerText;",SpecialityNames);
+
+String castresults = (String) js.executeScript("return arguments[0].innerText;",results);
+
+
+
+
+System.out.println(castSpecialityNames+castresults +"print");
+
+
+
+String resultstext=castresults.replace(",", ".");
+String getresutls=resultstext.replaceAll("[^0-9.]", "");
+
+
+if (castSpecialityNames.equalsIgnoreCase(data6.getString(1))&& getresutls.equalsIgnoreCase(data6.getString(2)) ) {
+	
+System.out.println(data6.getString(1)+"|"+data6.getString(2)+"|"+" DB");
+System.out.println(castSpecialityNames +"|"+ getresutls+"sellers data matched ");
+	
+}
+
+break;
+
+
+	}	
+counter=counter+1;    
+System.out.println(counter+"counter");
+	
+	}	
+}	
+
+
     
 }	
