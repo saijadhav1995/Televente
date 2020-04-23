@@ -80,4 +80,9 @@ public class AppstringsConstant {
 	public static final String EXCELFILEPATH = "/Users/admin/WEB/TEST/";
 	public static final String EXCELFILENAME= "Test_Data.xlsx";
 	public static final String EXCELLOGINSHEET= "Login";
+	
+	
+	
+	
+	
 }

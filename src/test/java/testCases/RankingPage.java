@@ -19,6 +19,7 @@ public class RankingPage extends BaseTest{
 		ranking.verifyRankingBySellersWithCustomers();
 		ranking.verifyRankingBySellersWithDistinctOrders();
 		ranking.verifyRankingBySellersRegionalArticles();
+		ranking.verifyRankingBySellersNationalArticles();
 		ranking.verifyRankingBySellersMBI();
 		ranking.verifyRankingByCDV();
 		ranking.verifyRankingBySupplierAppro();

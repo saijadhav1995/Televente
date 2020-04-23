@@ -58,6 +58,22 @@ public class Helper  {
 			JavascriptExecutor jse = (JavascriptExecutor)Controller.driver;
 			jse.executeScript("arguments[0].click();", Element);
 		}
+	 
+	 
+	 public void javaScriptHighlightWebElement(WebElement Element) {
+			JavascriptExecutor jse = (JavascriptExecutor)Controller.driver;
+	jse.executeScript("arguments[0].setAttribute('style', 'border: 2px solid yellow;');",Element);
+
+		 
+	 }
+	 
+	 public void javaScriptUn_HighlightWebElement(WebElement Element) {
+		 
+		 JavascriptExecutor jse = (JavascriptExecutor)Controller.driver;
+		 jse.executeScript("arguments[0].removeAttribute('style','')", Element);
+
+	 }
+	 
 	
 	public String randomUsernameGenerator() {
 

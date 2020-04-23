@@ -4,11 +4,55 @@ package Utility;
 
 public class RankingRelatedQueries {
 	
-	
+	public final static String televente_name="Pascale - TLV du 2 au 31/1 - remontée en double";
 	public final static String Sector_amount="122";
 	public final static String Site_amount="12";
 	public final static String select_sector_id="";
 	public final static String select_site_id="";
+	
+	// Ranking Column names 
+	
+		public final  static String agency="Agence";
+
+		public final  static String speciality="Spécialité";
+		
+		public final static String Classement="Classement";
+		
+		public final static String results="Résultat";
+		
+		public final static String article="Article";
+		
+		public final static String Type="Type";
+		
+		public final static String ATC="ATC";
+		
+		public final static String Nombre_clients="Nombre clients";
+		
+		public final static String Nombre_commandes="Nombre commandes";
+		
+		public final static String Montant_MBI="Montant MBI";
+		
+		public final static String percentage_MBI="% MBI";
+		
+		public final static String CDV="Chef des Ventes";
+		
+		public final static String Objectif="Objectif";
+		
+		public final static String tax="Taux";
+		
+		public final static String supplier_appro="Fournisseur d'approvisionnement";
+		
+		public final static String supplier_producer="Nom Fournisseur Producteur";
+		
+		public final static String Sector="Secteur";
+		
+		public final static String Site="Site";
+		
+		
+		
+		
+	
+	
 	
 	public final static String 
 	Ranking_Total_GlobalSythesisTabQuery="SELECT COUNT(DISTINCT odr.ORD_CD,odr.ORD_AGE_ID) AS total_orders,\r\n" + 
@@ -195,7 +239,7 @@ public class RankingRelatedQueries {
 			"GROUP BY SUPP_NAME_NR\r\n" + 
 			"ORDER BY order_by desc,`result` DESC";
 	
-	public static String RankingBySupplierProducer_Query="SELECT `supl`.`SUPL_ID`, MAX(supl.SUPL_CD)AS SUPL_CD,MAX(supl.SUPL_NAME)AS SUPL_NAME,ROUND(SUM(odr.ORD_LINE_AMNT),2) AS result,1 order_by\r\n" + 
+	public static String RankingBySupplierProducer_Query="SELECT  MAX(supl.SUPL_CD)AS SUPL_CD,MAX(supl.SUPL_NAME)AS SUPL_NAME,ROUND(SUM(odr.ORD_LINE_AMNT),2) AS result,1 order_by\r\n" + 
 			"FROM `Orders` AS `odr`\r\n" + 
 			"INNER JOIN `ARTICLE` AS `art` ON `art`.`ART_ID` = `odr`.`ORD_ART_ID`\r\n" + 
 			"INNER JOIN `SUPPLIER` AS `supl` ON `supl`.`SUPL_ID` = `art`.`art_SUPL_ID`\r\n" + 
@@ -207,7 +251,7 @@ public class RankingRelatedQueries {
 			",2801,2865,2962,2974,3012,3032,3056,3097,3102,3249,3315,3526,3626,3705,3708,3745,3802,3851,3870,3977,4016,4098,4215)\r\n" + 
 			"GROUP BY `supl`.`SUPL_ID`\r\n" + 
 			"UNION ALL\r\n" + 
-			"SELECT null `SUPL_ID`, 'Non Renseigné'AS SUPL_CD,'Non Renseigné'AS SUPL_NAME_NR,ROUND(SUM(odr.ORD_LINE_AMNT),2) AS result, 0 order_by\r\n" + 
+			"SELECT 'Non Renseigné'AS SUPL_CD,'Non Renseigné'AS SUPL_NAME_NR,ROUND(SUM(odr.ORD_LINE_AMNT),2) AS result, 0 order_by\r\n" + 
 			"FROM `Orders` AS `odr`\r\n" + 
 			"INNER JOIN `ARTICLE` AS `art` ON `art`.`ART_ID` = `odr`.`ORD_ART_ID`\r\n" + 
 			"INNER JOIN `SUPPLIER` AS `supl` ON `supl`.`SUPL_ID` = `art`.`art_SUPL_ID`\r\n" + 
