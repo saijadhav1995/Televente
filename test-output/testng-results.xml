@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" ignored="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="287100" started-at="2020-04-23T13:19:09Z" finished-at="2020-04-23T13:23:56Z">
+  <suite name="Default suite" duration-ms="43511" started-at="2020-04-24T15:49:07Z" finished-at="2020-04-24T15:49:50Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="287100" started-at="2020-04-23T13:19:09Z" finished-at="2020-04-23T13:23:56Z">
-      <class name="testCases.RankingPage">
-        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.RankingPage@3c7f66c4]" name="getReporter" is-config="true" duration-ms="169" started-at="2020-04-23T13:19:09Z" finished-at="2020-04-23T13:19:09Z">
+    <test name="Default test" duration-ms="43511" started-at="2020-04-24T15:49:07Z" finished-at="2020-04-24T15:49:50Z">
+      <class name="testCases.BillingPage">
+        <test-method status="PASS" signature="getReporter()[pri:0, instance:testCases.BillingPage@3ee37e5a]" name="getReporter" is-config="true" duration-ms="170" started-at="2020-04-24T15:49:07Z" finished-at="2020-04-24T15:49:07Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- getReporter -->
-        <test-method status="PASS" signature="RankingFunctionality()[pri:48, instance:testCases.RankingPage@3c7f66c4]" name="RankingFunctionality" duration-ms="287077" started-at="2020-04-23T13:19:09Z" finished-at="2020-04-23T13:23:56Z">
+        <test-method status="PASS" signature="billingFunctionality()[pri:48, instance:testCases.BillingPage@3ee37e5a]" name="billingFunctionality" duration-ms="43491" started-at="2020-04-24T15:49:07Z" finished-at="2020-04-24T15:49:50Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- RankingFunctionality -->
-        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.RankingPage@3c7f66c4]" name="closeextend" is-config="true" duration-ms="188" started-at="2020-04-23T13:23:56Z" finished-at="2020-04-23T13:23:56Z">
+        </test-method> <!-- billingFunctionality -->
+        <test-method status="PASS" signature="closeextend()[pri:0, instance:testCases.BillingPage@3ee37e5a]" name="closeextend" is-config="true" duration-ms="194" started-at="2020-04-24T15:49:50Z" finished-at="2020-04-24T15:49:50Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeextend -->
-      </class> <!-- testCases.RankingPage -->
+      </class> <!-- testCases.BillingPage -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

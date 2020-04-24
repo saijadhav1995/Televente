@@ -18,7 +18,7 @@ public class Loginfunctionality extends BaseTest {
 	
 	public void verifyAdminUser() throws Throwable {
 		
-		loginpage.open_chrome_browser_and_start_application("loginFunctionlaityForAdminUser");
+		loginpage.open_chrome_browser_and_start_application("login Functionlaity For Admin User");
 		loginpage.page_has_been_verified();
 		loginpage.verify_username_password_and_submit_button();
 		loginpage.enter_username_and_Password_for(appConst.Admin_SGID,appConst.Admin_password);

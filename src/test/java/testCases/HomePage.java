@@ -23,7 +23,7 @@ public class HomePage extends BaseTest {
 	@Test(priority='0')
 	public void VerifyHomePage() throws Throwable {
 		
-		Homepage.Verify_the_Home_Page("VerifyHomePage");
+		Homepage.Verify_the_Home_Page("Verify Home Page");
 		Homepage.Verifytitle();
 		Homepage.VerifyContent();
 		Homepage.VerifyRegionDropDwon();

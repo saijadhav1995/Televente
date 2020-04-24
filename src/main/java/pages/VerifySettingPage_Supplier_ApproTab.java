@@ -24,13 +24,13 @@ import org.testng.asserts.SoftAssert;
 import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
-import Baselibrary.ExcelConfig;
 import Utility.AppstringsConstant;
 import Utility.Helper;
 import Utility.RankingRelatedQueries;
 import bsh.Variable;
 import webBase.BasePage;
 import webBase.BaseTest;
+import webBase.ExcelConfig;
 import webElements_Identifiers.SettingTabs;
 
 public class VerifySettingPage_Supplier_ApproTab extends BasePage {

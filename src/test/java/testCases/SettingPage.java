@@ -25,12 +25,12 @@ public class SettingPage extends BaseTest{
 	@Test(priority='0')
 	public void VerifyagencyTab() throws Throwable {
 	
-	setting.AgencyTab("agencyTabFunctionality");					
+	setting.AgencyTab("agency Tab Functionality");					
 	}	
 	
 	@Test(priority='1')
 	public void VerifySellersManagerTab() throws Throwable {	
-		Atc_cdv.ATC_CDV_Tab("ATC_CDV_tabFunctionality");
+		Atc_cdv.ATC_CDV_Tab("ATC_CDV tab Functionality");
 		Atc_cdv.rechercherField();
 		//home.VerifyPaginationArrows();
 		Atc_cdv.sortingArrows();

@@ -17,7 +17,7 @@ public class CreationPage extends BaseTest {
 	public void VerifyCreationForm() throws Throwable {
 		
 		
-		creation.clickOnCreationButton("TeleventeCreation functionality");
+		creation.clickOnCreationButton("Televente Creation functionality");
 		creation.VerifyRegionDropDown();
 		creation.VerifyTeleventeName();
 		creation.VerifyobjectiveField();
@@ -26,7 +26,7 @@ public class CreationPage extends BaseTest {
 		creation.VerifyEndDate();
 		creation.VerifyDailyObjective();
 		creation.saveFunctionality();
-		Edit.regionFieldOnEditForm("EditForm");
+		Edit.regionFieldOnEditForm("Edit Form");
 		Edit.VerifyNomFieldOnEditForm();
 		Edit.VerifyStartDateOnEditForm();
 		Edit.VerifyEndDateOnEditForm();
