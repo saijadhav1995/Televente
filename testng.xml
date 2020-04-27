@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
 <suite name="Suite" parallel="none">
 
@@ -48,6 +48,37 @@
 
 	</test>
 
+
+<test name="Ranking_Menu" preserve-order="true">
+
+		<classes>
+
+			<class name="testCases.RankingPage" />
+
+		</classes>
+
+	</test>
+
+<test name="Billing_Menu" preserve-order="true">
+
+		<classes>
+
+			<class name="testCases.BillingPage" />
+
+		</classes>
+
+	</test>
+
+
+<test name="Users_Menu" preserve-order="true">
+
+		<classes>
+
+			<class name="testCases.UsersMenu" />
+
+		</classes>
+
+	</test>
 
 
 </suite> <!-- Suite -->

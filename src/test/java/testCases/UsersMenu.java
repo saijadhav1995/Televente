@@ -9,7 +9,7 @@ import pages.VerifyUsersMenu;
 import webBase.BaseTest;
 
 
-public  class UsersMenuFunctionlality extends BaseTest {
+public  class UsersMenu extends BaseTest {
 
 
 	AppstringsConstant appConst =new AppstringsConstant(); 

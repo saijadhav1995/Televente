@@ -71,9 +71,14 @@ public class BillingPage extends BasePage {
 	public WebElement btn_excel_export;
 	
 	
+	@FindBy(how=How.XPATH,using="//*[@id='tlvt_site']")
+	@CacheLookup
+	public WebElement tlvt_site;
 	
 	
-	
+	@FindBy(how=How.XPATH,using="//*[@id='tlvt_agency']")
+	@CacheLookup
+	public WebElement tlvt_agency;	
 	
 	
 	

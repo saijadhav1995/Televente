@@ -15,5 +15,13 @@ public class BillingPage extends BaseTest {
 	billing.billingPage("Verify Billing functionality");
 	billing.verifyGlobalBillingSynthesisTab();
 	billing.verifySellViewOfSector();
+	billing.verifySellViewofSellManager();
+	billing.verifySellViewofSellers();
+	billing.verifySellViewofCustomers();
+	billing.verifyGeographicViewForSector();
+	billing.verifyGeographicViewForSite();
+	billing.verifyGeographicViewForAgency();
+	billing.verifyGeographicViewForCustomers();
+	
 	}
 }
