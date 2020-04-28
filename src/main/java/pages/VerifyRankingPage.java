@@ -50,7 +50,7 @@ public class VerifyRankingPage extends BasePage{
 		ranking=	PageFactory.initElements(driver, RankingPage.class);
 		createDirectory("TELEVENTE"+TestName); 
 		
-		ranking.Connection_button.click();
+	//	ranking.Connection_button.click();
 		ranking.slider.click();
 		
 		

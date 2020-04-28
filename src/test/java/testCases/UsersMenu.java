@@ -22,6 +22,7 @@ public  class UsersMenu extends BaseTest {
 	users.deleteuserDetails();
 	
 	users.usersMenu("Verify Users Menu Functionality");
+	users.VerifyEditForm();
 		
 	}
 	

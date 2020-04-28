@@ -61,15 +61,22 @@ public class UsersMenu extends BasePage {
 	@CacheLookup
 	public	WebElement usr_role;
 	
+	public static final String Role="//*[@id='usr_role']";
+	
 	@FindBy(how=How.XPATH,using="//*[@id='usr_region_div']/div/div[1]/input")
 	@CacheLookup
 	public	WebElement left_region_searchField;
 	
-	
+	public static final String left_region_searchField_xpath="//*[@id='usr_region_div']/div/div[1]/input";
+
 	
 	@FindBy(how=How.XPATH,using="//*[@id='usr_region_div']/div/div[2]/input")
 	@CacheLookup
 	public	WebElement right_region_searchField;
+	
+	public static final String right_region_searchField_xpath="//*[@id='usr_region_div']/div/div[2]/input";
+
+	
 	
 	@FindBy(how=How.XPATH,using="//*[@id='usr_region_div']/div/div[1]/div/button")
 	@CacheLookup
@@ -110,6 +117,8 @@ public class UsersMenu extends BasePage {
 	@CacheLookup
 	public	WebElement success_message;
 
+	
+	public static final String successMessageXpath="//*[@id='panel']/div[1]/div/div/div[2]/strong";
 	
 	// error messages identifiers
 	

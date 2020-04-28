@@ -48,7 +48,7 @@ public void billingPage(String TestName) throws Throwable {
 		billing=	PageFactory.initElements(driver, BillingPage.class);
 		createDirectory("TELEVENTE"+TestName); 
 		
-		billing.Connection_button.click();
+	//	billing.Connection_button.click();
 		billing.slider.click();
 				
 		driver.navigate().to(billing_related_queries.Billing_page_Url);
