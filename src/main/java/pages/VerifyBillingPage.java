@@ -347,27 +347,27 @@ public void verifySellViewOfSector() throws Throwable, SQLException {
 	 //filtered  Article invoices turnover column
 	 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 		 //filtered Article Televente turnover column
 		 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered  Article_invoices_margin column
 	
 			 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 				 //filtered  Article_invoices_percentage column
 
 			
 			 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 		
 	
 				
@@ -577,27 +577,27 @@ public void verifySellViewofSellManager() throws Throwable, SQLException {
 	 //filtered  Article invoices turnover column
 	 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 		 //filtered Article Televente turnover column
 		 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered  Article_invoices_margin column
 	
 			 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 				 //filtered  Article_invoices_percentage column
 
 			
 			 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 		
 	
 				
@@ -813,27 +813,27 @@ if(castAxes.equalsIgnoreCase(data.getString(1))
 		 //filtered  Article invoices turnover column
 		 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered Article Televente turnover column
 			 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 				 //filtered  Article_invoices_margin column
 		
 				 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 					 //filtered  Article_invoices_percentage column
 
 				
 				 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 			
 		
 					
@@ -1033,6 +1033,16 @@ if(castAxes.equalsIgnoreCase(data.getString(1))
 		 String castArticle_invoices_percentage = (String) js.executeScript("return arguments[0].innerText;",getArticle_invoices_percentage);
 		 
 		 
+		 String[] arrayAxes= castAxes.split("-");
+
+
+			//manager code
+			String AxesCode= arrayAxes[0];
+
+			System.out.println(AxesCode+" array");
+
+
+		 
 		 
 		 //filtered matching rate column
 		 String castmatching_rate_text=castmatching_rate.replace(",", ".");
@@ -1049,71 +1059,76 @@ if(castAxes.equalsIgnoreCase(data.getString(1))
 		 //filtered  Article invoices turnover column
 		 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered Article Televente turnover column
 			 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 				 //filtered  Article_invoices_margin column
 		
 				 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 					 //filtered  Article_invoices_percentage column
 
 				
 				 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 			
 		
+		
 					
+					System.out.println(castAxes+" "+castmatching_rate+" "+casttotal_orders+" "
+							+casttotal_turnover+" "+casttotal_invoices_orders+" "+castArticle_invoices_turnover+" "+castArticle_televente_turnover 
+							+""+castArticle_invoices_margin+" "+castArticle_invoices_percentage);						
+							 
+							System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
+							+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
+							+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
+							
 				
-	if(castAxes.equalsIgnoreCase(data.getString(1))
-			&& Newmatching_rate_text.equalsIgnoreCase(data.getString(2))
-			&& casttotal_orders.equalsIgnoreCase(data.getString(3))
-			&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(4))
-			&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(5))
-			&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(6))
-			&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(7))
-			&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(8))
-			&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(9))
+	if(AxesCode.equalsIgnoreCase(data.getString(1))
+			&& Newmatching_rate_text.equalsIgnoreCase(data.getString(3))
+			&& casttotal_orders.equalsIgnoreCase(data.getString(4))
+			&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(5))
+			&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(6))
+			&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(7))
+			&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(8))
+			&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(9))
+			&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(10))
 			) {
 		
 		logger.log(LogStatus.PASS,"2:Actual row Content On App is "
 				+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 				NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 				+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 				+"<b><font color='green'>Result:Row has been Matched <font/>");
 
+		System.out.println("PASS");
+		
 	}else {
 		
 		logger.log(LogStatus.FAIL,"2:Actual row Content On App is "
 				+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 				NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 				+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 				+"<b><font color='red'>Result:Row has been missmatched <font/>");
 
+		System.out.println("FAILED");
 	}
 					
 
 
-		System.out.println(castAxes+" "+castmatching_rate+" "+casttotal_orders+" "
-		+casttotal_turnover+" "+casttotal_invoices_orders+" "+castArticle_invoices_turnover+" "+castArticle_televente_turnover 
-		+""+castArticle_invoices_margin+" "+castArticle_invoices_percentage);						
-		 
-		System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
-		+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
-		+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
 		
 													break;
 												    } 
@@ -1144,7 +1159,7 @@ if(castAxes.equalsIgnoreCase(data.getString(1))
  
  
  
-//Sell View for Sectors
+//Geographic View for Sectors
 
 public void verifyGeographicViewForSector() throws Throwable, SQLException {
 	
@@ -1320,27 +1335,27 @@ while(data.next()) {
 	 //filtered  Article invoices turnover column
 	 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 		 //filtered Article Televente turnover column
 		 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered  Article_invoices_margin column
 	
 			 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 				 //filtered  Article_invoices_percentage column
 
 			
 			 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 		
 	
 				
@@ -1536,6 +1551,16 @@ public void verifyGeographicViewForSite() throws Throwable, SQLException {
 		 String castArticle_invoices_percentage = (String) js.executeScript("return arguments[0].innerText;",getArticle_invoices_percentage);
 		 
 
+		 
+		 String[] arrayAxes= castAxes.split("-");
+
+
+			//manager code
+			String AxesCode= arrayAxes[0];
+
+
+		 
+		 
 		 //filtered matching rate column
 		 String castmatching_rate_text=castmatching_rate.replace(",", ".");
 
@@ -1551,71 +1576,73 @@ public void verifyGeographicViewForSite() throws Throwable, SQLException {
 		 //filtered  Article invoices turnover column
 		 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered Article Televente turnover column
 			 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 				 //filtered  Article_invoices_margin column
 		
 				 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 					 //filtered  Article_invoices_percentage column
 
 				
 				 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 			
 		
-					
+					System.out.println(AxesCode+" "+castmatching_rate+" "+casttotal_orders+" "
+							+casttotal_turnover+" "+casttotal_invoices_orders+" "+castArticle_invoices_turnover+" "+castArticle_televente_turnover 
+							+""+castArticle_invoices_margin+" "+castArticle_invoices_percentage);						
+							 
+							System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
+							+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
+							+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
+										
 				
-	if(castAxes.equalsIgnoreCase(data.getString(1))
-			&& Newmatching_rate_text.equalsIgnoreCase(data.getString(2))
-			&& casttotal_orders.equalsIgnoreCase(data.getString(3))
-			&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(4))
-			&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(5))
-			&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(6))
-			&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(7))
-			&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(8))
-			&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(9))
+	if(AxesCode.equalsIgnoreCase(data.getString(1))
+			&& Newmatching_rate_text.equalsIgnoreCase(data.getString(3))
+			&& casttotal_orders.equalsIgnoreCase(data.getString(4))
+			&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(5))
+			&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(6))
+			&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(7))
+			&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(8))
+			&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(9))
+			&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(10))
 			) {
 		
 		logger.log(LogStatus.PASS,"2:Actual row Content On App is "
 				+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 				NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 				+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 				+"<b><font color='green'>Result:Row has been Matched <font/>");
 
+		System.out.println("PASS");
 	}else {
 		
 		logger.log(LogStatus.FAIL,"2:Actual row Content On App is "
 				+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 				NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 				+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 				+"<b><font color='red'>Result:Row has been missmatched <font/>");
 
+		System.out.println("FAILED");
 	}
 					
 
 		 
-		System.out.println(castAxes+" "+castmatching_rate+" "+casttotal_orders+" "
-		+casttotal_turnover+" "+casttotal_invoices_orders+" "+castArticle_invoices_turnover+" "+castArticle_televente_turnover 
-		+""+castArticle_invoices_margin+" "+castArticle_invoices_percentage);						
-		 
-		System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
-		+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
-		+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
 		
 													break;
 												    } 
@@ -1770,6 +1797,15 @@ public void verifyGeographicViewForAgency() throws Throwable, SQLException {
 	 
 	 
 	 
+	 String[] arrayAxes= castAxes.split("-");
+
+
+	//manager code
+	String AxesCode= arrayAxes[0];
+
+
+
+	 
 	 //filtered matching rate column
 	 String castmatching_rate_text=castmatching_rate.replace(",", ".");
 
@@ -1785,71 +1821,74 @@ public void verifyGeographicViewForAgency() throws Throwable, SQLException {
 	 //filtered  Article invoices turnover column
 	 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+		String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 		 //filtered Article Televente turnover column
 		 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered  Article_invoices_margin column
 	
 			 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 				 //filtered  Article_invoices_percentage column
 
 			
 			 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 		
 	
-				
+	
+				System.out.println(castAxes+" "+Newmatching_rate_text+" "+casttotal_orders+" "
+						+NEw_total_turnover_Text+" "+casttotal_invoices_orders+" "+New_Article_invoices_turnover_Text+" "+New_Article_televente_turnover_Text 
+						+""+New_Article_invoices_margin_Text+" "+New_Article_invoices_percentage_Text);						
+						 
+						System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
+						+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
+						+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
+						
 			
-if(castAxes.equalsIgnoreCase(data.getString(1))
-		&& Newmatching_rate_text.equalsIgnoreCase(data.getString(2))
-		&& casttotal_orders.equalsIgnoreCase(data.getString(3))
-		&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(4))
-		&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(5))
-		&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(6))
-		&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(7))
-		&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(8))
-		&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(9))
+if(AxesCode.equalsIgnoreCase(data.getString(1))
+		&& Newmatching_rate_text.equalsIgnoreCase(data.getString(3))
+		&& casttotal_orders.equalsIgnoreCase(data.getString(4))
+		&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(5))
+		&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(6))
+		&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(7))
+		&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(8))
+		&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(9))
+		&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(10))
 		) {
 	
 	logger.log(LogStatus.PASS,"2:Actual row Content On App is "
 			+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 			NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 			+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-			+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-			"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+			+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+			"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 			+"<b><font color='green'>Result:Row has been Matched <font/>");
-
+System.out.println("PASS");
+	
 }else {
 	
 	logger.log(LogStatus.FAIL,"2:Actual row Content On App is "
 			+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 			NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 			+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-			+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-			"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+			+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+			"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 			+"<b><font color='red'>Result:Row has been missmatched <font/>");
 
+	System.out.println("FAILED");
 }
 				
 
 
-	System.out.println(castAxes+" "+castmatching_rate+" "+casttotal_orders+" "
-	+casttotal_turnover+" "+casttotal_invoices_orders+" "+castArticle_invoices_turnover+" "+castArticle_televente_turnover 
-	+""+castArticle_invoices_margin+" "+castArticle_invoices_percentage);						
-	 
-	System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
-	+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
-	+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
 	
 												break;
 											    } 
@@ -2005,7 +2044,15 @@ public void verifyGeographicViewForCustomers() throws Throwable, SQLException {
 		 
 		 String castArticle_invoices_percentage = (String) js.executeScript("return arguments[0].innerText;",getArticle_invoices_percentage);
 		 
-		 
+		
+		 String[] arrayAxes= castAxes.split("-");
+
+
+			//manager code
+			String AxesCode= arrayAxes[0];
+
+			System.out.println(AxesCode+" array");
+
 		 
 		 //filtered matching rate column
 		 String castmatching_rate_text=castmatching_rate.replace(",", ".");
@@ -2022,71 +2069,79 @@ public void verifyGeographicViewForCustomers() throws Throwable, SQLException {
 		 //filtered  Article invoices turnover column
 		 String castArticle_invoices_turnover_Text=castArticle_invoices_turnover.replace(",", ".");
 
-			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^0-9.]", "");
+			String  New_Article_invoices_turnover_Text=castArticle_invoices_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 			 //filtered Article Televente turnover column
 			 String castArticle_televente_turnover_Text=castArticle_televente_turnover.replace(",", ".");
 
-				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^0-9.]", "");
+				String  New_Article_televente_turnover_Text=castArticle_televente_turnover_Text.replaceAll("[^-0-9.]", "");
 
 
 				 //filtered  Article_invoices_margin column
 		
 				 String castArticle_invoices_margin_Text=castArticle_invoices_margin.replace(",", ".");
 
-					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_margin_Text=castArticle_invoices_margin_Text.replaceAll("[^-0-9.]", "");
 
 					 //filtered  Article_invoices_percentage column
 
 				
 				 String castArticle_invoices_percentage_Text=castArticle_invoices_percentage.replace(",", ".");
 
-					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^0-9.]", "");
+					String  New_Article_invoices_percentage_Text=castArticle_invoices_percentage_Text.replaceAll("[^-0-9.]", "");
 			
 		
+					System.out.println(AxesCode+" "+Newmatching_rate_text+" "+casttotal_orders+" "
+							+NEw_total_turnover_Text+" "+casttotal_invoices_orders+" "+New_Article_invoices_turnover_Text+" "+New_Article_televente_turnover_Text 
+							+""+New_Article_invoices_margin_Text+" "+New_Article_invoices_percentage_Text+"Print");						
+							 
+							System.out.println(data.getString(1)+"-"+data.getString(2)+" "+data.getString(3)+" "
+							+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
+							+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
+						
 					
 				
-	if(castAxes.equalsIgnoreCase(data.getString(1))
-			&& Newmatching_rate_text.equalsIgnoreCase(data.getString(2))
-			&& casttotal_orders.equalsIgnoreCase(data.getString(3))
-			&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(4))
-			&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(5))
-			&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(6))
-			&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(7))
-			&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(8))
-			&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(9))
+	if(AxesCode.equalsIgnoreCase(data.getString(1))
+			&& Newmatching_rate_text.equalsIgnoreCase(data.getString(3))
+			&& casttotal_orders.equalsIgnoreCase(data.getString(4))
+			&& NEw_total_turnover_Text.equalsIgnoreCase(data.getString(5))
+			&& casttotal_invoices_orders.equalsIgnoreCase(data.getString(6))
+			&& New_Article_invoices_turnover_Text.equalsIgnoreCase(data.getString(7))
+			&& New_Article_televente_turnover_Text.equalsIgnoreCase(data.getString(8))
+			&& New_Article_invoices_margin_Text.equalsIgnoreCase(data.getString(9))
+			&& New_Article_invoices_percentage_Text.equalsIgnoreCase(data.getString(10))
 			) {
 		
 		logger.log(LogStatus.PASS,"2:Actual row Content On App is "
 				+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 				NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 				+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 				+"<b><font color='green'>Result:Row has been Matched <font/>");
 
+		
+				System.out.println("PASS");
+		
+		
 	}else {
 		
 		logger.log(LogStatus.FAIL,"2:Actual row Content On App is "
 				+"<b>"+castAxes+"|"+Newmatching_rate_text+"|"+casttotal_orders+"|"+
 				NEw_total_turnover_Text+"|"+casttotal_invoices_orders+"|"+New_Article_invoices_turnover_Text
 				+"|"+New_Article_televente_turnover_Text+"|"+New_Article_invoices_margin_Text+"|"+New_Article_invoices_percentage_Text+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"|"+data.getString(2)+"|"+data.getString(3)+
-				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data.getString(1)+"-"+data.getString(2)+"|"+data.getString(3)+
+				"|"+data.getString(4)+"|"+data.getString(5)+"|"+data.getString(6)+"|"+data.getString(7)+"|"+data.getString(8)+"|"+data.getString(9)+"|"+data.getString(10)+"</b>"+"<br/>"
 				+"<b><font color='red'>Result:Row has been missmatched <font/>");
 
+		
+		System.out.println("FAILED");
+		
 	}
 					
 
 
-		System.out.println(castAxes+" "+castmatching_rate+" "+casttotal_orders+" "
-		+casttotal_turnover+" "+casttotal_invoices_orders+" "+castArticle_invoices_turnover+" "+castArticle_televente_turnover 
-		+""+castArticle_invoices_margin+" "+castArticle_invoices_percentage);						
-		 
-		System.out.println(data.getString(1)+" "+data.getString(2)+" "+data.getString(3)+" "
-		+data.getString(4)+" "+data.getString(5)+" "+data.getString(6)+" "+data.getString(7)+" "
-		+data.getString(8)+" "+data.getString(9)+" "+data.getString(10)+" DB"); 
 		
 													break;
 												    } 

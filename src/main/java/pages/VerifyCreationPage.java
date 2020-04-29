@@ -7,6 +7,7 @@ import java.util.List;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.NoAlertPresentException;
 import org.openqa.selenium.UnhandledAlertException;
@@ -20,6 +21,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.AppstringsConstant;
+import Utility.Helper;
 import webBase.BasePage;
 import webBase.BaseTest;
 import webBase.BrowserFactory;
@@ -33,7 +35,7 @@ public class VerifyCreationPage extends BasePage
 	public ExtentTest extentest;
 	public SoftAssert SAssert = new SoftAssert();
 	public PageFactory pf=new PageFactory();
-	
+	public Helper helper=new Helper();
 
 	BaseTest baseT = new BaseTest();
 	String className = "";
@@ -51,14 +53,16 @@ public class VerifyCreationPage extends BasePage
 		create=	PageFactory.initElements(driver, CreateForm.class);
 		createDirectory("TELEVENTE"+TestName);
 
-			
+			//create.Connection_button.click();
+		
 		try {
 
 			if(create.createButton.isDisplayed()) {
 				
 				create.CreateButton();
 			       
-			       logger.log(LogStatus.PASS,"user able to redirected on Creation Page"
+			       logger.log(LogStatus.PASS,"1:clicked on Create Button"+"<br/>"
+			    		   +"<b><font color='green'>Result:user Redirected to Creation Page successfully <font/>"
 							+logger.addScreenCapture(captureScreenShot(driver,"user able to redirected on Creation Page")));						           
 				
 			}
@@ -69,7 +73,7 @@ public class VerifyCreationPage extends BasePage
 			
 		 catch (Exception e) {
 			
-			 logger.log(LogStatus.FAIL,"Getting Error To Open creation Page "
+			 logger.log(LogStatus.FAIL,"<b><font color='red'>Result:user Redirected to Creation Page successfully <font/>"
 						+logger.addScreenCapture(captureScreenShot(driver,"Getting Error To Open creation Page ")));		
 			 
 		}
@@ -78,23 +82,48 @@ public class VerifyCreationPage extends BasePage
 	
 public void VerifyRegionDropDown() throws Throwable {
 	
+	
+	try {
+		
 	 create.Region(appConst.select_region_id);
      
-     logger.log(LogStatus.PASS,"user able to select Region on Creation Page"
+     logger.log(LogStatus.PASS,"1:clicked on Region Field"+"<br/>"
+    		 +"<b><font color='green'>Result:user able to select Region on Creation Page <font/>"
 				+logger.addScreenCapture(captureScreenShot(driver,"user able to select Region on Creation Page")));			
 	
+	} catch (Exception e) {
+	
+		 logger.log(LogStatus.FAIL,"<b><font color='red'>Result:user Does not able to select Region on Creation Page<font/>"
+					+logger.addScreenCapture(captureScreenShot(driver,"user able to select Region on Creation Page")));			
+		
+	}
+	
+     
 }
 	
 
 public void VerifyTeleventeName() throws Throwable {
 	
 	
+	try {
+		
 	
 	create.TeleventeName("QA Automation"); 
      
-     logger.log(LogStatus.PASS,"user able to enter Televent Name on Creation Page"
+     logger.log(LogStatus.PASS,"<b><font color='green'>Result:user able to enter Televent Name on Creation Page"
 				+logger.addScreenCapture(captureScreenShot(driver,"user able to enter Televent Name on Creation Page")));
-}
+
+	
+	} catch (Exception e) {
+	
+		 logger.log(LogStatus.FAIL,"<b><font color='red'>Result:user does not able to enter Televent Name on Creation Page"
+					+logger.addScreenCapture(captureScreenShot(driver,"user able to enter Televent Name on Creation Page")));
+
+	
+	}
+	
+	
+	}
 
 
 
@@ -102,7 +131,8 @@ public void VerifyTeleventeName() throws Throwable {
 	{
 	     		 
 	     		
-	   	    	   
+		 try {
+	   
 		DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd");
 		Date date = new Date();
 		System.out.println(dateFormat.format(date));	        	
@@ -111,8 +141,7 @@ public void VerifyTeleventeName() throws Throwable {
 		     create.Stardate();
 		     Thread.sleep(2000);
 		              
-		     try {
-				
+		    				
 		    	 while(true) {
 		
 		    		 WebElement mon = driver.findElement(By.xpath(appConst.month_xpath)); 	
@@ -126,7 +155,7 @@ public void VerifyTeleventeName() throws Throwable {
 		        		 Thread.sleep(2000);
 		        		 driver.findElement(By.xpath(appConst.Start_date_xpath)).click();
 		        		
-		        		 logger.log(LogStatus.PASS,"Start Date has been selected"
+		        		 logger.log(LogStatus.PASS,"<b><font color='green'>Result:Start Date has been selected"
 		 						+logger.addScreenCapture(captureScreenShot(driver,"Start Date has been selected")));
 		        		 
 		        		System.out.println("in loop");
@@ -149,7 +178,7 @@ public void VerifyTeleventeName() throws Throwable {
 		    	 
 			} catch (Exception Startdate) {
 				
-				logger.log(LogStatus.FAIL,"Start Date does not able to selected"
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result:Start Date does not able to selected"
  						+logger.addScreenCapture(captureScreenShot(driver,"Start Date does not able to selected")));		   		
     		 System.out.println("in else");
     		
@@ -163,6 +192,9 @@ public void VerifyTeleventeName() throws Throwable {
 	
 	
 	public void VerifyEndDate()  throws Throwable {
+		
+		try {
+			
 		
 		String Endmonth=appConst.End_month;
           String date =appConst.End_date;
@@ -188,7 +220,7 @@ public void VerifyTeleventeName() throws Throwable {
 		        		 Thread.sleep(2000);
 		        		 driver.findElement(By.xpath(appConst.end_date_xpath)).click();
 		        		 
-		        		 logger.log(LogStatus.PASS,"End Date has been selected"
+		        		 logger.log(LogStatus.PASS,"<b><font color='green'>Result:End Date has been selected"
 			 						+logger.addScreenCapture(captureScreenShot(driver,"Start Date has been selected")));		
 		        		 
 		        		 break; 		        		 
@@ -199,7 +231,13 @@ public void VerifyTeleventeName() throws Throwable {
 		        		 Thread.sleep(2000);
 		        		 
 		        	 }			    	 
-			     }						
+			     }
+			     
+		} catch (Exception e) {
+	   		 logger.log(LogStatus.FAIL,"<b><font color='red'>Result:Error on End date"
+						+logger.addScreenCapture(captureScreenShot(driver,"Start Date has been selected")));		
+	}
+	 
 		}
 	
 	
@@ -224,7 +262,7 @@ public void VerifyDailyObjective ()  throws Throwable{
 	       	 String GetEndDate=EndDate.getAttribute("data-oldvalue");
 	       	 
 	       	 
-	       	logger.log(LogStatus.INFO, "televenteStartDate"+GetStartDate+"and EndDate is "+GetStartDate); 
+	       	logger.log(LogStatus.INFO, "televenteStartDate"+"<b>"+GetStartDate+"</b>"+"and EndDate is "+"<b>"+GetEndDate+"</b>"); 
 	       	 
 	       	 System.out.println(GetStartDate);
 	       	 System.out.println(GetEndDate);				        	 
@@ -232,7 +270,7 @@ public void VerifyDailyObjective ()  throws Throwable{
 			
 			create.DailyObjecitve();
 			Thread.sleep(2000);
-			logger.log(LogStatus.PASS,"Daily objective PopUp has been open"
+			logger.log(LogStatus.PASS,"<b><font color='green'>Result:Daily objective PopUp has been open"
 					+logger.addScreenCapture(captureScreenShot(driver,"PopUp open")));	
 		
 			
@@ -252,7 +290,7 @@ public void VerifyDailyObjective ()  throws Throwable{
 		
 		create.enterDailyAmount.sendKeys(appConst.dailyAmount);
 		
-		logger.log(LogStatus.PASS,"Daily objective  has been entered"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result:Daily objective  has been entered"
 				+logger.addScreenCapture(captureScreenShot(driver,"Daily objective  has been entered")));		
 		
 		Thread.sleep(2000);
@@ -263,7 +301,7 @@ public void VerifyDailyObjective ()  throws Throwable{
 		
 				
 		 catch (Exception objective) {
-			logger.log(LogStatus.FAIL," getting error on DailyObjective "
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting error on DailyObjective "
 					+logger.addScreenCapture(captureScreenShot(driver,"getting error on DailyObjective")));		
 			}
 		
@@ -275,11 +313,12 @@ public void VerifyDailyObjective ()  throws Throwable{
 
 public void saveFunctionality() throws Throwable {
 	
-	create.SaveButton();
+	
 	
 	try {
 		
-	
+		create.SaveButton();
+		
 		while(true) {
 			
 	Thread.sleep(4000);	
@@ -288,7 +327,7 @@ public void saveFunctionality() throws Throwable {
 			
 			if(anotherTeleventeAlreadyExist.isDisplayed()) {
 				
-					logger.log(LogStatus.INFO,"Televentes already exist"
+					logger.log(LogStatus.INFO,"<b><font color='blue'>Result:Televentes already exist"
 						+logger.addScreenCapture(captureScreenShot(driver,"another Televente already exist")));		
 			
 			
@@ -345,7 +384,7 @@ public void saveFunctionality() throws Throwable {
 		    	create.SaveAmounts();
 		    	create.SaveButton();
 				
-		    	logger.log(LogStatus.INFO, "televente already Exist from period StartDate"+GetStartDate1+"and EndDate is "+GetStartDate1+" "
+		    	logger.log(LogStatus.PASS, "<b><font color='green'>Result:televente already Exist from period StartDate "+GetStartDate1+"and EndDate is "+GetEndDate1+" "
 		    +logger.addScreenCapture(captureScreenShot(driver,"televente created successfully")));
 			}		
 			
@@ -354,7 +393,7 @@ public void saveFunctionality() throws Throwable {
 	} catch (org.openqa.selenium.NoSuchElementException handledates) {
 		
 	
-		logger.log(LogStatus.PASS,"televente created successfully"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result:televente created successfully"
 				+logger.addScreenCapture(captureScreenShot(driver,"televente created successfully")));		
 
 		
@@ -376,12 +415,12 @@ public void VerifyobjectiveField ()  throws Throwable{
 	
 	try {
 		create.ObjectiveF(appConst.objectiveF);
-		logger.log(LogStatus.PASS,"objective f has been entered by user"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result:objective f has been entered by user"
 					+logger.addScreenCapture(captureScreenShot(driver,"objective f has been entered by user")));		
 	
 		
 	} catch (Exception objective) {
-		logger.log(LogStatus.FAIL," getting error on objective f "
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting error on objective f "
 				+logger.addScreenCapture(captureScreenShot(driver,"getting error on objective f ")));		
 		}
 	
@@ -398,51 +437,56 @@ public void VerifyRankingAndBrandField()  throws Throwable{
 	
 
 	try {
+		
+		JavascriptExecutor js=(JavascriptExecutor)driver;
 		create.brand.click();
 		
-	 	List<WebElement> brands=driver.findElements(By.xpath("//div[@class='fs-dropdown']/div[2]/div[@data-value]"));
+	 	List<WebElement> brands=driver.findElements(By.xpath("//div[@class='fs-dropdown']/div[2]/div[@data-value]/div"));
 		
 	 	for(int i=0;i<brands.size();i++) {
 	 		
 	 		WebElement brand=brands.get(i);
 	 		
 	 		
-	 		String	brand_id=brand.getAttribute("data-value");
+	 		//String	brand_id=brand.getAttribute("data-value");
 	 		
+	 		String castSythesisTabs = (String) js.executeScript("return arguments[0].innerText;",brand);
+
 	 		
 	 		brand.click();
-	 		logger.log(LogStatus.INFO," Brand selected"+brand_id);
+	 		logger.log(LogStatus.PASS,"<font color='green'>Result:Selected Brands are<font/> "+"<b>"+castSythesisTabs);
 	 		
 	 	}
 	 	
-	 	logger.log(LogStatus.PASS,"brands are selected"
-				+logger.addScreenCapture(captureScreenShot(driver,"brands are selected")));	
+
+				logger.addScreenCapture(captureScreenShot(driver,"brands are selected"));	
 	 	
 		create.ranking.click();
 		
-		List<WebElement> rankings=driver.findElements(By.xpath("//div[@class='fs-dropdown']/div[2]/div[@data-value]"));
+		List<WebElement> rankings=driver.findElements(By.xpath("//div[@class='fs-dropdown']/div[2]/div[@data-value]/div"));
 		
 		for(int i=0;i<rankings.size();i++) {
 	 		
 	 		WebElement ranking=rankings.get(i);
 	 		
-	 		String	rankingId=ranking.getAttribute("data-value");
 	 		
-	 		logger.log(LogStatus.INFO,"Ranking id are"+rankingId);
+	 		String castSythesisTabs = (String) js.executeScript("return arguments[0].innerText;",ranking);
+
+	 		logger.log(LogStatus.PASS,"<font color='green'>Result: Rankings are "+"<b>"+castSythesisTabs);
 	 		
-	 		if(rankingId.equalsIgnoreCase("1")) {
+	 		if(castSythesisTabs.equalsIgnoreCase("Par Site")) {
 	 			
 	 			ranking.click();
 	 		}
 	 		
 	 	}
 		
-		logger.log(LogStatus.PASS,"ranking deselected"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result:ranking deselected"
 					+logger.addScreenCapture(captureScreenShot(driver,"ranking deselected")));		
 	
 		
 	} catch (Exception objective) {
-		logger.log(LogStatus.FAIL," getting error on ranking & branding Fields "
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting error on ranking & branding Fields "
 				+logger.addScreenCapture(captureScreenShot(driver,"getting error on ranking & branding Fields")));		
 		}
 	

@@ -60,7 +60,9 @@ public class VerifySettingPage_ArticlesTab extends BasePage {
 		//setting.SettingButton.click();
 		setting.getArticleTab().click();
 		
-		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" + "2 : go to the Article tab" + "<br/>"
+		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>"
+		+ "2 : go to the Article tab" + "<br/>"
+				+"<b><font color='green'>Result:user Succefully Redirected to Article Tab "
 				+logger.addScreenCapture(captureScreenShot(driver,"user redirected on article tab in manage setting page")));						           
 	
 		
@@ -74,7 +76,7 @@ public class VerifySettingPage_ArticlesTab extends BasePage {
 		ExcelConfig conf=
 				new ExcelConfig(System.getProperty("user.dir")+"\\Excel\\Test.xlsx");
 			
-		logger.log(LogStatus.INFO,"Add articles PopUp has been opened"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: Add articles PopUp has been opened"
 				+logger.addScreenCapture(captureScreenShot(driver,"Add articles PopUp has been opened")));						           
 	
 		
@@ -132,20 +134,21 @@ int count=conf.getRowCount(1);
 		}
 		
 		logger.log(LogStatus.PASS,"1:excel sheet has been configured for articles data" + "<br/>" + 
-		"2 :getting data from excel sheet & inserted on jexcel fields" + "<br/>"
+		"2 :getting data from excel sheet & inserted on jexcel fields" + "<br/>"+
+				"<b><font color='green'>Result: successfully able to add data on Article popUp "
 				+logger.addScreenCapture(captureScreenShot(driver,"data inseted on article jexcel fields")));						           
 	
 		
 		setting.btn_save_articles.click();
 		
 		Thread.sleep(2000);
-		logger.log(LogStatus.PASS,"articles successfully inserted on article Tab"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: articles successfully inserted on article Tab"
 						+logger.addScreenCapture(captureScreenShot(driver,"articles successfully inserted on article Tab")));						           
 		
 		} catch (Exception e) {
 			
 			
-			logger.log(LogStatus.INFO,"Add articles button is disabled"
+			logger.log(LogStatus.INFO,"<b><font color='blue'>Result: Add articles button is disabled"
 					+logger.addScreenCapture(captureScreenShot(driver,"Add articles button is disabled")));						           
 	
 		
@@ -157,12 +160,15 @@ int count=conf.getRowCount(1);
 	 			
 //rechercher field					
 	public void rechercherField() throws Throwable {
+	
 		
+		try {
+			
 		
 		if(helper.isElementEnabled(setting.articles_table_filter)==true) {
 			
 			setting.articles_table_filter.sendKeys("manager");
-			logger.log(LogStatus.PASS,"user able to search data on rechercher field"
+			logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to search data on rechercher field"
 					+logger.addScreenCapture(captureScreenShot(driver,"rechercher field checked")));						           
 			
 			setting.articles_table_filter.sendKeys(Keys.CONTROL+"a"+Keys.BACK_SPACE);
@@ -172,9 +178,17 @@ int count=conf.getRowCount(1);
 			
 		}else {
 			
-			logger.log(LogStatus.FAIL,"user does not able to search on rechercher Field"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to search on rechercher Field"
 					+logger.addScreenCapture(captureScreenShot(driver,"user does not able to search on rechercher Field")));
 			
+		}
+		
+		} catch (Exception e) {
+
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to search on rechercher Field"
+					+logger.addScreenCapture(captureScreenShot(driver,"user does not able to search on rechercher Field")));
+			
+		
 		}
 		
 		
@@ -187,6 +201,9 @@ int count=conf.getRowCount(1);
 		
 		public void paginationDropDown() throws Throwable {
 			
+		try {
+			
+			
 			if(helper.isElementEnabled(setting.articles_table_length)==true) {
 			
 				Thread.sleep(2000);
@@ -195,19 +212,25 @@ int count=conf.getRowCount(1);
 				Select Page=new Select(setting.articles_table_length);
 				
 				Page.selectByValue("25");
-				logger.log(LogStatus.PASS,"user able to row filters from pagination drop Down"
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to row filters from pagination drop Down"
 						+logger.addScreenCapture(captureScreenShot(driver,"row filters field checked")));						           
 				
 				
 				
 			}else {
 				
-				logger.log(LogStatus.FAIL,"pagination Drop Down field is disabled"
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: pagination Drop Down field is disabled"
 						+logger.addScreenCapture(captureScreenShot(driver,"pagination Drop Down field is disabled")));
 				
 			}
 			
-			
+		} catch (Exception e) {
+
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: pagination Drop Down field is disabled"
+					+logger.addScreenCapture(captureScreenShot(driver,"pagination Drop Down field is disabled")));
+	
+		}
+	
 			
 		}
 		
@@ -216,29 +239,41 @@ int count=conf.getRowCount(1);
 		
 		public void sortingArrows() throws Throwable {
 			
+			try {
+				
+			
 			if(helper.isElementEnabled(setting.articles_table_sorting)==true) {
 				
 				Thread.sleep(2000);
 				setting.articles_table_sorting.click();
 				Thread.sleep(2000);
 				setting.articles_table_sorting.click();
-				logger.log(LogStatus.PASS,"user able to sort columns by asceding & descending order"
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to sort columns by asceding & descending order"
 						+logger.addScreenCapture(captureScreenShot(driver,"sorting checked")));						           
 				
 				
 			}else {
 			
-				logger.log(LogStatus.FAIL,"user does not able to sort columns by asceding & descending order"
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to sort columns by asceding & descending order"
 						+logger.addScreenCapture(captureScreenShot(driver,"sorting not checked")));						           
 			
 				
 			}
+			
+			} catch (Exception e) {
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to sort columns by asceding & descending order"
+						+logger.addScreenCapture(captureScreenShot(driver,"sorting not checked")));						           
+						}
+			
 		}
 
 // delete rows 
 		
 	
 		public void deleteArticles() throws Throwable {
+			
+		try {
+			
 			
 			if(helper.isElementEnabled(setting.btn_article_delete)==true) {
 				
@@ -247,20 +282,27 @@ int count=conf.getRowCount(1);
 				Thread.sleep(2000);
 				Alert alert = driver.switchTo().alert();
 		        String alertText = alert.getText();
-		        logger.log(LogStatus.INFO, "Alert data: " + alertText);
+		        logger.log(LogStatus.INFO, "<b><font color='blue'>Result: Alert Message is displayed while deleting rows");
 		        alert.accept();
 		        Thread.sleep(4000);
-		        logger.log(LogStatus.PASS,"delete button is enabled"
+		        logger.log(LogStatus.PASS,"<b><font color='green'>Result: delete button is enabled"
 						+logger.addScreenCapture(captureScreenShot(driver,"delete button is enabled")));						           
 				
 				
 			}else {
 				
-				logger.log(LogStatus.INFO,"delete button is disabled"
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: delete button is disabled"
 						+logger.addScreenCapture(captureScreenShot(driver,"delete button is disabled")));						           
 			
 				
 			}
+			
+			
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting Error While Deleting Rows"
+					+logger.addScreenCapture(captureScreenShot(driver,"delete button is disabled")));						           
+				}
+	
 			
 		}
 		

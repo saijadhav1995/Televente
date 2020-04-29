@@ -127,7 +127,7 @@ public static final String SellView_sellersRelated_Query="SELECT concat(MAX(mrg.
 		"	WHERE `tsl`.`TSL_SEM_ID` = '1431' AND `tlvt`.`TLVT_ID` = '243' AND mrg.MRG_DN_SEC_ID = 321 GROUP BY `tsl`.`TSL_ID` ORDER BY `mrg`.`MRG_SEL_CD` ASC, `tsl`.`tsl_name` ASC";	
 
 
-public static final String SellView_CustomerRelated_Query="SELECT concat((mrg.MRG_CLI_CD) ,'-',MAX(mrg.MRG_CLI_LB)) AS MRG_CLI_LB,\r\n" + 
+public static final String SellView_CustomerRelated_Query="SELECT (mrg.MRG_CLI_CD) ,MAX(mrg.MRG_CLI_LB) AS MRG_CLI_LB,\r\n" + 
 		"ROUND((SUM(mrg.MRG_INV_TOV_AMNT)/SUM(odr.ORD_LINE_AMNT)*100),2) AS matching_rate,\r\n" + 
 		"COUNT(DISTINCT odr.ORD_CD,odr.ORD_AGE_ID) AS total_orders,\r\n" + 
 		"ROUND(SUM(odr.ORD_LINE_AMNT),2) AS orders_turnover,\r\n" + 
@@ -150,7 +150,7 @@ public static final String SellView_CustomerRelated_Query="SELECT concat((mrg.MR
 
 
 
-public static final String GeographicViewForSite_Query="SELECT concat(MAX(sit.SIT_CD) ,'-',MAX(sit.SIT_LB)) AS SIT_LB, ROUND((SUM(mrg.MRG_INV_TOV_AMNT)/SUM(odr.ORD_LINE_AMNT)*100),2) AS matching_rate,\r\n" + 
+public static final String GeographicViewForSite_Query="SELECT MAX(sit.SIT_CD) ,MAX(sit.SIT_LB) AS SIT_LB, ROUND((SUM(mrg.MRG_INV_TOV_AMNT)/SUM(odr.ORD_LINE_AMNT)*100),2) AS matching_rate,\r\n" + 
 		" COUNT(DISTINCT odr.ORD_CD,odr.ORD_AGE_ID) AS total_orders,\r\n" + 
 		" ROUND(SUM(odr.ORD_LINE_AMNT),2) AS orders_turnover,\r\n" + 
 		" COUNT(DISTINCT mrg.MRG_ORD_CD,mrg.MRG_DN_AGE_ID) AS order_with_invoices,\r\n" + 
@@ -170,7 +170,7 @@ public static final String GeographicViewForSite_Query="SELECT concat(MAX(sit.SI
 		"WHERE `sit`.`SIT_SEC_ID` = '321' AND `tlvt`.`TLVT_ID` = '243' and `sit`.`SIT_ID`=18 GROUP BY `sit`.`SIT_ID` ORDER BY `sit`.`SIT_CD` ASC, `sit`.`SIT_LB` ASC";
 
 	
-public static final String GeographicViewForAgency_Query="SELECT concat( MAX(age.AGE_CD) ,'-',MAX(age.AGE_LB)) AS AGE_LB,"
+public static final String GeographicViewForAgency_Query="SELECT  MAX(age.AGE_CD) ,MAX(age.AGE_LB) AS AGE_LB,"
 		+ "ROUND((SUM(mrg.MRG_INV_TOV_AMNT)/SUM(odr.ORD_LINE_AMNT)*100),2) AS matching_rate,\r\n" + 
 		" COUNT(DISTINCT odr.ORD_CD,odr.ORD_AGE_ID) AS total_orders,\r\n" + 
 		" ROUND(SUM(odr.ORD_LINE_AMNT),2) AS orders_turnover,\r\n" + 
@@ -191,12 +191,12 @@ public static final String GeographicViewForAgency_Query="SELECT concat( MAX(age
 		"WHERE mrg2.mrg_tlvt_id = 243 AND mrg2.MRG_DN_SIT_ID = 18 and mrg2.mrg_dn_sec_id=321 GROUP BY mrg2.MRG_DN_AGE_ID) AS merger_art ON `merger_art`.`MRG_DN_AGE_ID` = `age`.`AGE_ID`\r\n" + 
 		"WHERE `age`.`AGE_SIT_ID` = '18' AND `tlvt`.`TLVT_ID` = '243' and odr.ord_SEC_ID='321' GROUP BY `age`.`AGE_ID` ORDER BY `age`.`AGE_CD` ASC, `age`.`AGE_LB` ASC";
 
-public static final String GeographicViewForCustomer_Query="SELECT concat( MAX(mrg.MRG_CLI_CD) ,'-',MAX(mrg.MRG_CLI_LB)) AS MRG_CLI_LB, ROUND((SUM(mrg.MRG_INV_TOV_AMNT)/SUM(odr.ORD_LINE_AMNT)*100),2) AS matching_rate,\r\n" + 
+public static final String GeographicViewForCustomer_Query="SELECT  MAX(mrg.MRG_CLI_CD) ,MAX(mrg.MRG_CLI_LB) AS MRG_CLI_LB, ROUND((SUM(mrg.MRG_INV_TOV_AMNT)/SUM(odr.ORD_LINE_AMNT)*100),2) AS matching_rate,\r\n" + 
 		" COUNT(DISTINCT odr.ORD_CD,odr.ORD_AGE_ID) AS total_orders,\r\n" + 
 		" ROUND(SUM(odr.ORD_LINE_AMNT),2) AS orders_turnover,\r\n" + 
 		" COUNT(DISTINCT mrg.MRG_ORD_CD,mrg.MRG_DN_AGE_ID) AS order_with_invoices,\r\n" + 
 		"ifnull(ROUND(SUM(mrg.MRG_INV_TOV_AMNT),2),0.00) AS order_with_invoices_turnover,\r\n" + 
-		" MAX(merger_art.articles_invoices_turnover) AS articles_invoices_turnover,\r\n" + 
+		"ifnull(MAX(merger_art.articles_invoices_turnover),0.00) AS articles_invoices_turnover,\r\n" + 
 		"ifnull((merger_art.articles_invoices_margin),0.00) AS articles_invoices_margin,\r\n" + 
 		"ifnull((merger_art.articles_invoices_margin_perc),0.00) AS articles_invoices_margin_perc,\r\n" + 
 		"MAX(merger_art.MART_MRG_CLI_CD) AS MART_MRG_CLI_CD,MAX(merger_art.MART_MRG_CLI_LB) AS MART_MRG_CLI_LB\r\n" + 

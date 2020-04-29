@@ -12,7 +12,9 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Action;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.asserts.SoftAssert;
 
 import com.relevantcodes.extentreports.ExtentTest;
@@ -50,7 +52,7 @@ public class VerifyRankingPage extends BasePage{
 		ranking=	PageFactory.initElements(driver, RankingPage.class);
 		createDirectory("TELEVENTE"+TestName); 
 		
-	//	ranking.Connection_button.click();
+	//ranking.Connection_button.click();
 		ranking.slider.click();
 		
 		
@@ -461,8 +463,8 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 	public void verifyRankingByAgency() throws Throwable {
 		
 		System.out.println("Ranking By agency");
-		ranking.tlvt_ranking.click();
-		
+
+
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("2");
 		
@@ -474,9 +476,8 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>1:Ranking By agency option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 	
-		
+		Thread.sleep(4000);
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 		
 		 
@@ -484,7 +485,9 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		// get columns  
 		 while(countColumns>countercolumn) {
 			 
-				WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
+				Thread.sleep(500);
+
+			 WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 				
 			    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
 
@@ -556,7 +559,7 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		int count= driver.findElements(By.xpath("//*[@id='ranking_table']/tbody/tr/td[2]")).size()+1;		
     	
     	System.out.println(count+"count");
-    		Thread.sleep(3000);
+    		
     	
     			int counter=1;
  
@@ -565,6 +568,8 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
     				
     				while(data2.next()){  
 		    	
+    					Thread.sleep(500);
+    					
 	WebElement  AgencyNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	 
 	WebElement  Results= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
@@ -621,7 +626,6 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		
 		
     	System.out.println("Ranking By Article");	
-    	ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("9");
@@ -632,11 +636,11 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>2:Ranking By Articles option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 	
 		
 	//sql loop
 		
+		Thread.sleep(3000);
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 		
 		 
@@ -644,6 +648,8 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
 		// get columns  
 		 while(countColumns>countercolumn) {
 			 
+				Thread.sleep(500);
+
 				WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 				
 			    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -737,6 +743,7 @@ if(day_result_orders_txt.equalsIgnoreCase(data1.getString(1))) {
     				
     				while(data3.next()){  
 		    	
+    					Thread.sleep(500);
 	WebElement  Articlenames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	 
 	WebElement  ArticleType= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
@@ -820,27 +827,30 @@ System.out.println(articleCode+" "+getresutls+"test");
 		
     public void verifyRankingBySellers() throws Throwable {
 		
-    	System.out.println("Ranking By Sellers");
-		ranking.tlvt_ranking.click();
-		
+    	System.out.println("Ranking By Sellers");		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("1");
 
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>3:Ranking By Sellers option is selected from Ranking Drop Down List<font/>");
-    
-		Thread.sleep(2000);
-		
-		//Ranking By Sellers column
 		JavascriptExecutor js=(JavascriptExecutor)driver;
+
+		
+		
+	//Ranking By Sellers column
 	
- int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
+
+		Thread.sleep(4000);
+		
+		int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 		
 	System.out.println(countColumns+"sellers Count Row");	 
 		 int countercolumn=1;
 		// get columns  
 		 while(countColumns>countercolumn) {
-			 
+				
+			 Thread.sleep(500);
+
 				WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 				
 			    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -914,7 +924,6 @@ System.out.println(articleCode+" "+getresutls+"test");
 		
     	
     	System.out.println(count+"count");
-    Thread.sleep(3000);
     	
     	int counter=1;
  
@@ -924,10 +933,8 @@ System.out.println(articleCode+" "+getresutls+"test");
 	 	 	
 	 		 while(data4.next()){  	
 	 		   
-	 		
-	
-   // Thread.sleep(2000);
-	   
+				 Thread.sleep(500);
+	 			   
 	
 	WebElement  SellersNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
@@ -990,17 +997,17 @@ System.out.println(articleCode+" "+getresutls+"test");
 		
     	System.out.println("ranking By sellers with customers");
 		 
-		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("6");
 
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>4:Ranking By Sellers With Customers option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 
 		//verify coulmns
 		JavascriptExecutor js=(JavascriptExecutor)driver;
+
+		Thread.sleep(4000);
 
  int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 		
@@ -1009,6 +1016,8 @@ System.out.println(articleCode+" "+getresutls+"test");
 		// get columns  
 		 while(countColumns>countercolumn) {
 			 
+				Thread.sleep(500);
+
 				WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 				
 			    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -1099,7 +1108,6 @@ System.out.println(articleCode+" "+getresutls+"test");
 		
     	
     	System.out.println(count+"count");
-    Thread.sleep(3000);
     	
     	int counter=1;
 
@@ -1107,8 +1115,8 @@ while(count>counter) {
 
 	while(data5.next()){ 
 	
-   // Thread.sleep(2000);
-	
+		Thread.sleep(500);
+
 	WebElement  SellersNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
 	WebElement  total_customers= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[3]"));	
@@ -1136,6 +1144,10 @@ while(count>counter) {
     String getresutls=resultstext.replaceAll("[^0-9.]", "");
     
     
+    System.out.println(data5.getString(1)+"|"+data5.getString(2)+"|"+data5.getString(4)+"|"+data5.getString(3)+" DB");     	
+	System.out.println(SellersCode +"|" +CastTotalcustomers+"|"+ getresutls+"sellers data matched");
+	
+    
     if (SellersCode.equalsIgnoreCase(data5.getString(1)) 
     		&& CastTotalcustomers.equalsIgnoreCase(data5.getString(4))
     		&& getresutls.equalsIgnoreCase(data5.getString(3)) ) {
@@ -1143,20 +1155,18 @@ while(count>counter) {
     	
     	logger.log(LogStatus.PASS,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
 				+"2:Actual row Content On App is "+"<b>"+castSellersNames+"|"+CastTotalcustomers+"|"+getresutls+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data5.getString(1)+" - "+data5.getString(2)+"|"+data5.getString(3)+"|"+data5.getString(4)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data5.getString(1)+" - "+data5.getString(2)+"|"+data5.getString(4)+"|"+data5.getString(3)+"</b>"+"<br/>"
 				+"<b><font color='green'>Result:Row has been Matched <font/>");
 
-    	
-    	 System.out.println(data5.getString(1)+"|"+data5.getString(2)+"|"+data5.getString(3)+"|"+data5.getString(4)+" DB");     	
-    	System.out.println(SellersCode +"|" +CastTotalcustomers+"|"+ getresutls+"sellers data matched");
-		 
+    	System.out.println("PASS");
+    	 
 	 }else {
 		 logger.log(LogStatus.FAIL,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
 					+"2:Actual row Content On App is "+"<b>"+castSellersNames+"|"+CastTotalcustomers+"|"+getresutls+"</b>"+"<br/>"
-					+"3:Expected row Content From DB is "+"<b>"+data5.getString(1)+" - "+data5.getString(2)+"|"+data5.getString(3)+"|"+data5.getString(4)+"</b>"+"<br/>"
+					+"3:Expected row Content From DB is "+"<b>"+data5.getString(1)+" - "+data5.getString(2)+"|"+data5.getString(4)+"|"+data5.getString(3)+"</b>"+"<br/>"
 					+"<b><font color='red'>Result:either row has same total amount or data is missMatched <font/>");
 
-		 
+		 System.out.println("FAILED");
 	 }
    
     break;
@@ -1176,17 +1186,17 @@ while(count>counter) {
 		
  	System.out.println("ranking By sellers with distinct orders");		
 		
-		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("5");
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>5:Ranking By Sellers With Distinct Orders option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 
 		//verify coulmns
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 
+		Thread.sleep(4000);
+		
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
 				 
@@ -1194,6 +1204,8 @@ while(count>counter) {
 				// get columns  
 				 while(countColumns>countercolumn) {
 					 
+						Thread.sleep(500);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -1286,7 +1298,7 @@ while(count>counter) {
 		
     	
     	System.out.println(count+"count");
-    Thread.sleep(3000);
+
     	
     	int counter=1;
  
@@ -1295,8 +1307,8 @@ while(count>counter) {
 
 	 while(data6.next()){  	
 
-	
-   // Thread.sleep(2000);
+			Thread.sleep(500);
+
     	
 	WebElement  SellersNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
@@ -1324,13 +1336,14 @@ while(count>counter) {
     String getresutls=resultstext.replaceAll("[^0-9.]", "");
     
     
-    if (SellersCode.equalsIgnoreCase(data6.getString(1)) && CastTotalOrders.equalsIgnoreCase(data6.getString(4))
+    if (SellersCode.equalsIgnoreCase(data6.getString(1)) 
+    		&& CastTotalOrders.equalsIgnoreCase(data6.getString(4))
     		&& getresutls.equalsIgnoreCase(data6.getString(3)) ) {
 		
     	
     	logger.log(LogStatus.PASS,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
 				+"2:Actual row Content On App is "+"<b>"+castSellersNames+"|"+CastTotalOrders+"|"+getresutls+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data6.getString(1)+" - "+data6.getString(2)+"|"+data6.getString(3)+"|"+data6.getString(4)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data6.getString(1)+" - "+data6.getString(2)+"|"+data6.getString(4)+"|"+data6.getString(3)+"</b>"+"<br/>"
 				+"<b><font color='green'>Result:Row has been Matched <font/>");
 
     	
@@ -1342,7 +1355,7 @@ while(count>counter) {
 		 
 		 logger.log(LogStatus.FAIL,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
 					+"2:Actual row Content On App is "+"<b>"+castSellersNames+"|"+CastTotalOrders+"|"+getresutls+"</b>"+"<br/>"
-					+"3:Expected row Content From DB is "+"<b>"+data6.getString(1)+" - "+data6.getString(2)+"|"+data6.getString(3)+"|"+data6.getString(4)+"</b>"+"<br/>"
+					+"3:Expected row Content From DB is "+"<b>"+data6.getString(1)+" - "+data6.getString(2)+"|"+data6.getString(4)+"|"+data6.getString(3)+"</b>"+"<br/>"
 					+"<b><font color='orange'>Result:either row has same total amount or data is missMatched <font/>");
 
 	 }
@@ -1365,24 +1378,26 @@ while(count>counter) {
 
 	 System.out.println("ranking By sellers with Regional Articles");		
 
-		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("13");
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>6:Ranking By Sellers Regional Articles option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 		
 		//verify coulmns
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 
-		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
+Thread.sleep(4000);
+		
+		int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
 				 
 				 int countercolumn=1;
 				// get columns  
 				 while(countColumns>countercolumn) {
 					 
+						Thread.sleep(500);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -1457,7 +1472,8 @@ while(count>counter) {
 		
  	
  System.out.println(count+"count");
- Thread.sleep(3000);
+ 
+ 
  	
  	int counter=1;
 
@@ -1469,7 +1485,7 @@ while(count>counter) {
 	while(data6.next()){  	
 
 	
-   // Thread.sleep(2000);
+		Thread.sleep(500);
 	    	
 	WebElement  ArticleNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
@@ -1538,17 +1554,17 @@ try {
 	
 	 System.out.println("ranking By sellers with National Articles");		
 
-		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("11");
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>7:Ranking By Sellers National Articles option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(3000);
 		
 		//verify coulmns
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 
+		Thread.sleep(4000);
+		
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
 				 
@@ -1556,6 +1572,8 @@ try {
 				// get columns  
 				 while(countColumns>countercolumn) {
 					 
+						Thread.sleep(2000);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -1630,7 +1648,7 @@ try {
 		
 	
 System.out.println(count+"count");
-Thread.sleep(3000);
+
 	
 	int counter=1;
 
@@ -1642,7 +1660,7 @@ while(count>counter) {
 	while(data6.next()){  	
 
 	
-  // Thread.sleep(2000);
+  Thread.sleep(500);
 	    	
 	WebElement  ArticleNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
@@ -1721,17 +1739,18 @@ break;
 		
 		
 	 System.out.println("//ranking By Sellers MBI");		
-		ranking.tlvt_ranking.click();
+	
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("12");
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>8:Ranking By Sellers MBI option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 	
 		//verify coulmns
 		JavascriptExecutor js=(JavascriptExecutor)driver;
 
+		Thread.sleep(4000);
+		
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
 				 
@@ -1739,6 +1758,8 @@ break;
 				// get columns  
 				 while(countColumns>countercolumn) {
 					 
+						Thread.sleep(500);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -1855,7 +1876,7 @@ break;
 		
 	
 System.out.println(count+"count");
-Thread.sleep(3000);
+
 	
 	int counter=1;
 
@@ -1867,7 +1888,7 @@ while(count>counter) {
 	while(data7.next()){  	
 
 	
-// Thread.sleep(2000);
+ Thread.sleep(500);
 	    	
 	WebElement  ManagersName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
@@ -1912,6 +1933,14 @@ String getcastPercentageMBIText=castPercentageMBIText.replaceAll("[^0-9.]", "");
 System.out.println(castManagersName+" "+castNumberOfOrders+" "+getcastMontantMBIText+" "+getcastPercentageMBIText+" "+getresutls +"print");
 
 
+System.out.println(data7.getString(1)+"|"+data7.getString(2)
++"|"+data7.getString(3)+"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+" DB");
+
+System.out.println(SellersCode+"|"+data7.getString(1)+"|"+castNumberOfOrders+"|"+
+data7.getString(4)+"|"+getcastMontantMBIText+"|"+data7.getString(5)+"|"+getcastPercentageMBIText
++"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(3)+"sellers data matched");
+
+
 if (SellersCode.equalsIgnoreCase(data7.getString(1))
 		&& getresutls.equalsIgnoreCase(data7.getString(3)) 
 		&& castNumberOfOrders.equalsIgnoreCase(data7.getString(4))
@@ -1924,16 +1953,10 @@ if (SellersCode.equalsIgnoreCase(data7.getString(1))
 				+"2:Actual row Content On App is "+"<b>"+castManagersName+"|"+castNumberOfOrders
 				+"|"+getcastMontantMBIText+"|"+getcastPercentageMBIText+"|"+getresutls+"</b>"+"<br/>"
 				+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+"|"+data7.getString(2)
-				 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+				 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+"|"+data7.getString(3)+"</b>"+"<br/>"
 				+"<b><font color='green'>Result:Row has been Matched <font/>");
 
 
-	 System.out.println(data7.getString(1)+"|"+data7.getString(2)
-	 +"|"+data7.getString(3)+"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+" DB");
-	
-	 System.out.println(SellersCode+"|"+data7.getString(1)+"|"+castNumberOfOrders+"|"+
-	 data7.getString(4)+"|"+getcastMontantMBIText+"|"+data7.getString(5)+"|"+getcastPercentageMBIText
-	 +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(3)+"sellers data matched");
 	
 	 }else {
 		 
@@ -1941,7 +1964,7 @@ if (SellersCode.equalsIgnoreCase(data7.getString(1))
 					+"2:Actual row Content On App is "+"<b>"+castManagersName+"|"+castNumberOfOrders
 					+"|"+getcastMontantMBIText+"|"+getcastPercentageMBIText+"|"+getresutls+"</b>"+"<br/>"
 					+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-					 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+					 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+"|"+data7.getString(3)+"</b>"+"<br/>"
 					 +"<b><font color='Orange'>Result:either row has same total amount or data is missMatched <font/>");
 		 
 	 }
@@ -1965,18 +1988,18 @@ public void verifyRankingByCDV() throws Throwable {
 		
 	System.out.println("//ranking By CDV manager");	
 	
-		ranking.tlvt_ranking.click();
 		
 		Select select1=new Select(ranking.tlvt_ranking);
 		select1.selectByValue("14");
 	
 		logger
 		.log(LogStatus.INFO,"<b><u><font color='Blue'>9:Ranking By CDV option is selected from Ranking Drop Down List<font/>");
-		Thread.sleep(2000);
 		
 		//verify coulmns
 		
 		JavascriptExecutor js=(JavascriptExecutor)driver;
+
+		Thread.sleep(4000);
 
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
@@ -1984,7 +2007,9 @@ public void verifyRankingByCDV() throws Throwable {
 				 int countercolumn=1;
 				// get columns  
 				 while(countColumns>countercolumn) {
-					 
+					
+					 Thread.sleep(500);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -2114,7 +2139,7 @@ while(count>counter) {
 	while(data7.next()){  	
 
 	
-//Thread.sleep(2000);
+		Thread.sleep(500);
 	    	
 WebElement  ManagersName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 	
@@ -2158,6 +2183,12 @@ String getcastTaxText=castTaxText.replaceAll("[^0-9.]", "");
 
 System.out.println(castManagersName+" "+castNumberOfOrders+" "+getcastObjectiveFText+" "+getcastTaxText+" "+getresutls +"print");
 
+System.out.println(data7.getString(1)+"|"+data7.getString(2)
++"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
+
+System.out.println(SellersCode+"|"+data7.getString(1)+"|"+castNumberOfOrders+"|"+
+"|"+data7.getString(4)+getcastObjectiveFText+"|"+data7.getString(5)+"|"+getcastTaxText
++"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(3)+"sellers data matched");
 
 if (SellersCode.equalsIgnoreCase(data7.getString(1))
 		&& getresutls.equalsIgnoreCase(data7.getString(3)) 
@@ -2170,16 +2201,10 @@ if (SellersCode.equalsIgnoreCase(data7.getString(1))
 			+"2:Actual row Content On App is "+"<b>"+castManagersName+"|"+castNumberOfOrders
 			+"|"+getcastObjectiveFText+"|"+getcastTaxText+"|"+getresutls+"</b>"+"<br/>"
 			+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-			 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+			 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+"|"+data7.getString(3)+"</b>"+"<br/>"
 			+"<b><font color='green'>Result:Row has been Matched <font/>");
 
 	
-	 System.out.println(data7.getString(1)+"|"+data7.getString(2)
-	 +"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
-	
-	 System.out.println(SellersCode+"|"+data7.getString(1)+"|"+castNumberOfOrders+"|"+
-	 "|"+data7.getString(4)+getcastObjectiveFText+"|"+data7.getString(5)+"|"+getcastTaxText
-	 +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(3)+"sellers data matched");
 	
 	 }else {
 		 
@@ -2187,7 +2212,7 @@ if (SellersCode.equalsIgnoreCase(data7.getString(1))
 					+"2:Actual row Content On App is "+"<b>"+castManagersName+"|"+castNumberOfOrders
 					+"|"+getcastObjectiveFText+"|"+getcastTaxText+"|"+getresutls+"</b>"+"<br/>"
 					+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-					 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+					 +"|"+data7.getString(4)+"|"+data7.getString(5)+"|"+data7.getString(6)+"|"+data7.getString(3)+"</b>"+"<br/>"
 					 +"<b><font color='Orange'>Result:either row has same total amount or data is missMatched <font/>");
 		 
 	 }
@@ -2208,7 +2233,7 @@ public void verifyRankingBySupplierAppro() throws Throwable {
 	
 	
 	System.out.println("ranking By supplier Appro");
-	ranking.tlvt_ranking.click();
+
 	
 	Select select1=new Select(ranking.tlvt_ranking);
 	select1.selectByValue("7");
@@ -2216,10 +2241,11 @@ public void verifyRankingBySupplierAppro() throws Throwable {
 	logger
 	.log(LogStatus.INFO,"<b><u><font color='Blue'>10:Ranking By  Supplier Appro option is selected from Ranking Drop Down List<font/>");
 
-	Thread.sleep(2000);
 	
 	//verify coulmns
 	JavascriptExecutor js=(JavascriptExecutor)driver;
+
+	Thread.sleep(4000);
 
 	 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 			
@@ -2228,6 +2254,9 @@ public void verifyRankingBySupplierAppro() throws Throwable {
 			// get columns  
 			 while(countColumns>countercolumn) {
 				 
+				 
+					Thread.sleep(500);
+
 					WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 					
 				    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -2309,7 +2338,7 @@ public void verifyRankingBySupplierAppro() throws Throwable {
 	
 	
 System.out.println(count+"count");
-Thread.sleep(3000);
+
 	
 	int counter=1;
 
@@ -2321,7 +2350,7 @@ while(count>counter) {
 while(data6.next()){  	
 
 
-// Thread.sleep(2000);
+		Thread.sleep(500);
     	
 WebElement  SupplierNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 
@@ -2381,17 +2410,17 @@ public void verifyRankingBySupplierProducer() throws Throwable {
 	
 	System.out.println("//ranking By Supplier producers");
 
-	ranking.tlvt_ranking.click();
 	
 	Select select1=new Select(ranking.tlvt_ranking);
 	select1.selectByValue("8");
 	
 	logger
-	.log(LogStatus.INFO,"<b><u><font color='Blue'>10:Ranking By  Supplier Producer option is selected from Ranking Drop Down List<font/>");
-	Thread.sleep(2000);
+	.log(LogStatus.INFO,"<b><u><font color='Blue'>11:Ranking By  Supplier Producer option is selected from Ranking Drop Down List<font/>");
 	
 	//verify coulmns
 	JavascriptExecutor js=(JavascriptExecutor)driver;
+
+	Thread.sleep(4000);
 
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
@@ -2400,6 +2429,8 @@ public void verifyRankingBySupplierProducer() throws Throwable {
 				// get columns  
 				 while(countColumns>countercolumn) {
 					 
+						Thread.sleep(500);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -2482,8 +2513,7 @@ public void verifyRankingBySupplierProducer() throws Throwable {
 	
 	
 System.out.println(count+"count");
-Thread.sleep(3000);
-	
+
 	int counter=1;
 
 	
@@ -2494,7 +2524,7 @@ while(count>counter) {
 while(data6.next()){  	
 
 
-// Thread.sleep(2000);
+	Thread.sleep(500);
     	
 WebElement  SupplierNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 
@@ -2557,17 +2587,18 @@ public void verifyRankingBySector() throws Throwable {
 	
 	System.out.println("ranking By sectors");
 	
-	ranking.tlvt_ranking.click();
 	
 	Select select1=new Select(ranking.tlvt_ranking);
 	select1.selectByValue("4");
 	
 	logger
 	.log(LogStatus.INFO,"<b><u><font color='Blue'>12:Ranking By Sector option is selected from Ranking Drop Down List<font/>");
-	Thread.sleep(2000);
-		
+
+	
 	//verify coulmns
 	JavascriptExecutor js=(JavascriptExecutor)driver;
+
+	Thread.sleep(4000);
 
 	 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 			
@@ -2576,6 +2607,8 @@ public void verifyRankingBySector() throws Throwable {
 			// get columns  
 			 while(countColumns>countercolumn) {
 				 
+					Thread.sleep(500);
+
 					WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 					
 				    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -2691,7 +2724,8 @@ public void verifyRankingBySector() throws Throwable {
 	
 
 System.out.println(count+"count");
-Thread.sleep(3000);
+
+
 
 int counter=1;
 
@@ -2703,7 +2737,7 @@ while(count>counter) {
 while(data7.next()){  	
 
 
-//Thread.sleep(2000);
+	Thread.sleep(500);
     	
 WebElement  SectorName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 
@@ -2760,8 +2794,8 @@ if (SellersCode.equalsIgnoreCase(data7.getString(2))
 	logger.log(LogStatus.PASS,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
 			+"2:Actual row Content On App is "+"<b>"+castSectorName+"|"+getcastObjectiveFText
 			+"|"+getcastTaxText+"|"+getresutls+"</b>"+"<br/>"
-			+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-			 +"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+			+"3:Expected row Content From DB is "+"<b>"+data7.getString(2)+" - "+data7.getString(3)
+			 +"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(4)+"</b>"+"<br/>"
 			+"<b><font color='green'>Result:Row has been Matched <font/>");
 	
 
@@ -2772,10 +2806,10 @@ if (SellersCode.equalsIgnoreCase(data7.getString(2))
  }else {
 	 
 	 logger.log(LogStatus.FAIL,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
-				+"2:Actual row Content On App is "+"<b>"+castSectorName+"|"+getcastObjectiveFText
+			 +"2:Actual row Content On App is "+"<b>"+castSectorName+"|"+getcastObjectiveFText
 				+"|"+getcastTaxText+"|"+getresutls+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-				 +"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data7.getString(2)+" - "+data7.getString(3)
+				 +"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(4)+"</b>"+"<br/>"
 				 +"<b><font color='Orange'>Result:either row has same total amount or data is missMatched <font/>");		
 	 
  }
@@ -2798,17 +2832,18 @@ public void verifyRankingBySite() throws Throwable {
 
 	System.out.println("ranking By site");
 
-	ranking.tlvt_ranking.click();
 	
 	Select select1=new Select(ranking.tlvt_ranking);
 	select1.selectByValue("3");
 	
 	logger
 	.log(LogStatus.INFO,"<b><u><font color='Blue'>13:Ranking By Site option is selected from Ranking Drop Down List<font/>");
-	Thread.sleep(3000);
 
+	
 	//verify coulmns
 	JavascriptExecutor js=(JavascriptExecutor)driver;
+
+	Thread.sleep(4000);
 
 		 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 				
@@ -2817,6 +2852,8 @@ public void verifyRankingBySite() throws Throwable {
 				// get columns  
 				 while(countColumns>countercolumn) {
 					 
+						Thread.sleep(500);
+
 						WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 						
 					    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -2931,7 +2968,7 @@ public void verifyRankingBySite() throws Throwable {
 	
 
 System.out.println(count+"count");
-Thread.sleep(3000);
+
 
 int counter=1;
 
@@ -2943,7 +2980,7 @@ while(count>counter) {
 while(data7.next()){  	
 
 
-//Thread.sleep(2000);
+	Thread.sleep(500);
     	
 WebElement  SiteName= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 
@@ -2984,6 +3021,13 @@ String getcastTaxText=castTaxText.replaceAll("[^0-9.]", "");
 
 System.out.println(SellersCode+" "+getcastObjectiveFText+" "+getcastTaxText+" "+getresutls +"print");
 
+System.out.println(data7.getString(1)+"|"+data7.getString(2)
++"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
+
+System.out.println(SellersCode+"|"+data7.getString(2)+"|"+getcastObjectiveFText
++"|"+data7.getString(5)+"|"+getcastTaxText
++"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(4)+"sellers data matched");
+
 
 if (SellersCode.equalsIgnoreCase(data7.getString(2))
 	&& getresutls.equalsIgnoreCase(data7.getString(4)) 
@@ -2994,24 +3038,18 @@ if (SellersCode.equalsIgnoreCase(data7.getString(2))
 	logger.log(LogStatus.PASS,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
 			+"2:Actual row Content On App is "+"<b>"+castSiteName+"|"+getcastObjectiveFText
 			+"|"+getcastTaxText+"|"+getresutls+"</b>"+"<br/>"
-			+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-			 +"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+			+"3:Expected row Content From DB is "+"<b>"+data7.getString(2)+" - "+data7.getString(3)
+			 +"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(4)+"</b>"+"<br/>"
 			+"<b><font color='green'>Result:Row has been Matched <font/>");
 	
- System.out.println(data7.getString(1)+"|"+data7.getString(2)
- +"|"+data7.getString(3)+"|"+data7.getString(4)+data7.getString(5)+data7.getString(6)+" DB");
-
- System.out.println(SellersCode+"|"+data7.getString(2)+"|"+getcastObjectiveFText
-+"|"+data7.getString(5)+"|"+getcastTaxText
- +"|"+data7.getString(6)+"|"+getresutls+"|"+data7.getString(4)+"sellers data matched");
 
  }else {
 	 
 	 logger.log(LogStatus.FAIL,"1:Row no. is "+"<b>"+counter+"</b>"+"<br/>"
-				+"2:Actual row Content On App is "+"<b>"+castSiteName+"|"+getcastObjectiveFText
+			 +"2:Actual row Content On App is "+"<b>"+castSiteName+"|"+getcastObjectiveFText
 				+"|"+getcastTaxText+"|"+getresutls+"</b>"+"<br/>"
-				+"3:Expected row Content From DB is "+"<b>"+data7.getString(1)+" - "+data7.getString(2)
-				 +"|"+data7.getString(4)+"|"+data7.getString(5)+data7.getString(6)+data7.getString(3)+"</b>"+"<br/>"
+				+"3:Expected row Content From DB is "+"<b>"+data7.getString(2)+" - "+data7.getString(3)
+				 +"|"+data7.getString(5)+"|"+data7.getString(6)+data7.getString(4)+"</b>"+"<br/>"
 				 +"<b><font color='Orange'>Result:either row has same total amount or data is missMatched <font/>");		
  }
 
@@ -3034,18 +3072,18 @@ public void verifyRankingBySpeciality() throws Throwable {
 	
 	System.out.println("ranking By speciality");
 
-	
-	ranking.tlvt_ranking.click();
-	
+		
 	Select select1=new Select(ranking.tlvt_ranking);
 	select1.selectByValue("10");
 	
 	logger
 	.log(LogStatus.INFO,"<b><u><font color='Blue'>14:Ranking By Specialite option is selected from Ranking Drop Down List<font/>");
-	Thread.sleep(3000);
+
 	
 	//verify coulmns
 	JavascriptExecutor js=(JavascriptExecutor)driver;
+
+	Thread.sleep(4000);
 
 	 int countColumns= driver.findElements(By.xpath("//*[@id='ranking_table']/thead/tr/th")).size()+1;
 			
@@ -3054,6 +3092,8 @@ public void verifyRankingBySpeciality() throws Throwable {
 			// get columns  
 			 while(countColumns>countercolumn) {
 				 
+					Thread.sleep(500);
+
 					WebElement  columns= driver.findElement(By.xpath("//*[@id='ranking_table']/thead/tr/th["+countercolumn+"]"));	
 					
 				    String Castcolumns = (String) js.executeScript("return arguments[0].innerText;",columns);
@@ -3137,7 +3177,7 @@ public void verifyRankingBySpeciality() throws Throwable {
 	
 	
 System.out.println(count+"count");
-Thread.sleep(3000);
+
 	
 	int counter=1;
 
@@ -3148,7 +3188,7 @@ while(count>counter) {
 while(data6.next()){  	
 
 
-//Thread.sleep(2000);
+	Thread.sleep(500);
   	
 WebElement  SpecialityNames= driver.findElement(By.xpath("//*[@id='ranking_table']/tbody/tr["+counter+"]/td[2]"));	
 

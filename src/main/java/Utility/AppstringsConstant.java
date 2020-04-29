@@ -36,7 +36,7 @@ public class AppstringsConstant {
  	 	
  		public final static String  Today_date_xpath ="//div[@class='datepicker-days']/table/tbody//tr/td[@class='today day']";
  		
- 		public final static String  arrow_xpath ="/html/body/div[5]/div[1]/table/thead/tr[2]/th[3]";
+ 		public final static String  arrow_xpath ="/html/body/div[4]/div[1]/table/thead/tr[2]/th[3]";
 		
 	// objectiveF amount & daily objective amount
  		

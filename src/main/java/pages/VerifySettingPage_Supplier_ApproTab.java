@@ -52,12 +52,12 @@ public class VerifySettingPage_Supplier_ApproTab extends BasePage {
 	
 	public void supplierApproTab(String TestName) throws Throwable {
 		
+		try {
+			
+				
 		logger = baseT.extent.startTest(TestName);		
 		setting=PageFactory.initElements(driver, SettingTabs.class);
-		createDirectory("TELEVENTE"+TestName); 
-		
-		
-		
+		createDirectory("TELEVENTE"+TestName); 	
 		
 	//	setting.SettingButton.click();
 		setting.getSupplierTab().click();
@@ -81,14 +81,16 @@ public class VerifySettingPage_Supplier_ApproTab extends BasePage {
 			
 			Thread.sleep(4000);
 
-			logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" + "2 : go to the supplier_transporter Tab tab" + "<br/>"
+			logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" 
+			+ "2 : go to the supplier_transporter Tab" + "<br/>"
+					+"<b><font color='green'>Result: user successfully able to Redirected to supplier_transporter Tab "
 					+logger.addScreenCapture(captureScreenShot(driver,"user redirected on supplier_transporter tab in manage setting page")));						           
 		
 
 			
 			setting.btn_supplier_add.click();
 			
-			logger.log(LogStatus.INFO,"Add supplier_transporter PopUp has been opened"
+			logger.log(LogStatus.PASS,"<b><font color='green'>Result: Add supplier_transporter PopUp has been opened"
 					+logger.addScreenCapture(captureScreenShot(driver,"Add supplier_transporter PopUp has been opened")));						           
 
 			
@@ -146,15 +148,22 @@ public class VerifySettingPage_Supplier_ApproTab extends BasePage {
 				
 				logger.log(LogStatus.PASS,"1:excel sheet has been configured for supplier_transporter data" + "<br/>" + 
 						"2 :getting data from excel sheet & inserted on jexcel fields" + "<br/>"
+						+"<b><font color='green'>Result: successfully add data on supplier_transporter insertion PopUp"
 								+logger.addScreenCapture(captureScreenShot(driver,"data inseted on supplier_transporter jexcel fields")));						           
 				
 	
 	setting.btn_save_suppliers.click();
 	
-	logger.log(LogStatus.PASS,"articles successfully inserted on supplier_transporter Tab"
+	logger.log(LogStatus.PASS,"<b><font color='green'>Result: articles successfully inserted on supplier_transporter Tab"
 			+logger.addScreenCapture(captureScreenShot(driver,"articles successfully inserted on supplier_transporter Tab")));						           
 
 
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: does not able to Add rows on supplier_transporter Tab"
+					+logger.addScreenCapture(captureScreenShot(driver,"Error on supplier_transporter Tab")));						           
+		}
+
+	
 	}	
 		
 	 			
@@ -164,14 +173,16 @@ public class VerifySettingPage_Supplier_ApproTab extends BasePage {
 //rechercher field					
 public void rechercherField() throws Throwable {
 
-
+try {
+	
+	
 if(helper.isElementEnabled(setting.suppliers_table_filter)==true) {
 
 	Thread.sleep(4000);
 	
 	driver.findElement(By.xpath("//*[@id='suppliers_table_filter']/label/input")).sendKeys("manager");
 	
-logger.log(LogStatus.PASS,"user able to search data on rechercher field"
+logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to search data on rechercher field"
 		+logger.addScreenCapture(captureScreenShot(driver,"rechercher field checked")));						           
 
 driver.findElement(By.xpath("//*[@id='suppliers_table_filter']/label/input")).sendKeys(Keys.CONTROL+"a"+Keys.BACK_SPACE);
@@ -180,11 +191,16 @@ Thread.sleep(2000);
 
 }else {
 
-logger.log(LogStatus.FAIL,"user does not able to search on rechercher Field"
+logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to search on rechercher Field"
 		+logger.addScreenCapture(captureScreenShot(driver,"user does not able to search on rechercher Field")));
 
 }
 
+} catch (Exception e) {
+
+	logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to search on rechercher Field"
+			+logger.addScreenCapture(captureScreenShot(driver,"user does not able to search on rechercher Field")));
+}
 
 }
 	
@@ -195,6 +211,9 @@ logger.log(LogStatus.FAIL,"user does not able to search on rechercher Field"
 
 public void paginationDropDown() throws Throwable {
 
+	try {
+		
+	
 if(helper.isElementEnabled(setting.suppliers_table_length)==true) {
 Thread.sleep(2000);
 	
@@ -203,19 +222,23 @@ Thread.sleep(2000);
 	Select Page=new Select(setting.suppliers_table_length);
 	
 	Page.selectByValue("25");
-	logger.log(LogStatus.PASS,"user able to row filters from pagination drop Down"
+	logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to row filters from pagination drop Down"
 			+logger.addScreenCapture(captureScreenShot(driver,"row filters field checked")));						           
 	
 	
 	
 }else {
 	
-	logger.log(LogStatus.FAIL,"pagination Drop Down field is disabled"
+	logger.log(LogStatus.FAIL,"<b><font color='red'>Result: pagination Drop Down field is disabled"
 			+logger.addScreenCapture(captureScreenShot(driver,"pagination Drop Down field is disabled")));
 	
 }
 
-
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result: pagination Drop Down field is disabled"
+				+logger.addScreenCapture(captureScreenShot(driver,"pagination Drop Down field is disabled")));
+			}
+	
 
 }
 
@@ -224,23 +247,31 @@ Thread.sleep(2000);
 
 public void sortingArrows() throws Throwable {
 
+	try {
+		
 if(helper.isElementEnabled(setting.suppliers_table_sorting)==true) {
 	
 	Thread.sleep(2000);
 	setting.suppliers_table_sorting.click();
 	Thread.sleep(2000);
 	setting.suppliers_table_sorting.click();
-	logger.log(LogStatus.PASS,"user able to sort columns by asceding & descending order"
+	logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to sort columns by asceding & descending order"
 			+logger.addScreenCapture(captureScreenShot(driver,"sorting checked")));						           
 	
 	
 }else {
 
-	logger.log(LogStatus.FAIL,"user does not able to sort columns by asceding & descending order"
+	logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to sort columns by asceding & descending order"
 			+logger.addScreenCapture(captureScreenShot(driver,"sorting not checked")));						           
 
 	
-}
+	}
+
+		} catch (Exception e) {
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to sort columns by asceding & descending order"
+					+logger.addScreenCapture(captureScreenShot(driver,"sorting not checked")));						           
+	}
+
 }
 
 // delete rows 
@@ -248,6 +279,9 @@ if(helper.isElementEnabled(setting.suppliers_table_sorting)==true) {
 
 public void deleteArticles() throws Throwable{
 
+	try {
+		
+	
 if(helper.isElementEnabled(setting.btn_supplier_delete)==true) {
 	
 	setting.suppliers_table_checkBox.click();
@@ -255,20 +289,27 @@ if(helper.isElementEnabled(setting.btn_supplier_delete)==true) {
 	Thread.sleep(2000);
 	Alert alert = driver.switchTo().alert();
     String alertText = alert.getText();
-    logger.log(LogStatus.INFO, "Alert data: " + alertText);
-    alert.accept();
+    logger.log(LogStatus.INFO, "<b><font color='blue'>Result: Alert Message is displayed while deleting rows");
+      alert.accept();
     Thread.sleep(4000);
-    logger.log(LogStatus.PASS,"delete button is enabled"
+    logger.log(LogStatus.PASS,"<b><font color='green'>Result: delete button is enabled"
 			+logger.addScreenCapture(captureScreenShot(driver,"delete button is enabled")));						           
 	
 	
 }else {
 	
-	logger.log(LogStatus.INFO,"delete button is disabled"
+	logger.log(LogStatus.FAIL,"<b><font color='red'>Result: delete button is disabled"
 			+logger.addScreenCapture(captureScreenShot(driver,"delete button is disabled")));						           
 
 	
 	}
+
+	} catch (Exception e) {
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting Error While Deleting Rows"
+				+logger.addScreenCapture(captureScreenShot(driver,"delete button is disabled")));						           
+
+	}
+
 
 }
 		 

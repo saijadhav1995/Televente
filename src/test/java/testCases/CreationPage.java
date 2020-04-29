@@ -26,7 +26,7 @@ public class CreationPage extends BaseTest {
 		creation.VerifyEndDate();
 		creation.VerifyDailyObjective();
 		creation.saveFunctionality();
-		Edit.regionFieldOnEditForm("Edit Form");
+		Edit.regionFieldOnEditForm(" Verify  Edit Form");
 		Edit.VerifyNomFieldOnEditForm();
 		Edit.VerifyStartDateOnEditForm();
 		Edit.VerifyEndDateOnEditForm();

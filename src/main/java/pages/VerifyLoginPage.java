@@ -102,7 +102,7 @@ public AppstringsConstant appConst=new AppstringsConstant();
 	 			Assert.assertTrue(helper.isElementPresent(loginPage.submit), "submit is displayed");
 	 			
 	 			logger
-	 			.log(LogStatus.PASS,"On Login page Username ,Password and Submit Button has been verified"
+	 			.log(LogStatus.PASS,"<b><font color='green'>Result: On Login page Username ,Password and Submit Button has been verified"
 		 				+logger
 		 				.addScreenCapture(captureScreenShot(driver, "Username ,Password and Submit Button")));
 	 			
@@ -110,7 +110,7 @@ public AppstringsConstant appConst=new AppstringsConstant();
 		} catch (Error login_page) {
 			
 		
-			logger.log(LogStatus.FAIL,"On Login page Username ,Password Or Submit Button Does not displayed"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: On Login page Username ,Password Or Submit Button Does not displayed"
 	 				+logger.addScreenCapture(captureScreenShot(driver, "Login page has been verified")));
  
 			System.out.println("login failed");
@@ -132,14 +132,14 @@ public AppstringsConstant appConst=new AppstringsConstant();
 			 
 			 loginPage.typeUsername(username1);
 			 	loginPage.typePassword(password1);
-				logger.log(LogStatus.PASS,"Enter Username "+username1+" "+"and Paswword"+" "+password1
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: Enter Username "+username1+" "+"and Paswword"+" "+password1
 		 		+logger.addScreenCapture(captureScreenShot(driver, "Enter Username&and Paswword")));
 				loginPage.clickSubmit();
 				
 			
 		} catch (Exception enterFields) {
 			
-			logger.log(LogStatus.FAIL, " user does not able to enter Data on Login Fields ");
+			logger.log(LogStatus.FAIL, "<b><font color='red'>Result:  user does not able to enter Data on Login Fields ");
 		}
 				
 		
@@ -161,11 +161,11 @@ public AppstringsConstant appConst=new AppstringsConstant();
 		 			
 					System.out.println("user logged in successfully");
 		 			
-					logger.log(LogStatus.PASS,"Admin user logged in successfully"
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: Admin user logged in successfully"
 			 				+logger.addScreenCapture(captureScreenShot(driver, "Admin user logged in successfully")));
 				 	
 		 			loginPage.logOut();
-		 			logger.log(LogStatus.PASS,"Admin user log-out successfully"
+		 			logger.log(LogStatus.PASS,"<b><font color='green'>Result: Admin user log-out successfully"
 			 				+logger.addScreenCapture(captureScreenShot(driver, "Admin user log-out successfully")));
 				 	
 					
@@ -177,7 +177,7 @@ public AppstringsConstant appConst=new AppstringsConstant();
 				if(loginPage.TeleventeImage.isDisplayed()) {
 				loginPage.logOut();
 				
-				logger.log(LogStatus.FAIL, "Admin user does not have admin access"
+				logger.log(LogStatus.FAIL, "<b><font color='red'>Result: Admin user does not have admin access"
 		 				+logger.addScreenCapture(captureScreenShot(driver, "Admin user does not have admin access")));
 				
 				
@@ -185,7 +185,7 @@ public AppstringsConstant appConst=new AppstringsConstant();
 				try {
 					
 				} catch (NoSuchElementException invalid_user1) {
-					logger.log(LogStatus.FAIL, "Admin user does not able to login"
+					logger.log(LogStatus.FAIL, "<b><font color='red'>Result: Admin user does not able to login"
 			 				+logger.addScreenCapture(captureScreenShot(driver, "Admin user does not able to login")));
 					
 						}
@@ -209,14 +209,14 @@ public AppstringsConstant appConst=new AppstringsConstant();
 		 			
 		 			
 					System.out.println("Readeruser logged in successfully");
-					logger.log(LogStatus.PASS,"Reader user logged in successfully"
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: Reader user logged in successfully"
 			 				+logger.addScreenCapture(captureScreenShot(driver, "Reader user logged in successfully")));
 					
 					loginPage.logOut();
 		 			
 				}else if (loginPage.usersMenu.isDisplayed()) {
 					
-					logger.log(LogStatus.FAIL,"Reader user have Admin access"
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: Reader user have Admin access"
 			 				+logger.addScreenCapture(captureScreenShot(driver, "Reader user have Admin access")));
 					loginPage.logOut();
 		 			
@@ -225,7 +225,7 @@ public AppstringsConstant appConst=new AppstringsConstant();
 				
 			} catch (NoSuchElementException invalid_user) {
 				
-				logger.log(LogStatus.FAIL, "Reader user does not able to login"
+				logger.log(LogStatus.FAIL, "<b><font color='red'>Result: Reader user does not able to login"
 		 		+logger.addScreenCapture(captureScreenShot(driver,"Reader user does not able to login")));
 			
 				
@@ -254,7 +254,7 @@ public AppstringsConstant appConst=new AppstringsConstant();
 				try {
 					
 					loginPage.selectRole("1");					
-					logger.log(LogStatus.FAIL,"configurator has admin rights"
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: configurator has admin rights"
 					 		+logger.addScreenCapture(captureScreenShot(driver,"configurator has admin rights")));
 				
 	
@@ -262,13 +262,13 @@ public AppstringsConstant appConst=new AppstringsConstant();
 					
 				} catch (NoSuchElementException conf_user ) {
 					
-					logger.log(LogStatus.PASS,"configurator user logged in successfully"
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: configurator user logged in successfully"
 					 	+logger.addScreenCapture(captureScreenShot(driver,"configurator user logged in successfully")));
 				
 					
 					loginPage.logOut();
 	
-					logger.log(LogStatus.PASS,"configurator user log out successfully"
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: configurator user log out successfully"
 					 		+logger.addScreenCapture(captureScreenShot(driver,"configurator user log out successfully ")));
 			
 				}
@@ -292,14 +292,14 @@ public AppstringsConstant appConst=new AppstringsConstant();
 		 			
 		 			
 					System.out.println("Invaid user does Able not login");
-					logger.log(LogStatus.PASS,"Invalid user not does not able to login "
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: Invalid user not does not able to login "
 					 	+logger.addScreenCapture(captureScreenShot(driver,"Invalid user not does not able to login ")));
 					
 					}
 				
 			} catch (NoSuchElementException invalid_user) {
 			
-				logger.log(LogStatus.FAIL, "invalid user able to login successfully"
+				logger.log(LogStatus.FAIL, "<b><font color='red'>Result: invalid user able to login successfully"
 				 +logger.addScreenCapture(captureScreenShot(driver,"invalid user able to login successfully")));
 			
 				

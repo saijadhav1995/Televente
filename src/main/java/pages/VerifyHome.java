@@ -7,6 +7,7 @@ import com.relevantcodes.extentreports.ExtentTest;
 import com.relevantcodes.extentreports.LogStatus;
 
 import Utility.AppstringsConstant;
+import Utility.Helper;
 
 import java.io.IOException;
 
@@ -31,7 +32,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.annotations.BeforeTest;
 
 
 
@@ -43,6 +43,7 @@ public class VerifyHome extends BasePage {
 	public SoftAssert SAssert = new SoftAssert();
 	public PageFactory pf=new PageFactory();
 	BrowserFactory Bf=new BrowserFactory();
+	public Helper helper=new Helper();
 
 	BaseTest baseT = new BaseTest();
 	String className = "";
@@ -54,17 +55,17 @@ public class VerifyHome extends BasePage {
 	public void Verify_the_Home_Page(String TestName) throws Throwable {
 		
 		
+	try {
+		
 	
 		logger = baseT.extent.startTest(TestName);			
 		homePage=	PageFactory.initElements(driver, Home.class);
 		createDirectory("TELEVENTE"+TestName);
 
 				
-		logger.log(LogStatus.PASS,"start application sucessfully"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result:start application sucessfully"
 				+logger.addScreenCapture(captureScreenShot(driver, "start application sucessfully")));		
 				
-		
-		logger.log(LogStatus.INFO, "open chrome browser and start application");		
 			
 			Thread.sleep(3000);
 			
@@ -85,7 +86,7 @@ public class VerifyHome extends BasePage {
 	        	 System.out.println("HomePage has been verified");
 	        	 
 	 
-	        	 logger.log(LogStatus.PASS,"HomePage has been verified"
+	        	 logger.log(LogStatus.PASS,"<b><font color='green'>Result:HomePage has been verified"
 	     				+logger.addScreenCapture(captureScreenShot(driver,"HomePage has been verified")));		
 	     				
 
@@ -96,13 +97,16 @@ public class VerifyHome extends BasePage {
 	             
 	            	 System.out.println("getting Error to open HomePage url");
 	            	 
-	            	 logger.log(LogStatus.FAIL,"getting Error to open HomePage"
+	            	 logger.log(LogStatus.FAIL,"<b><font color='red'>Result:getting Error to open HomePage"
 	 	     				+logger.addScreenCapture(captureScreenShot(driver,"getting Error to open HomePage")));		
 	 	     		
 	            	 
 	             }	           
 	       
-	        
+	} catch (Exception e) {
+      	 logger.log(LogStatus.FAIL,"<b><font color='red'>Result:getting Error to open HomePage"
+	     				+logger.addScreenCapture(captureScreenShot(driver,"getting Error to open HomePage")));		
+	}        
 						
 	}
 		
@@ -110,11 +114,15 @@ public class VerifyHome extends BasePage {
 		
 	public void Verifytitle() throws Throwable {
 		 
-		
-	
-		String ActualTitle=driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/div/div/div[1]/div/h6")).getText();	
+		try {
+			
+
+				
+			WebElement title=driver.findElement(By.xpath("//*[@id=\"panel\"]/div[1]/div/div/div[1]/div/h6"));	
  		
-     	
+
+			String ActualTitle=title.getText();
+			
      	 System.out.println(ActualTitle);
          
          String ExpectedTitle=appConst.PAGETITLE;
@@ -122,11 +130,16 @@ public class VerifyHome extends BasePage {
          if(ExpectedTitle.equals(ActualTitle)){
             
         	 System.out.println("Title "+ActualTitle+" has been verified");
-        	
-        	 logger.log(LogStatus.PASS,"Title "+ActualTitle+" has been verified"
-	     				+logger.addScreenCapture(captureScreenShot(driver," has been verified")));		
-	     		
         	 
+        	 
+        	helper.javaScriptHighlightWebElement(title);
+        	
+        	 logger.log(LogStatus.PASS,"1:Actual Title is "+"<b>"+ActualTitle+"</b>"+"<br/>"
+        			 +"1:Expected Title is "+"<b>"+ExpectedTitle+"</b>"+"<br/>"        			 
+        			+ "<b><font color='green'>Result:Title has been verified<font/>"
+	     				+logger.addScreenCapture(captureScreenShot(driver," Title has been verified")));		
+	     		
+        	 helper.javaScriptUn_HighlightWebElement(title);
         	 
 
          }
@@ -134,13 +147,22 @@ public class VerifyHome extends BasePage {
              
             	 System.out.println(ExpectedTitle+" its not equals to "+ActualTitle);
             	 
-            	 
-            	 logger.log(LogStatus.FAIL,ExpectedTitle+" its not equals to "+ActualTitle
- 	     				+logger.addScreenCapture(captureScreenShot(driver,ExpectedTitle+" its not equals to "+ActualTitle)));		
- 	     	
+             	helper.javaScriptHighlightWebElement(title);            	 
+             	 logger.log(LogStatus.FAIL,"1:Actual Title is "+"<b>"+ActualTitle+"</b>"+"<br/>"
+            			 +"2:Expected Title is "+"<b>"+ExpectedTitle+"</b>"+"<br/>"        			 
+            			+ "<b><font color='red'>Result:Title Does not Get Matched<font/>" 
+             	+logger.addScreenCapture(captureScreenShot(driver,ExpectedTitle+" its not equals to "+ActualTitle)));		
+ 	    
+            	 helper.javaScriptUn_HighlightWebElement(title);
+                 
              }	           
        
-     	
+		} catch (Exception e) {
+			
+       	 logger.log(LogStatus.FAIL,"<b><font color='red'>Result: Error on televente Title"
+   				+logger.addScreenCapture(captureScreenShot(driver,"Error on televente Title")));		
+		}
+	 	
     
 	}
 	
@@ -154,61 +176,104 @@ public class VerifyHome extends BasePage {
 		
 		 
 		try {
+			WebElement user=driver.findElement(By.xpath("//*[@class='nav-link-text' and @title]"));
 			
-			String ActualUser=driver.findElement(By.xpath("//*[@class='nav-link-text' and @title]")).getText();	
+			String ActualUser=user.getText();	
+			
 			if(ActualUser!=" ") {
 			
 			System.out.println(ActualUser);		
 			
-		
-			 logger.log(LogStatus.PASS,"SGID "+ActualUser+" has been verified on Drawer"
+		helper.javaScriptHighlightWebElement(user);
+			 logger.log(LogStatus.PASS,"1:Verifying logged in user SGID is present on Drawer "+"<br/>"
+					 +"<font color='green'>Result:  SGID "+"<b>"+ActualUser+"</b>"+" has been verified on Drawer<font/>"
 	     				+logger.addScreenCapture(captureScreenShot(driver,"SGID "+ActualUser+" has been verified on Drawer")));		
 	     	
-			
+		helper.javaScriptUn_HighlightWebElement(user);	
+			 
 			}else {
-					
-				logger.log(LogStatus.FAIL,"failed to get SGID"
+
+				helper.javaScriptHighlightWebElement(user);
+							
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: failed to get SGID"
 	     				+logger.addScreenCapture(captureScreenShot(driver,"failed to get SGID")));		
 	     	
-		
+				helper.javaScriptUn_HighlightWebElement(user);	
+				
 					
 			}
 		
 			if(homePage.televente.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"televente menu is present on Drawer"
+				helper.javaScriptHighlightWebElement(homePage.televente);
+
+				logger.log(LogStatus.PASS,"1: Verifying Televente Menu on Drawer"+"<br/>"
+						+"<b><font color='green'>Result: televente menu is present on Drawer"
 	     				+logger.addScreenCapture(captureScreenShot(driver,"televente menu is present on Drawer")));		
-	     	
+				
+				helper.javaScriptUn_HighlightWebElement(homePage.televente);	
+
 		
+			}else {
+				
+				logger.log(LogStatus.FAIL,"1: Verifying Televente Menu on Drawer"+"<br/>"
+						+"<b><font color='red'>Result: televente menu is missing on Drawer"
+	     				+logger.addScreenCapture(captureScreenShot(driver,"televente menu is missing on Drawer")));		
+	     	
 			}
 			
-			if (homePage.SGID.isDisplayed()) {
+			if (homePage.usersMenu.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"users menu is present on Drawer"
+				helper.javaScriptHighlightWebElement(homePage.usersMenu);
+
+				logger.log(LogStatus.PASS,"1: Verifying Users Menu on Drawer"+"<br/>"
+						+"<b><font color='green'>Result: users menu is present on Drawer"
 	     				+logger.addScreenCapture(captureScreenShot(driver,"users menu is present on Drawer")));		
 	     	
-				
+				helper.javaScriptUn_HighlightWebElement(homePage.usersMenu);	
+
 	
+			}else {
+				
+				logger.log(LogStatus.FAIL,"1:Verifying Users Menu on Drawer"+"<br/>"
+						+"<b><font color='red'>Result: Users menu is missing on Drawer"
+	     				+logger.addScreenCapture(captureScreenShot(driver,"televente menu is missing on Drawer")));		
+	     	
 			}
 			
 			if (homePage.logout.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"deconnexion button is present on Drawer"
+				helper.javaScriptHighlightWebElement(homePage.logout);
+
+				logger.log(LogStatus.PASS,"Verifying Deconnexion Button On Drawer "+"<br/>"
+						+"<b><font color='green'>Result: deconnexion button is present on Drawer"
 	     				+logger.addScreenCapture(captureScreenShot(driver,"deconnexion button is present on Drawer")));		
-	     	
+				
+				helper.javaScriptUn_HighlightWebElement(homePage.logout);	
+
 				
 			
+			} else {
+				
+				logger.log(LogStatus.FAIL,"<b><font color='green'>Result: televente menu is present on Drawer"
+	     				+logger.addScreenCapture(captureScreenShot(driver,"televente menu is present on Drawer")));		
+	     	
 			}
 	
+		
+			homePage.slider.click();
 			
 		} catch (Exception content) {
 			
-			logger.log(LogStatus.FAIL,"content missing on Drawer Menu"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: content missing on Drawer Menu"
      				+logger.addScreenCapture(captureScreenShot(driver,"content missing on Drawer Menu")));		
      	
 		}
 		
 	
+		
+		
+		
 	}
 	
 	public void VerifyRegionDropDwon() throws Throwable {
@@ -218,15 +283,17 @@ public class VerifyHome extends BasePage {
 		
 		try {
 			homePage.Region(appConst.select_region_id);
-			logger.log(LogStatus.PASS,"user able to select region"
+			
+			helper.javaScriptHighlightWebElement(homePage.Region_dropDown);
+			logger.log(LogStatus.PASS,"1:click on Region Drop Down Field"+"<br/>"
+					+"<b><font color='green'>Result: user able to select region"
      				+logger.addScreenCapture(captureScreenShot(driver,"user able to select region")));		
      	
-			
-	
+			helper.javaScriptUn_HighlightWebElement(homePage.Region_dropDown);	
 			
 		} catch (Exception region) {
 			
-			logger.log(LogStatus.FAIL,"user does not  able to select region"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not  able to select region"
      				+logger.addScreenCapture(captureScreenShot(driver,"user does not  able to select region")));		
      	
 		}
@@ -241,12 +308,12 @@ public class VerifyHome extends BasePage {
 	
 		homePage.ToggleButtonforPast();		
 		Thread.sleep(2000);    
-		logger.log(LogStatus.PASS,"user able to click on toggle Button to See past Televentes"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to click on toggle Button to See past Televentes"
  				+logger.addScreenCapture(captureScreenShot(driver,"user able to click on toggle Button to See past Televentes")));		
  			 	    	
 	} catch (Exception toggle) {
 	
-		logger.log(LogStatus.FAIL,"user does not able to click on toggle Button "
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to click on toggle Button "
  				+logger.addScreenCapture(captureScreenShot(driver,"user does not able to click on toggle Button ")));		
 		
 		}
@@ -260,13 +327,13 @@ public class VerifyHome extends BasePage {
 		    					
 		    homePage.ToggleButtonforfuture();
 		    
-		    logger.log(LogStatus.PASS,"user able to click on toggle Button to See Future Televentes"
+		    logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to click on toggle Button to See Future Televentes"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"user able to click on toggle Button to See Future Televentes")));		
 	 			    
 			
 		} catch (Exception toggle) {
 		
-			logger.log(LogStatus.FAIL,"user does not able to click on toggle Button "
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to click on toggle Button "
 	 				+logger.addScreenCapture(captureScreenShot(driver,"user does not able to click on toggle Button ")));		
 	 				
 		}
@@ -287,14 +354,14 @@ public class VerifyHome extends BasePage {
 		try {
 			homePage.paginationDropDown("25");
 		
-			logger.log(LogStatus.PASS,"user able to select pagination rows from Drop down "
+			logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to select pagination rows from Drop down "
 	 				+logger.addScreenCapture(captureScreenShot(driver,"user able to select pagination rows from Drop down ")));		
 	 	
 			
 			
 		} catch (Exception region) {
 			
-			logger.log(LogStatus.FAIL,"user does not  able to select pagination rows from Drop down"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not  able to select pagination rows from Drop down"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"user does not  able to select pagination rows from Drop down")));		
 	 	
 			
@@ -313,14 +380,14 @@ public class VerifyHome extends BasePage {
 		try {
 			homePage.searchField("test");
 			
-			logger.log(LogStatus.PASS,"user able to enter Text on Search field"
+			logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to enter Text on Search field"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"user able to enter Text on Search field")));		
 	 	
 					
 			
 		} catch (Exception region) {
 			
-			logger.log(LogStatus.FAIL,"user Deos not able to enter Text on Search field"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user Deos not able to enter Text on Search field"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"user Deos not able to enter Text on Search field")));		
 	 	
 			
@@ -343,8 +410,8 @@ public class VerifyHome extends BasePage {
 
 			if(homePage.NextpaginationButtonIsDisabled.isDisplayed()) {
 				
-				logger.log(LogStatus.INFO,"pagination Buttons are disabled"
-		 				+logger.addScreenCapture(captureScreenShot(driver,"pagination Buttons are disabled")));		
+				logger.log(LogStatus.INFO,"pagination Arrows are disabled"
+		 				+logger.addScreenCapture(captureScreenShot(driver,"pagination Arrows are disabled")));		
 		
 				action.sendKeys(Keys.PAGE_UP);
 			} 
@@ -357,20 +424,20 @@ public class VerifyHome extends BasePage {
 			if(homePage.NextpaginationButtonIsEnable.isDisplayed()) {
 				
 				
-				logger.log(LogStatus.INFO," Next pagination Buttons is enabled"
-		 				+logger.addScreenCapture(captureScreenShot(driver," Next pagination Buttons is enabled")));		
+				logger.log(LogStatus.INFO," Next pagination Arrows is enabled"
+		 				+logger.addScreenCapture(captureScreenShot(driver," Next pagination Arrows is enabled")));		
 		 	
 				
 				homePage.clickNextpaginationButton();
 				
-				logger.log(LogStatus.PASS,"user clicked on next pagination button"
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: user clicked on next pagination button"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"user clicked on next pagination button")));		
 		
 				Thread.sleep(3000);
 				homePage.clickPreviouspaginationButton();
 				
-				logger.log(LogStatus.PASS,"user clicked on Previous pagination button"
-		 				+logger.addScreenCapture(captureScreenShot(driver,"user clicked on Previous pagination button")));		
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: user clicked on Previous pagination Arrows"
+		 				+logger.addScreenCapture(captureScreenShot(driver,"user clicked on Previous pagination Arrows")));		
 		
 				Thread.sleep(3000);
 				Actions action=new Actions(driver);
@@ -382,7 +449,7 @@ public class VerifyHome extends BasePage {
 				
 		
 				
-				logger.log(LogStatus.FAIL,"user deosnt able to clicked on pagination arrows"
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user deosnt able to clicked on pagination arrows"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"user deosnt able to clicked on pagination arrows")));		
 		
 				
@@ -403,26 +470,28 @@ public class VerifyHome extends BasePage {
 		try {
 			if(homePage.deleteButton.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"delete button is visible on HomePage"
+				helper.javaScriptHighlightWebElement(homePage.deleteButton);
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: delete button is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"delete button is visible on HomePage")));		
 		
-			
+			helper.javaScriptUn_HighlightWebElement(homePage.deleteButton);
 				
 				
 			}
 			if(homePage.createButton.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"create button is visible on HomePage"
+				helper.javaScriptHighlightWebElement(homePage.createButton);
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: create button is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"create button is visible on HomePage")));		
 		
-				
+				helper.javaScriptUn_HighlightWebElement(homePage.createButton);
 				
 				
 			}
 			
 		} catch (Exception creationDeletion) {
 			
-			logger.log(LogStatus.FAIL,"create & delete button are Not visible on HomePage"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: create & delete button are Not visible on HomePage"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"create & delete button are Not visible on HomePage")));		
 	
 			
@@ -441,16 +510,17 @@ public class VerifyHome extends BasePage {
 		try {
 			if(homePage.eyeIcon.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"Ranking icon is visible on HomePage"
+				helper.javaScriptHighlightWebElement(homePage.eyeIcon);
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: Ranking icon is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"Ranking icon is visible on HomePage")));		
 		
-				
+				helper.javaScriptUn_HighlightWebElement(homePage.eyeIcon);
 				
 			}
 			
 			} catch (Exception eyeIcon) {
 			
-			logger.log(LogStatus.FAIL,"Ranking icon is missing"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: Ranking icon is missing"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"Ranking icon is missing")));	
 			}
 		
@@ -460,14 +530,16 @@ public class VerifyHome extends BasePage {
 		
 			if(homePage.euroIcon.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"Billing icon is visible on HomePage"
+				helper.javaScriptHighlightWebElement(homePage.euroIcon);
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: Billing icon is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"Billing icon is visible on HomePage")));		
 				
+				helper.javaScriptUn_HighlightWebElement(homePage.euroIcon);
 				
 			}
 		} catch (Exception euroIcon) {
 			
-			logger.log(LogStatus.FAIL,"euro Icon  is missing"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: euro Icon  is missing"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"euro icon is missing")));	
 			}
 		
@@ -476,13 +548,16 @@ public class VerifyHome extends BasePage {
 			
 			if(homePage.settingIcon.isDisplayed()) {
 				
-				logger.log(LogStatus.PASS,"Setting icon is visible on HomePage"
+				helper.javaScriptHighlightWebElement(homePage.settingIcon);
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: Setting icon is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"Setting icon is visible on HomePage")));	
 				
+				
+				helper.javaScriptUn_HighlightWebElement(homePage.settingIcon);
 			}
 } catch (Exception settingIcon) {
 			
-			logger.log(LogStatus.FAIL,"setting Icon  is missing"
+			logger.log(LogStatus.FAIL,"<b><font color='red'>Result: setting Icon  is missing"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"setting icon is missing")));	
 			}
 			
@@ -492,25 +567,24 @@ public class VerifyHome extends BasePage {
 			
 			if(homePage.DeleteIcon.isDisplayed()) {
 				
-				
-				logger.log(LogStatus.PASS,"delete icon is visible on HomePage"
+				helper.javaScriptHighlightWebElement(homePage.DeleteIcon);
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: delete icon is visible on HomePage"
 		 				+logger.addScreenCapture(captureScreenShot(driver,"delete icon is visible on HomePage")));	
 		
-				
+				helper.javaScriptUn_HighlightWebElement(homePage.DeleteIcon);
 				
 			}
 			
 			
 		} catch (Exception deleteicon) {
 		
-			logger.log(LogStatus.FAIL,"delete icon is disabled as televente is not avaialable or televente in past or inprogress"
+			logger.log(LogStatus.INFO,"<b><font color='Blue'>Result: delete icon is disabled as televente is not avaialable or televente in past or inprogress"
 	 				+logger.addScreenCapture(captureScreenShot(driver,"delete icon is disabled as televente is not avaialable or televente in past or inprogress")));		
 	
 			
 			
 		}	
 		
-			
 			
 				
 	

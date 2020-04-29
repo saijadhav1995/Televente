@@ -27,6 +27,11 @@ public  Home(WebDriver dr) {
 
 	// identifiers of home page 
 
+@FindBy(how=How.XPATH,using="//*[@id='sidenav-main']/div/div[1]/div[1]/div/div")
+@CacheLookup
+public WebElement slider;
+
+
 	@FindBy(how=How.XPATH,using="//*[@class='link text-primary d-inline-block']")
 	@CacheLookup
 	public WebElement link;

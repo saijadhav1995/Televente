@@ -50,17 +50,20 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 	
 	public void ATC_CDV_Tab(String TestName) throws Throwable {
 		
+	try {
+		
+		
 		logger = baseT.extent.startTest(TestName);		
 		setting=PageFactory.initElements(driver, SettingTabs.class);
 		createDirectory("TELEVENTE"+TestName); 
-		
-		
-		
+	
 		
 		//setting.SettingButton.click();
 		setting.getSellersTab().click();
 		
-		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" + "2 : go to the ATC_CDV tab" + "<br/>"
+		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" 
+		+ "2 : go to the ATC_CDV tab" + "<br/>"
+				+"<b><font color='green'>Result: successfully able to redirected on ATC/CDV Tab "
 				+logger.addScreenCapture(captureScreenShot(driver,"user redirected on ATC_CDV tab in manage setting page")));						           
 	
 		
@@ -68,7 +71,7 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 
 		setting.btn_seller_add.click();
 		
-		logger.log(LogStatus.INFO,"Add ATC_CDV PopUp has been opened"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: Add ATC_CDV PopUp has been opened"
 				+logger.addScreenCapture(captureScreenShot(driver,"Add ATC_CDV PopUp has been opened")));						           
 	
 		
@@ -129,6 +132,7 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 		
 		logger.log(LogStatus.PASS,"1:excel sheet has been configured for ATC_CDV data" + "<br/>" + 
 				"2 :getting data from excel sheet & inserted on jexcel fields" + "<br/>"
+				+"<b><font color='green'>Result: successfully able to add Data on ATC/CDV insertion PopUP"
 						+logger.addScreenCapture(captureScreenShot(driver,"data inseted on ATC_CDV jexcel fields")));						           
 			
 
@@ -137,9 +141,18 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 		
 	
 		Thread.sleep(2000);
-		logger.log(LogStatus.PASS,"articles successfully inserted on ATC_CDV Tab"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result:articles successfully inserted on ATC_CDV Tab"
 						+logger.addScreenCapture(captureScreenShot(driver,"articles successfully inserted on ATC_CDV Tab")));						           
 		
+	
+	} catch (Exception e) {
+	
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result:user does not able to add Rows on ATC/CDV Tabs"
+				+logger.addScreenCapture(captureScreenShot(driver,"Error  on ATC_CDV Tab")));						           
+
+		
+	}	
+	
 		
 	}	
 		
@@ -149,10 +162,13 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 		public void rechercherField() throws Throwable {
 			
 			
+			try {
+				
+			
 			if(helper.isElementEnabled(setting.sellers_table_filter)==true) {
 				
 				setting.sellers_table_filter.sendKeys("manager");
-				logger.log(LogStatus.PASS,"user able to search data on rechercher field"
+				logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to search data on rechercher field"
 						+logger.addScreenCapture(captureScreenShot(driver,"rechercher field checked")));						           
 				
 				setting.sellers_table_filter.sendKeys(Keys.CONTROL+"a"+Keys.BACK_SPACE);
@@ -161,10 +177,16 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 				
 			}else {
 				
-				logger.log(LogStatus.FAIL,"user does not able to search on rechercher Field"
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to search on rechercher Field"
 						+logger.addScreenCapture(captureScreenShot(driver,"user does not able to search on rechercher Field")));
 				
 			}
+			
+			} catch (Exception e) {
+				
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to search on rechercher Field"
+						+logger.addScreenCapture(captureScreenShot(driver,"user does not able to search on rechercher Field")));
+					}
 			
 			
 		}
@@ -176,6 +198,9 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 			
 			public void paginationDropDown() {
 				
+				try {
+					
+				
 				if(helper.isElementEnabled(setting.sellers_table_length)==true) {
 				
 					setting.sellers_table_length.click();
@@ -183,19 +208,22 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 					Select Page=new Select(setting.sellers_table_length);
 					
 					Page.selectByValue("25");
-					logger.log(LogStatus.PASS,"user able to row filters from pagination drop Down"
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to row filters from pagination drop Down"
 							+logger.addScreenCapture(captureScreenShot(driver,"row filters field checked")));						           
 					
 					
 					
 				}else {
 					
-					logger.log(LogStatus.FAIL,"pagination Drop Down field is disabled"
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: pagination Drop Down field is disabled"
 							+logger.addScreenCapture(captureScreenShot(driver,"pagination Drop Down field is disabled")));
 					
 				}
 				
-				
+				} catch (Exception e) {
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: pagination Drop Down field is disabled"
+							+logger.addScreenCapture(captureScreenShot(driver,"pagination Drop Down field is disabled")));
+					}
 				
 			}
 			
@@ -204,28 +232,41 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 			
 			public void sortingArrows() throws Throwable {
 				
+				try {
+					
+				
+				
 				if(helper.isElementEnabled(setting.sellers_table_sorting)==true) {
 					
 					setting.sellers_table_sorting.click();
 					Thread.sleep(2000);
 					setting.sellers_table_sorting.click();
-					logger.log(LogStatus.PASS,"user able to sort columns by asceding & descending order"
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to sort columns by asceding & descending order"
 							+logger.addScreenCapture(captureScreenShot(driver,"sorting checked")));						           
 					
 					
 				}else {
 				
-					logger.log(LogStatus.FAIL,"user does not able to sort columns by asceding & descending order"
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to sort columns by asceding & descending order"
 							+logger.addScreenCapture(captureScreenShot(driver,"sorting not checked")));						           
 				
 					
 				}
+				
+				} catch (Exception e) {
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: user does not able to sort columns by asceding & descending order"
+							+logger.addScreenCapture(captureScreenShot(driver,"sorting not checked")));						           
+					}
 			}
 
 	// delete rows 
 			
 		
 			public void deleteArticles() throws Throwable {
+				
+			try {
+				
+			
 				
 				if(helper.isElementEnabled(setting.btn_seller_delete)==true) {
 					
@@ -234,22 +275,27 @@ public class VerifySettingPage_ATC_CDV_Tab extends BasePage {
 					
 					Alert alert = driver.switchTo().alert();
 			        String alertText = alert.getText();
-			        logger.log(LogStatus.INFO, "Alert data: " + alertText);
-			        alert.accept();
+			        logger.log(LogStatus.INFO, "<b><font color='blue'>Result: Alert Message is displayed while deleting rows");
+			         alert.accept();
 			        
 			        Thread.sleep(4000);
 				
-			        logger.log(LogStatus.PASS,"delete button is enabled"
+			        logger.log(LogStatus.PASS,"<b><font color='green'>Result: delete button is enabled"
 							+logger.addScreenCapture(captureScreenShot(driver,"delete button is enabled")));						           
 					
 					
 				}else {
 					
-					logger.log(LogStatus.INFO,"delete button is disabled"
+					logger.log(LogStatus.FAIL,"<b><font color='red'>Result: delete button is disabled"
 							+logger.addScreenCapture(captureScreenShot(driver,"delete button is disabled")));						           
 				
 					
 				}
+			
+			} catch (Exception e) {
+				logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting Error While Deleting Rows"
+						+logger.addScreenCapture(captureScreenShot(driver,"delete button is disabled")));						           
+			}
 				
 			}
 		

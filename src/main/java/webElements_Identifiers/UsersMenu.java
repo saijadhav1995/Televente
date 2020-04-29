@@ -26,7 +26,7 @@ public class UsersMenu extends BasePage {
 	public WebElement Connection_button;
 	
 	
-	@FindBy(how=How.XPATH,using="//*[contains(text(),'Utilisateurs')]")
+	@FindBy(how=How.XPATH,using="//*[@id='sidenav-collapse-main']/ul[2]/li[2]/a/i")
 	@CacheLookup
 	public	WebElement usersMenu;
 	

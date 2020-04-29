@@ -49,7 +49,9 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		
 		Thread.sleep(4000);
 
-		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" + "2 : go to the agency tab" + "<br/>"
+		logger.log(LogStatus.PASS,"1: open manage setting page" + "<br/>" 
+					+ "2 : go to the agency tab" + "<br/>"
+					+"<b><font color='green'>Result:user successfully redirected to Setting page " 
 				+logger.addScreenCapture(captureScreenShot(driver,"user redirected on agency tab in manage setting page")));						           
 	
 	
@@ -57,39 +59,39 @@ public class VerifySettingPage_agencyTab extends BasePage {
 	setting.btn_expandAll.click();
 
 
-	logger.log(LogStatus.INFO,"agency tree view has been expanded"
+	logger.log(LogStatus.INFO,"<b><font color='blue'>Result: agency tree view has been expanded"
 			+logger.addScreenCapture(captureScreenShot(driver,"agency tree view has been expand")));						           
 
 
 	
 	//getallsectors	
-	logger.log(LogStatus.INFO,"sectors are");
+	logger.log(LogStatus.INFO,"<b><u><font color='blue'>Result: sectors are");
 		for (WebElement webElement : setting.getAllSectors) {
 		String sectorslabel=webElement.getText();
 
 		System.out.println(sectorslabel);
 		
-		logger.log(LogStatus.INFO,"<b>"+sectorslabel+"<b>");
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: "+sectorslabel+"</b>");
 		
 		}
 		
 
 		//getAllsitesofselectedSector	
-		logger.log(LogStatus.INFO,"sites of selected sector are");
+		logger.log(LogStatus.INFO,"<b><u><font color='blue'>Result: sites of selected sector are");
 				for (WebElement webElement1 : setting.getAllSites) {
 					String siteslabel=webElement1.getText();
 
 					System.out.println(siteslabel+" sites");
-					logger.log(LogStatus.INFO,"<b>"+siteslabel+"<b>");
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: "+siteslabel+"</b>");
 					}
 
 		//getAllagenciesofselectedSite	
 			
-				logger.log(LogStatus.INFO,"agencies of selected site");
+				logger.log(LogStatus.INFO,"<b><u><font color='blue'>Result: agencies of selected site");
 							
 		           for (WebElement webElement2 : setting.getAllAgency) {
 					String agencieslabel=webElement2.getText();
-					logger.log(LogStatus.INFO,"<b>"+agencieslabel+"<b>");
+					logger.log(LogStatus.PASS,"<b><font color='green'>Result: "+agencieslabel+"</b>");
 					System.out.println(agencieslabel+"agencies");
 					}
 				
@@ -102,13 +104,13 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		
 	System.out.println(totalDailyobjective+"dailyObjective");
 	
-	logger.log(LogStatus.PASS,"Total Daily Objective amount is "+"<b>"+totalDailyobjective+"<b>"
+	logger.log(LogStatus.PASS,"<font color='green'>Result: Total Daily Objective amount is "+"<b>"+totalDailyobjective+"</b>"
 			+logger.addScreenCapture(captureScreenShot(driver,"Total Daily Objective amount is displayed")));						           
 
 		
 	setting.btn_collapseAll.click();
 
-	logger.log(LogStatus.PASS,"Tree view has successfully collapsed"
+	logger.log(LogStatus.INFO,"<b><font color='blue'>Result: Tree view has successfully collapsed"
 			+logger.addScreenCapture(captureScreenShot(driver,"Tree view has successfully collapse")));						           
 
 	
@@ -118,7 +120,7 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		System.out.println("clickedoncollapse button");
 
 
-		logger.log(LogStatus.PASS,"user able to expand Tree view by selecting sector"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: user able to expand Tree view by selecting sector"
 				+logger.addScreenCapture(captureScreenShot(driver,"user able to expand Tree view by selecting sector")));						           
 
 		
@@ -127,7 +129,7 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		executor1.executeScript("arguments[0].click();", setting.clickOncheckBoxButtonOfSector);
 		System.out.println("checkBox button");
 
-		logger.log(LogStatus.PASS,"on Tree view user able to clicked on check Box"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: on Tree view user able to clicked on check Box"
 				+logger.addScreenCapture(captureScreenShot(driver,"on Tree view user able to clicked on check Box")));						           
 
 		
@@ -135,7 +137,7 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		setting.clickOnSectorAmountfieldOfSector.sendKeys(settingtabsData.Sector_amount);
 		System.out.println("amountfield button");
 
-		logger.log(LogStatus.PASS,"on Tree view user able to enter sector amount"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: on Tree view user able to enter sector amount"
 				+logger.addScreenCapture(captureScreenShot(driver,"on Tree view user able to enter sector amount")));						           
 
 		
@@ -144,7 +146,7 @@ public class VerifySettingPage_agencyTab extends BasePage {
 		setting.clickOnSectorAmountfieldOfSite.sendKeys(settingtabsData.Site_amount);
 		System.out.println("amountfield button");
 
-		logger.log(LogStatus.PASS,"on Tree view user able to enter site amount"
+		logger.log(LogStatus.PASS,"<b><font color='green'>Result: on Tree view user able to enter site amount"
 				+logger.addScreenCapture(captureScreenShot(driver,"on Tree view user able to enter site amount")));						           
 		
 		
@@ -172,8 +174,9 @@ Thread.sleep(2000);
 String alertMessage=setting.agencies_data_alert_message.getText();
 System.out.println(alertMessage+"SectorAmountIsGreaterThanTotalAmount");
 
-logger.log(LogStatus.PASS,"1:verifying"+alertMessage+"<br/>"+
-"2:if site amount is greater than sector amount then total objective amount will inserted in sector & site fields"
+logger.log(LogStatus.PASS,"1:verifying Sector Amount "+"<br/>"+
+"2:if site amount is greater than sector amount then Error Message Should be Displayed "+"<br/>"
+		+"<b><font color='green'>Result: new amount has been inserted on sector & site fields "
 		+logger.addScreenCapture(captureScreenShot(driver,"site amount greater than sector amount")));						           
 
 
@@ -204,8 +207,9 @@ Thread.sleep(2000);
 WebElement Alertmessage= driver.findElement(By.xpath("//*[@id='agencies_data_alert_message']/div/strong"));
 String getAlertMessage=Alertmessage.getText();
 
-logger.log(LogStatus.PASS,"1:verifying"+getAlertMessage+"<br/>"+
-"2:if site amount is greater than sector amount then total objective amount will inserted in sector & site fields"
+logger.log(LogStatus.PASS,"1:verifying ObjectiveF Amount "+"<br/>"+
+"2:if site amount is greater than sector amount then Error message will Displayed "+
+		"<b><font color='green'>Result: new amount has been inserted on sector & site fields "
 		+logger.addScreenCapture(captureScreenShot(driver,"sector amount greater than total objective amount")));						           
 
 
@@ -229,7 +233,8 @@ String getAlertMessage1=Alertmessage1.getText();
 
 System.out.println(getAlertMessage1);
 
-logger.log(LogStatus.PASS,"1:site & sector amount successfully saved success message is "+"</br>"+getAlertMessage1
+logger.log(LogStatus.PASS,"1:site & sector amount successfully saved success message is "+
+"</br>"+"<b><font color='green'>Result:success message is displayed on Screen "
 		+logger.addScreenCapture(captureScreenShot(driver,"site & sector amount succefully saved")));						           
 
 
@@ -237,7 +242,7 @@ logger.log(LogStatus.PASS,"1:site & sector amount successfully saved success mes
 		
 		e.printStackTrace();
 
-		logger.log(LogStatus.FAIL,"getting error while inserting site & sector amount on agency tab"
+		logger.log(LogStatus.FAIL,"<b><font color='red'>Result: getting error while inserting site & sector amount on agency tab"
 		+logger.addScreenCapture(captureScreenShot(driver,"getting error while inserting site & sector amount on agency tab")));						           
 
 		
